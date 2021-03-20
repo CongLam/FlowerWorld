@@ -21,9 +21,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Frontend'], function () {
    Route::get('/', 'HomeController@getHome');
 
-   Route::get('about_us', 'HomeController@getAboutUs');
-
-   Route::get('contact', 'HomeController@getContact');
 
    //detail product
     Route::get('product_detail/{id}', 'HomeController@getProduct');
@@ -52,18 +49,22 @@ Route::group(['namespace' => 'Frontend'], function () {
 
         Route::get('ajax_add/{id}', 'CartController@addTocCartAjax');
 //        Route::get('delete', 'CartController@getDeleteCartAjax');
-//
-//
-//        //checkout
-//        Route::get('checkout', 'CheckoutController@getCheckOut');
-//        Route::post('checkout', 'CheckoutController@postCheckOut');
-//        Route::get('complete', 'CheckoutController@getComplete');
+
     });
 
-
+    //checkout
     Route::get('checkout', 'CheckoutController@getCheckout');
     Route::post('checkout', 'CheckoutController@postCheckout');
     Route::get('complete', 'CheckoutController@getComplete');
+
+    //send contact
+    Route::get('contact', 'SendContactController@getContact');
+    Route::post('contact', 'SendContactController@postContact');
+    Route::get('complete_contact', 'SendContactController@getCompleteContact');
+
+    Route::get('about_us', 'HomeController@getAboutUs');
+
+
 });
 
 
@@ -136,6 +137,7 @@ Route::group(['namespace' => 'Backend'], function () {
         //transaction
         Route::group(['prefix' => 'transaction'], function () {
             Route::get('/', 'TransactionController@getTransaction');
+            Route::get('seach_transaction_by_date', 'TransactionController@searchByDatetime')->name('transaction.seach_transaction_by_date');
 
         });
 

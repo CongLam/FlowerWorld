@@ -31,10 +31,6 @@ class HomeController extends Controller
         return view('frontend/about-us');
     }
 
-    public function getContact(){
-
-        return view('frontend/contact');
-    }
 
     public function getProduct($id){
         $product = Product::where('id',$id)->first();

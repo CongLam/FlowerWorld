@@ -50,9 +50,7 @@
                                             <td>{{$product->price}}$</td>
                                             <td>{{$product->qty}}</td>
                                             <td>
-{{--                                                <img width="200px" src="{{ asset("storage/app/thumbnail/$product->thumbnail") }}" class="thumbnail">--}}
-                                                <img width="200px" src="{{ asset('storage/app/thumbnail/'.$product->thumbnail) }}" class="thumbnail">
-{{--                                                <img width="200px" src="C:/xampp/htdocs/FlowersWorld/storage/app/thumbnail/{{$product->thumbnail}}" class="thumbnail">--}}
+                                                <img width="200px" src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}" class="thumbnail">
                                             </td>
                                             <td>{{$product->topic_name}}</td>
                                             <td>{{$product->accessories}}</td>

@@ -158,7 +158,8 @@ class ProductController extends Controller
                 ->paginate(10);
 //        dd($products);
 
-        return view('backend.product.search')->with('products',$products);
+//        return view('backend.product.search')->with('products',$products);
+        return view('backend.product.list')->with('products',$products);
     }
 
 //    public function search(Request $request)

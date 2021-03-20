@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\InfoCheckoutRequest;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
@@ -17,12 +18,13 @@ class CheckoutController extends Controller
         return view('frontend/checkout');
     }
 
-    public function postCheckout(Request $request){
+    public function postCheckout(InfoCheckoutRequest $request){
         $data['info'] = $request->all();
 
         $email = $request->email;
 
         $data['cart'] = Cart::content();
+
 //        dd($data['cart']);
         $data['totalPrice'] = Cart::total();
         //update product qty

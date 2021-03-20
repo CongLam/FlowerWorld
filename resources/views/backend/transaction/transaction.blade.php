@@ -3,6 +3,8 @@
 @section('content')
 
 
+
+
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Transaction</h1>
@@ -13,18 +15,28 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-body">
-                   {{-- <form action="{{ route('seach_product_backend') }}" method="get">
+
+                    <form action="{{ route('transaction.seach_transaction_by_date') }}" method="get">
+                        @csrf
                         <div class="input-group" style="margin-bottom: 30px">
-                            @csrf
-                            <input type="text" class="form-control" id="keyword" name="keyword"
-                                   placeholder="Search product...">
-                            <div class="input-group-append">
+                            <div class="form-group">
+                                <label >Start date</label>
+                                <input type="date" name="start_date" max="3000-12-31"
+                                       min="1000-01-01" class="form-control">
+                            </div>
+                            <div class="form-group" style="margin-left: 10px">
+                                <label >End date</label>
+                                <input type="date" name="end_date" max="3000-12-31"
+                                       min="1000-01-01" class="form-control">
+                            </div>
+                            <div class="form-group search_btn" style="margin: 32px 0px 0px 10px;">
                                 <button class="btn btn-secondary" id="search_btn" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
-                    </form>--}}
+                    </form>
+
                     <div class="bootstrap-table">
                         <div class="table-responsive">
                             <table class="table table-bordered" style="margin-top:20px;">
@@ -67,5 +79,12 @@
         </div>
     </div><!--/.row-->
 
+    <script>
+        $( document ).ready(function() {
+            $('#inputDate').datepicker({
+            });
+        });
+
+    </script>
 
 @endsection

@@ -312,7 +312,7 @@
 								@foreach($specialProduct as $specialPro)
                                     <div class="col-lg-3 " >
                                         <div class="single_upsell align-content-center">
-                                            <a href="#"><img src="img/product/pr1.png" alt="" /></a>
+                                            <a ><img src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}" alt="" /></a>
                                             <div class="upsell_details">
                                                 <h2><a href="">{{$specialPro->product_name}}</a></h2>
                                                 <div class="product_rating">
@@ -356,7 +356,7 @@
                                 @foreach($relatedProduct as $relatedPro)
                                     <div class="col-lg-3 " >
                                         <div class="single_upsell align-content-center">
-                                            <a href="#"><img src="img/product/pr1.png" alt="" /></a>
+                                            <a href="#"><img src="{{ asset('storage/thumbnail/'.$relatedPro->thumbnail) }}" alt="" /></a>
                                             <div class="upsell_details">
                                                 <h2><a href="">{{$relatedPro->product_name}}</a></h2>
                                                 <div class="product_rating">

@@ -136,7 +136,7 @@
 					    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="product_list">
                                 <div class="single_product">
-                                    <a href="{{ asset('product_detail/'.$product->product_id) }}" target="main"><img src="img/product/pr1.png" alt="" /></a>
+                                    <a href="{{ asset('product_detail/'.$product->product_id) }}" target="main"><img src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}" alt="" /></a>
                                     <div class="product_details">
                                         <h2>{{$product->product_name}}</h2>
                                         @if(!empty($product->sale_price))

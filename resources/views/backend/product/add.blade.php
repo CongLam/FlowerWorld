@@ -33,9 +33,10 @@
                                 <div class="form-group">
                                     <label>Thumbnail: </label>
                                     <input required id="img" type="file" name="thumbnail" class="form-control hidden"
-                                           onchange="">
-                                    <img id="thumbnail" class="thumbnail" width="300px" src="">
+                                           onchange="previewFile(this)">
+                                    <img id="previewImg" class="thumbnail" width="300px" src="img/new_seo-10-512.png">
                                 </div>
+
                                 <div class="form-group">
                                     <label>Accessories: </label>
                                     <input required type="text" name="accessories" class="form-control">
@@ -114,5 +115,21 @@
             </div>
         </div>
     </div><!--/.row-->
+
+    <script>
+        function previewFile(input){
+            var file = $("input[type=file]").get(0).files[0];
+
+            if(file){
+                var reader = new FileReader();
+
+                reader.onload = function(){
+                    $("#previewImg").attr("src", reader.result);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 
 @endsection

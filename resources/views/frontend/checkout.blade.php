@@ -67,6 +67,7 @@
 								  </a>
 								</div>
 								<div id="collapseTwo" class="panel-collapse collapse" aria-labelledby="headingTwo">
+                                    @include('errors.note')
                                     <form method="POST">
                                         @csrf
 								        <div class="accordion-inner">
