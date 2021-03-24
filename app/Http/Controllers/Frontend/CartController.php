@@ -15,7 +15,9 @@ class CartController extends Controller
             'id' => $id,
             'name' => $product->product_name,
             'qty' => 1,
-            'price' => (!empty($product->sale_price) ? $product->sale_price : $product->price )]);
+            'price' => (!empty($product->sale_price) ? $product->sale_price : $product->price ),
+            'options' => ['img' => $product->thumbnail]
+        ]);
 
             //'options' => ['size' => $product->product_img]]);
 

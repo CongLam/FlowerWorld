@@ -11,24 +11,24 @@
 
     <div class="row">
         <div class="input-group" style="width:40%; margin: auto">
-            <input type="text" class="form-control" name="search" placeholder="Search color...">
+            {{--<input type="text" class="form-control" name="search" placeholder="Search color...">
             <div class="input-group-append">
                 <button id="search_color" class="btn btn-secondary" type="button">
                     <i class="fa fa-search"></i>
                 </button>
-            </div>
+            </div>--}}
         </div>
         <div class="col-xs-12 col-md-12 col-lg-10" style="margin: auto">
             <div class="panel panel-primary" style="width:70%; margin: auto">
                 <div class="panel-heading">
-                    <h3>Add color</h3>
+                    <h3>Add Color</h3>
                 </div>
                 <div class="panel-body">
                     @include('errors.note')
                     <form action="" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label>color Name:</label>
+                            <label>Color Name:</label>
                             <input required type="text" name="color_name" class="form-control" placeholder="...">
                         </div>
                         <div class="form-group" >
@@ -47,20 +47,22 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3>color List</h3>
+                    <h3>Color List</h3>
                 </div>
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <table class="table table-bordered">
                             <thead>
                             <tr class="bg-primary">
-                                <th>color Name</th>
+                                <th>NO</th>
+                                <th>Color Name</th>
                                 <th style="width:30%">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($colorList as $item)
                                 <tr>
+                                    <td>{{$i++}}</td>
                                     <td>{{ $item->color_name }}</td>
                                     <td>
                                         <a href="{{ asset('admin/color/edit/'.$item->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>

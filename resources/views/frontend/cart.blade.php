@@ -32,7 +32,7 @@
 									<th>Remove</th>
 									<th>Image</th>
 									<th>Product Name</th>
-									<th>Edit</th>
+{{--									<th>Edit</th>--}}
 									<th>Unit Price</th>
 									<th>Quantity</th>
 									<th>Subtotal</th>
@@ -40,9 +40,9 @@
                                 @foreach($items as $item)
                                     <tr>
                                         <td><a href="{{asset('cart/delete/'.$item->rowId)}}"><img src="img/arrow/btn_trash.gif" alt="" /></a></td>
-                                        <td><a href="#"><img src="img/product/pr6.png" alt="" /></a></td>
+                                        <td><a href="#"><img width="200px" src="{{ asset('storage/thumbnail/'.$item->options->img) }}" alt="" /></a></td>
                                         <td><a href="#">{{$item->name}}</a></td>
-                                        <td><a href="#">Edit</a></td>
+{{--                                        <td><a href="#">Edit</a></td>--}}
                                         <td>${{$item->price}}</td>
                                         <td>
                                             <input name="cart[390][qty]" value="{{$item->qty}}" size="4" title="Qty" class="input-text qty" maxlength="12" onchange="updateCart(this.value, '{{$item->rowId}}')">

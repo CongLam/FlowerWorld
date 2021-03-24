@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Discount: </label>
-                                    <input required type="text" name="promotion" class="form-control">
+                                    <input required type="text" name="sale" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label>Title: </label>

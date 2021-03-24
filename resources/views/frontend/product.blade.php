@@ -32,7 +32,7 @@
 							<div class="tab-content tab_content_style">
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="blog_tabs">
-										<a class="fancybox" href="img/product/pr1.png" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="img/product/pr1.png" alt="" /></a>
+										<a class="fancybox" href="img/product/pr1.png" data-fancybox-group="gallery" title="Lorem ipsum dolor sit amet"><img src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}" alt="" /></a>
 									</div>
 								</div>
 								<div id="tab2" class="tab-pane fade">

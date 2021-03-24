@@ -11,17 +11,17 @@
 
     <div class="row">
         <div class="input-group" style="width:40%; margin: auto">
-            <input type="text" class="form-control" name="search" placeholder="Search topic...">
+            {{--<input type="text" class="form-control" name="search" placeholder="Search topic...">
             <div class="input-group-append">
                 <button id="search_topic" class="btn btn-secondary" type="button">
                     <i class="fa fa-search"></i>
                 </button>
-            </div>
+            </div>--}}
         </div>
         <div class="col-xs-12 col-md-12 col-lg-10" style="margin: auto">
             <div class="panel panel-primary" style="width:70%; margin: auto">
                 <div class="panel-heading">
-                    <h3>Add topic</h3>
+                    <h3>Add Size</h3>
                 </div>
                 <div class="panel-body">
                     @include('errors.note')
@@ -51,13 +51,14 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3>size List</h3>
+                    <h3>Size List</h3>
                 </div>
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <table class="table table-bordered">
                             <thead>
                             <tr class="bg-primary">
+                                <th>NO</th>
                                 <th>Size Name</th>
                                 <th>Size Description</th>
                                 <th style="width:30%">Action</th>
@@ -66,6 +67,7 @@
                             <tbody>
                             @foreach($sizeList as $item)
                                 <tr>
+                                    <td>{{$i++}}</td>
                                     <td>{{ $item->size_name }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td>

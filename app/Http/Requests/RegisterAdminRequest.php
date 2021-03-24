@@ -28,8 +28,18 @@ class RegisterAdminRequest extends FormRequest
             'first_name'=>'required',
 //            'phone'=>'required|min:10|numeric',
             'email'=>'unique:users|email|required',
-            'password' => 'required|min:6',
-            're_password' => 'required|same:password|min:6',
+            'password' => ['required','string','min:10','regex:/[a-z]/',
+
+                'regex:/[A-Z]/',
+
+                'regex:/[a-z]/',
+
+                'regex:/[0-9]/',
+
+                'regex:/[@$!%*#?&]/'
+            ],
+//            'password' => 'required|min:6',
+            're_password' => 'required|same:password',
         ];
     }
 }

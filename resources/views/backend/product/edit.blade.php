@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Promotion: </label>
-                                    <input required type="text" name="promotion" class="form-control" value="{{$product->promotion}}">
+                                    <input required type="text" name="sale" class="form-control" value="{{$product->sale_price}}">
                                 </div>
                                 <div class="form-group">
                                     <label>Title: </label>

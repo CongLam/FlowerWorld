@@ -42,10 +42,10 @@
                                     <th width="20%">Action</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody
                                     @foreach($products as $product)
                                         <tr>
-                                            <td></td>
+                                            <td>{{$i++}}</td>
                                             <td> {{$product->product_name}}</td>
                                             <td>{{$product->price}}$</td>
                                             <td>{{$product->qty}}</td>
@@ -59,6 +59,7 @@
                                                 <a href="{{ asset('admin/product/delete/'.$product->product_id) }}" class="btn btn-danger" onclick="return confirm('Do you want to detele this product?')" ><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                                             </td>
                                         </tr>
+{{--                                        {{$i++}}--}}
                                     @endforeach
                                 </tbody>
                             </table>

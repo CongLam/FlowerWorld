@@ -17,7 +17,7 @@ class SizeController extends Controller
     public function getSize()
     {
         $data['sizeList'] = Size::paginate(10);
-        return view('backend/size/size', $data);
+        return view('backend/size/size', $data)->with('i', $i=1);
     }
 
     /**

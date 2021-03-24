@@ -55,7 +55,7 @@
                                 <tbody>
                                 @foreach($transactions as $transaction)
                                     <tr>
-                                        <td></td>
+                                        <td>{{$i++}}</td>
                                         <td> {{$transaction->customer_name}}</td>
                                         <td>{{$transaction->customer_email}}$</td>
                                         <td>{{$transaction->customer_phone}}</td>

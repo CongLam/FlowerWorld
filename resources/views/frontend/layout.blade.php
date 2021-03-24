@@ -152,9 +152,9 @@
                         <li><a href="{{asset('shop')}}"><span class="Clothings">Shop</span></a>
                             <div class="home_mega_menu">
                                 <a href="{{asset('cart/show')}}">Cart</a>
-                                <a href="{{asset('product')}}">Product</a>
+{{--                                <a href="{{asset('product')}}">Product</a>--}}
                                 <a href="{{asset('checkout')}}">Checkout</a>
-                                <a href="{{asset('my_account')}}">My Account</a>
+{{--                                <a href="{{asset('my_account')}}">My Account</a>--}}
                             </div>
 {{--                            <div class="mega_menu_list">
                                 <div class="single_megamenu">

@@ -29,7 +29,7 @@ class ProductController extends Controller
             ->paginate(10);
 
 //        dd($products);
-        return view('backend.product.list')->with('products',$products);
+        return view('backend.product.list')->with('products',$products)->with('i', $i=1);;
     }
 
     public function getAddProduct(){
@@ -52,7 +52,7 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->thumbnail = $filename;
         $product->accessories =  $request->accessories;
-        $product->promotion =  $request->promotion;
+        $product->sale_price =  $request->sale;
         $product->description =  $request->desc;
         $product->qty =  $request->qty;
         $product->title =  $request->title;
@@ -113,7 +113,7 @@ class ProductController extends Controller
         $product->product_slug = Str::slug($request->product_name);
         $product->price = $request->price;
         $product->accessories =  $request->accessories;
-        $product->promotion =  $request->promotion;
+        $product->sale_price =  $request->sale;
         $product->description =  $request->desc;
         $product->qty =  $request->qty;
         $product->title =  $request->title;
@@ -159,7 +159,7 @@ class ProductController extends Controller
 //        dd($products);
 
 //        return view('backend.product.search')->with('products',$products);
-        return view('backend.product.list')->with('products',$products);
+        return view('backend.product.list')->with('products',$products)->with('i', $i=1);
     }
 
 //    public function search(Request $request)

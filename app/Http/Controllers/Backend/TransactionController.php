@@ -20,7 +20,7 @@ class TransactionController extends Controller
             ->paginate(10);
         //dd($transaction);
 
-        return view('backend.transaction.transaction')->with('transactions', $transactions);
+        return view('backend.transaction.transaction')->with('transactions', $transactions)->with('i', $i=1);
     }
 
     public function searchByDatetime(Request $request){
@@ -38,6 +38,6 @@ class TransactionController extends Controller
             ->where('transactions.created_at', '<=', $endDate)
             ->paginate(10);
 
-        return view('backend.transaction.transaction')->with('transactions', $transactions);
+        return view('backend.transaction.transaction')->with('transactions', $transactions)->with('i', $i=1);
     }
 }
