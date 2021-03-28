@@ -327,12 +327,15 @@
 										<div class="col-lg-12">
 											<div class="blog_pagination">
 												<h2>Page:</h2>
-												<ul class="pagination_list">
+												{{--<ul class="pagination_list">
 													<li class="active">1</li>
 													<li><a href="#">2</a></li>
 													<li><a href="#">3</a></li>
 													<li><a href="#"><img src="img/arrow/pager_arrow_right.gif" alt="" /></a></li>
-												</ul>
+												</ul>--}}
+                                                <div id="pagination">
+                                                    {{ $products->links() }}
+                                                </div>
 											</div>
 										</div>
 									</div>

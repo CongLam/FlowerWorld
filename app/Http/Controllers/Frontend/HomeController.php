@@ -21,7 +21,7 @@ class HomeController extends Controller
                 'products.*',
                 'topics.*'
             )
-            ->paginate(12);
+            ->paginate(8);
 
         return view('frontend/index')->with('products', $products);
     }
@@ -91,7 +91,7 @@ class HomeController extends Controller
                 'products.*',
                 'topics.*'
             )
-            ->paginate(12);
+            ->paginate(8);
         }else{
             $products = DB::table('products')->join('topics','products.topic_id','=','topics.id')
                 ->select(
@@ -100,7 +100,7 @@ class HomeController extends Controller
                     'topics.*'
                 )
                 ->where('product_name', 'LIKE', '%' . $request->keyword . '%')
-                ->paginate(12);
+                ->paginate(8);
 //            dd($products);
         }
 

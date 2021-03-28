@@ -30,9 +30,15 @@
                                     <label>Quantity: </label>
                                     <input required type="number" name="qty" class="form-control" value="{{$product->qty}}">
                                 </div>
-                                <div class="form-group">
+                                {{--<div class="form-group">
                                     <label>Thumbnail: </label>
                                     <input id="img" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">
+                                </div>--}}
+                                <div class="form-group">
+                                    <label>Thumbnail: </label>
+                                    <input required id="img" type="file" name="thumbnail" class="form-control hidden"
+                                           onchange="previewFile(this)">
+                                    <img id="previewImg" class="thumbnail" width="300px" src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}">
                                 </div>
                                 <div class="form-group">
                                     <label>Accessories: </label>
@@ -97,7 +103,7 @@
                                             @else
                                                 <input class="form-check-input" name="color[{{$color->id}}]" type="checkbox" id="inlineCheckbox1" value="{{$color->id}}" />
                                                 <label class="form-check-label" for="inlineCheckbox1">{{$color->color_name }}</label>
-                                                Color:     @endif
+                                            @endif
                                         </div>
                                     @endforeach
 
