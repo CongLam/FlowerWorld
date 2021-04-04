@@ -141,6 +141,34 @@ Route::group(['namespace' => 'Backend'], function () {
 
         });
 
+        //category blog
+        Route::group(['prefix' => 'blog_category'], function () {
+            Route::get('/', 'BlogCategoryController@getBlogCategory');
+            Route::post('/', 'BlogCategoryController@postAddBlogCategory');
+
+            //Route::get('/', 'ProductSizeController@getSearchSize')->name('admin.size.search');
+
+            Route::get('edit/{id}', 'BlogCategoryController@getEditBlogCategory')->name('admin.blog_category.edit');
+            Route::post('edit/{id}', 'BlogCategoryController@postEditBlogCategory');
+
+            Route::get('delete/{id}', 'BlogCategoryController@getDeleteBlogCategory');
+        });
+
+        //blog
+        Route::group(['prefix' => 'blog'], function () {
+            Route::get('/', 'BlogController@getBlog');
+            Route::post('/', 'BlogController@postAdBlog');
+
+            //Route::get('/', 'ProductSizeController@getSearchSize')->name('admin.size.search');
+
+            Route::get('add', 'BlogController@getAddBlog');
+            Route::post('add', 'BlogController@postAddBlog');
+
+            Route::get('edit/{id}', 'BlogController@getEditBlog')->name('admin.blog.edit');
+            Route::post('edit/{id}', 'BlogController@postEditBlog');
+
+            Route::get('delete/{id}', 'BlogController@getDeleteBlog');
+        });
 
     });
 

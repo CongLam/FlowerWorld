@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class EditSizeRequest extends FormRequest
 {
@@ -21,10 +23,10 @@ class EditSizeRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
-            'size_name'=>'unique:sizes,'.$this->segment(4).',id',
+            'size_name' => ['required', Rule::unique('sizes')->ignore($request->id )],
             'description'=>'required',
             'status'=>'required',
         ];
