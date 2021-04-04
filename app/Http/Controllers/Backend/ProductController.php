@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AddProductRequest;
+use App\Http\Requests\EditProductRequest;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductColor;
@@ -29,7 +30,7 @@ class ProductController extends Controller
             ->paginate(10);
 
 //        dd($products);
-        return view('backend.product.list')->with('products',$products)->with('i', $i=1);;
+        return view('backend.product.list')->with('products',$products)->with('i', $i=1);
     }
 
     public function getAddProduct(){
@@ -61,7 +62,10 @@ class ProductController extends Controller
 
         $product->save();
 
-        $request->thumbnail->storeAs('thumbnail', $filename);
+//        $request->thumbnail->storeAs('thumbnail', $filename);
+
+        $file = $request->thumbnail;
+        $file->move('storage/thumbnail', $file->getClientOriginalName());
 
         //insert product product_color
         $colors = [];
@@ -95,7 +99,7 @@ class ProductController extends Controller
 
 
         $sizeList = Size::all();
-        $sizeChoosed = ProductSize::where('product_id', $id)->pluck('size_id')->toArray();;
+        $sizeChoosed = ProductSize::where('product_id', $id)->pluck('size_id')->toArray();
         //dd($sizeChoosed ) ;
         return view('backend.product.edit')
             ->with('product', $product)
@@ -106,7 +110,7 @@ class ProductController extends Controller
             ->with('sizeChoosed', $sizeChoosed);
     }
 
-    public function postEditProduct($id, Request $request){
+    public function postEditProduct($id, EditProductRequest $request){
         $product = Product::where('id', $id)->first();
 
         $product->product_name = $request->product_name;
@@ -128,13 +132,15 @@ class ProductController extends Controller
         $sizes = $request['size'];
         $product->size()->sync($sizes);
 
-        $product->save();
+        if($request->hasFile('thumbnail')){
 
-        if($request->hasFile('img')){
             $img = $request->thumbnail->getClientOriginalName();
-            $arr['thumbnail'] = $img;
-            $request->img->storeAs('thumbnail'.$img);
+            $product->thumbnail = $img;
+
+            $file = $request->thumbnail;
+            $file->move('storage/thumbnail', $file->getClientOriginalName());
         }
+        $product->save();
 
         return redirect('admin/product');
     }

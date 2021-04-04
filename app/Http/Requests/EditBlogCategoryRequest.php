@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
-class EditColorRequest extends FormRequest
+class EditBlogCategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,11 @@ class EditColorRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'color_name' => ['required', Rule::unique('colors')->ignore($request->id )],
+           /* 'blog_category_name'=>'unique:blog_categories,'.$this->segment(4).',id',
+            'description'=>'required',
+            'status'=>'required',*/
+            'blog_category_name' => ['required', Rule::unique('blog_categories')->ignore($request->id )],
+            'description'=>'required',
             'status'=>'required',
         ];
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 class EditTopicRequest extends FormRequest
@@ -22,12 +23,10 @@ class EditTopicRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(Request $request)
     {
         return [
-            ///xử lý loại trừ id hiện tại khi set trùng tên, để có thể không thay đổi tên mà ấn submit luôn
-            //$this->segment(4): vị trí thứ 4 trong url tính từ admin-> (id)     ShopDienThoai/admin/category/edit/9
-            'topic_name'=>'unique:topics,'.$this->segment(4).',id',
+            'topic_name' => ['required', Rule::unique('topics')->ignore($request->id )],
             'description'=>'required',
             'status'=>'required',
         ];

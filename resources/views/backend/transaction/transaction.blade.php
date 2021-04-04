@@ -57,11 +57,11 @@
                                     <tr>
                                         <td>{{$i++}}</td>
                                         <td> {{$transaction->customer_name}}</td>
-                                        <td>{{$transaction->customer_email}}$</td>
+                                        <td>{{$transaction->customer_email}}</td>
                                         <td>{{$transaction->customer_phone}}</td>
                                         <td>{{$transaction->product_name}}</td>
                                         <td>{{$transaction->qty}}</td>
-                                        <td>{{$transaction->amount}}</td>
+                                        <td>{{$transaction->amount}}$</td>
                                         <td>{{$transaction->created_at}}</td>
                                     </tr>
                                 @endforeach

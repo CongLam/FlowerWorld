@@ -64,6 +64,8 @@
                             <a class="nav-link" href="{{asset('admin/size')}}">Product Size</a>
                             <a class="nav-link" href="{{asset('admin/color')}}">Product Color</a>
                             <a class="nav-link" href="{{asset('admin/transaction')}}">Transaction</a>
+                            <a class="nav-link" href="{{asset('admin/blog_category')}}">Blog Category</a>
+                            <a class="nav-link" href="{{asset('admin/blog')}}">Blog</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"

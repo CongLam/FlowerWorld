@@ -3,10 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
-class EditColorRequest extends FormRequest
+class EditBlogRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,11 +21,10 @@ class EditColorRequest extends FormRequest
      *
      * @return array
      */
-    public function rules(Request $request)
+    public function rules()
     {
         return [
-            'color_name' => ['required', Rule::unique('colors')->ignore($request->id )],
-            'status'=>'required',
+            //
         ];
     }
 }
