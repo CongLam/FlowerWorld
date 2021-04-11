@@ -35,9 +35,9 @@
                                     <input id="img" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">
                                 </div>--}}
                                 <div class="form-group">
-                                    <label>Thumbnail: </label>
+                                    <label  for="thumbnail">Choose Thumbnail: ({{$product->thumbnail}}) </label>
                                     <input required id="img" type="file" name="thumbnail" class="form-control hidden"
-                                           onchange="previewFile(this)">
+                                           onchange="previewFile(this)" value="{{$product->thumbnail}}">
                                     <img id="previewImg" class="thumbnail" width="300px" src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}">
                                 </div>
                                 <div class="form-group">

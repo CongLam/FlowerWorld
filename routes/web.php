@@ -65,6 +65,11 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('about_us', 'HomeController@getAboutUs');
 
 
+    //blog
+    Route::get('blog','BlogController@getBlog');
+    Route::get('detail/{id}','BlogController@getDetail');
+
+
 });
 
 

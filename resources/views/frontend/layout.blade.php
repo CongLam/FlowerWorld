@@ -144,93 +144,16 @@
                 <div class="main_menu">
                     <ul id="nav_menu" class="active_cl">
                         <li><a href="{{asset('/')}}"><span class="Home">Home</span></a>
-                            {{--<div class="home_mega_menu">
-                                <a href="index-2.html">Home 2</a>
-                                <a href="index-3.html">Home 3</a>
-                            </div>--}}
+
                         </li>
                         <li><a href="{{asset('shop')}}"><span class="Clothings">Shop</span></a>
                             <div class="home_mega_menu">
                                 <a href="{{asset('cart/show')}}">Cart</a>
-{{--                                <a href="{{asset('product')}}">Product</a>--}}
                                 <a href="{{asset('checkout')}}">Checkout</a>
 {{--                                <a href="{{asset('my_account')}}">My Account</a>--}}
                             </div>
-{{--                            <div class="mega_menu_list">
-                                <div class="single_megamenu">
-                                    <h2><a href="{{asset('shop')}}">Learning</a></h2>
-                                    <div class="items_list">
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Gladiolus</a>
-                                    </div>
-                                </div>
-                                <div class="single_megamenu">
-                                    <h2><a href="{{asset('shop')}}">Lighting</a></h2>
-                                    <div class="items_list">
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Gladiolus</a>
-                                    </div>
-                                </div>
-                                <div class="single_megamenu">
-                                    <h2><a href="{{asset('shop')}}">Living Room</a></h2>
-                                    <div class="items_list">
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Gladiolus</a>
-                                    </div>
-                                </div>
-                                <div class="single_megamenu">
-                                    <h2><a href="{{asset('shop')}}">Lamp</a></h2>
-                                    <div class="items_list">
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Carnation</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Daisy</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Rose</a>
-                                        <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Gladiolus</a>
-                                    </div>
-                                </div>
-                            </div>--}}
                         </li>
-                        {{--<li><a href="{{asset('shop')}}"><span class="Lookbook">Lookbook</span></a>
-                           div class="look_mega_menu">
-                               <div class="look_single">
-                                   <h3>Rose</h3>
-                                   <div class="items_list_lk">
-                                       <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Yellow Rose</a>
-                                       <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>White Rose</a>
-                                   </div>
-                               </div>
-                               <div class="look_single">
-                                   <h3>Orchids</h3>
-                                   <div class="items_list_lk">
-                                       <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Orchids Samurai</a>
-                                       <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Orchids Phalaenopsis</a>
-                                   </div>
-                               </div>
-                               <div class="look_single">
-                                   <h3>Chrysanthemum</h3>
-                                   <div class="items_list_lk">
-                                       <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i>Red Chrysanthemum</a>
-                                       <a href="{{asset('shop')}}"><i class="fa fa-angle-right"></i> Yellow Chrysanthemum</a>
-                                   </div>
-                               </div>
-                               <div class="look_menu_img">
-                                   <a href="#"><img src="img/banner/banner-1.jpg" alt="" /></a>
-                                   <a href="#"><img src="img/banner/banner-2.jpg" alt="" /></a>
-                               </div>
-                           </div>
-                       </li>--}}
-                        <li><a href="/"><span class="Footwear">Blog</span></a>
-                            {{--<div class="home_mega_menu">
-                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
-                                <a href="blog-right-sidebar.html">Blog Right Sidebar </a>
-                                <a href="{{asset('blog')}}">Single Blog </a>
-                            </div>--}}
-                        </li>
+                        <li><a href="{{asset('blog')}}"><span class="Footwear">Blog</span></a></li>
                         <li><a href="{{asset('contact')}}"><span class="Contact">Contact</span></a>
                         <li><a href="{{asset('about_us')}}"><span class="About">About Us</span></a>
                         </li>
@@ -240,10 +163,11 @@
                                 <a href="{{asset('contact')}}">Contact</a>
                                 <a href="{{asset('cart')}}">Cart</a>
                                 <a href="{{asset('shop')}}">Shop</a>
+                                <a href="{{asset('blog')}}">Blog</a>
                                 <a href="{{asset('checkout')}}">Checkout</a>
                                 <a href="{{asset('my_account')}}">My Account</a>
                                 <a href="{{asset('wishlist')}}">Wishlist</a>
-                                {{--<a href="404.html">404 page</a>--}}
+
                             </div>
                         </li>
                     </ul>
