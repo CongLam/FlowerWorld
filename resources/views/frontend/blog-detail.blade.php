@@ -32,7 +32,7 @@
 							<div class="blog_details_list">
 								<ul class="blog_author">
 									<li><i class="fa fa-folder-open-o"></i> <a href="">blog</a></li>
-									<li><i class="fa fa-user"></i> Super User</li>
+									<li><i class="fa fa-user"></i> {{$blog->blog_category_name}}</li>
 									<li><i class="fa fa-eye"></i> Hits: 256</li>
 									<li>
 										<div class="star_blog">
@@ -47,14 +47,13 @@
 								</ul>
 							</div>
 							<div class="blog_info_details">
-								 <h2><a class="blog_info_heading" href="#">Images</a></h2>
-								 <p class="blog_paragrap_style">Donec vitae hendrerit arcu, sit amet faucibus nisl. Cras pretium arcu ex. Aenean posuere libero eu augue condimentum rhoncus. Praesent ornare tortor ac ante egestas hendrerit.</p>
-								 <p class="blog_paragrap_style">Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse potenti. Proin consectetur aliquam odio nec fringilla. Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit amet ligula condimentum sagittis.</p>
-								<blockquote>
-									<p>Quisque semper nunc vitae erat pellentesque, ac placerat arcu consectetur. In venenatis elit ac ultrices convallis. Duis est nisi, tincidunt ac urna sed, cursus blandit lectus. In ullamcorper sit amet ligula ut eleifend. Proin dictum tempor ligula, ac feugiat metus. Sed finibus tortor eu scelerisque scelerisque.</p>
-								</blockquote>
-								 <p class="blog_paragrap_style">Aenean et tempor eros, vitae sollicitudin velit. Etiam varius enim nec quam tempor, sed efficitur ex ultrices. Phasellus pretium est vel dui vestibulum condimentum. Aenean nec suscipit nibh. Phasellus nec lacus id arcu facilisis elementum. Curabitur lobortis, elit ut elementum congue, erat ex bibendum odio, nec iaculis lacus sem non lorem. Duis suscipit metus ante, sed convallis quam posuere quis. Ut tincidunt eleifend odio, ac fringilla mi vehicula nec. Nunc vitae lacus eget lectus imperdiet tempus sed in dui. Nam molestie magna at risus consectetur, placerat suscipit justo dignissim. Sed vitae fringilla enim, nec ullamcorper arcu.</p>
-								 <p class="blog_paragrap_style">Suspendisse turpis ipsum, tempus in nulla eu, posuere pharetra nibh. In dignissim vitae lorem non mollis. Praesent pretium tellus in tortor viverra condimentum. Nullam dignissim facilisis nisl, accumsan placerat justo ultricies vel. Vivamus finibus mi a neque pretium, ut convallis dui lacinia. Morbi a rutrum velit. Curabitur sagittis quam quis consectetur mattis. Aenean sit amet quam vel turpis interdum sagittis et eget neque. Nunc ante quam, luctus et neque a, interdum iaculis metus. Aliquam vel ante mattis, placerat orci id, vehicula quam. Suspendisse quis eros cursus, viverra urna sed, commodo mauris. Cras diam arcu, fringilla a sem condimentum, viverra facilisis nunc. Curabitur vitae orci id nulla maximus maximus. Nunc pulvinar sollicitudin molestie.</p>
+                                <h2>{{$blog->title}}</h2>
+                                <div class="image" style="margin: auto"><img width="200px" src="{{ asset('storage/blog_thumbnail/'.$blog->thumbnail) }}" alt=""></div>
+
+                                <div class="date"><i>Posted at: {{$blog->created_at}}</i> </div>
+                                <div class="content">
+                                    {!! $blog->content !!}
+                                </div>
 							</div>
 						</div>
 						<div class="blog_social_icon">
@@ -116,34 +115,12 @@
                            </div>
                            <div class="latest_posts">
                                <h3 class="sp_module_title sp_module_title_rv"><span>Latest Posts</span></h3>
-                               <div class="single_l_post">
-                                   <a href="#">Images</a>
-                                   <p>23 May 2015</p>
-                               </div>
-                               <div class="single_l_post">
-                                   <a href="#">Video</a>
-                                   <p>23 May 2015</p>
-                               </div>
-                               <div class="single_l_post">
-                                   <a href="#">Jerky shank chicken boudin</a>
-                                   <p>2 Jun 2015</p>
-                               </div>
-                               <div class="single_l_post">
-                                   <a href="#">Nirob</a>
-                                   <p>20 Oct 2015</p>
-                               </div>
-                               <div class="single_l_post">
-                                   <a href="#">Salim</a>
-                                   <p>6 Sept 2015</p>
-                               </div>
-                               <div class="single_l_post">
-                                   <a href="#">shank chicken boudin</a>
-                                   <p>7 Sept 2015</p>
-                               </div>
-                               <div class="single_l_post">
-                                   <a href="#">Parvez</a>
-                                   <p>8 Sept 2015</p>
-                               </div>
+                               @foreach($latest as $lat)
+                                   <div class="single_l_post">
+                                       <a href="#">{{$lat->title}}</a>
+                                       <p>{{($lat->created_at)}}</p>
+                                   </div>
+                               @endforeach
                            </div>
                           <div class="add_r_sidebar">
                               <p class="banner_block"><a href="#"><img alt="" src="img/banner/3.jpg"></a></p>

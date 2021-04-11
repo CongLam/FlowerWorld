@@ -64,36 +64,51 @@
                             <a class="nav-link" href="{{asset('admin/size')}}">Product Size</a>
                             <a class="nav-link" href="{{asset('admin/color')}}">Product Color</a>
                             <a class="nav-link" href="{{asset('admin/transaction')}}">Transaction</a>
+                        </nav>
+                    </div>
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2"
+                       aria-expanded="false" aria-controls="collapseLayouts2">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Blog Manager
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne"
+                         data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{asset('admin/blog_category')}}">Blog Category</a>
                             <a class="nav-link" href="{{asset('admin/blog')}}">Blog</a>
                         </nav>
                     </div>
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                       aria-expanded="false" aria-controls="collapsePages">
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3"
+                       aria-expanded="false" aria-controls="collapseLayouts3">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                         Customer Manager
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                    <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link" href="">Customer List</a>
-                            {{--  <a class="nav-link" href="{{ asset('admin/user') }}">Danh sách người dùng</a>  --}}
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{asset('admin/blog_category')}}">List Customer</a>
+                            <a class="nav-link" href="{{asset('admin/blog')}}">Vip Customer</a>
                         </nav>
                     </div>
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                       aria-expanded="false" aria-controls="collapsePages">
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4"
+                       aria-expanded="false" aria-controls="collapseLayouts4">
                         <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                         Admin Manager
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo"
+                    <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
-                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                            <a class="nav-link" href="">Admin List</a>
-                            {{--  <a class="nav-link" href="{{ asset('admin/user') }}">Danh sách người dùng</a>  --}}
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{asset('admin/blog_category')}}">List Admin</a>
+                            <a class="nav-link" href="{{asset('admin/blog')}}">Admin</a>
                         </nav>
                     </div>
+
                 </div>
             </div>
         </nav>
