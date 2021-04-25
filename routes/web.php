@@ -38,6 +38,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('shop', 'HomeController@getShop')->name('shop');
     Route::get('topic/{id}', 'ShopController@getProductWithTopic');
     Route::get('color/{id}', 'ShopController@getProductWithColor');
+    Route::post('shop/search_price', 'ShopController@searchWithPrice')->name('shop.search_by_price');
 
     //Cart
     Route::group(['prefix' => 'cart'], function () {
@@ -84,6 +85,21 @@ Route::group(['namespace' => 'Backend'], function () {
 
     Route::group(['prefix' => 'admin', 'middleware' => 'CheckLogedOut'], function () {
         Route::get('home', 'HomeController@getHome');
+
+        //profile
+        Route::group(['prefix' => 'your_profile'], function () {
+            Route::get('/', 'YourProfileController@getYourProfile');
+            Route::get('/edit', 'YourProfileController@getEditYourProfile');
+            Route::post('/edit', 'YourProfileController@postEditYourProfile');
+        });
+
+        //admin manager
+        Route::group(['prefix' => 'admin_manager', 'middleware' =>'CheckSuperAdmin'], function () {
+            Route::get('/', 'AdminController@getListAdmin');
+            Route::get('/edit/{id}', 'AdminController@getEditAdmin');
+            Route::post('/edit/{id}', 'AdminController@postEditAdmin');
+        });
+
 
         //topics
         Route::group(['prefix' => 'topic'], function () {

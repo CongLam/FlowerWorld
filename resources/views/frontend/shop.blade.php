@@ -37,10 +37,14 @@
 								<div class="info_widget">
 									<div class="price_filter">
 										<div id="slider-range"></div>
-										<div class="price_slider_amount">
-											<input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-											<input type="submit"  value="Search"/>
-										</div>
+                                        <form method="post" action="{{ route('shop.search_by_price') }}">
+                                            @csrf
+                                            <div class="search_price">
+                                                <input type="text" id="amount" name="min_price" required placeholder="Min Price" style="margin-bottom: 20px"/>
+                                                <input type="text" id="amount" name="max_price" required placeholder="Max Price" style="margin-bottom: 20px"/>
+                                                <input type="submit" id="search_with_price"  value="Search"/>
+                                            </div>
+                                        </form>
 									</div>
 								</div>
 							</div>

@@ -36,7 +36,7 @@
                 </span><i class="fas fa-user fa-fw"></i><span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="{{ asset('admin/your_profile/') }}">Your Profile</a>
                 <a class="dropdown-item" href="#">Activity Log</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="{{asset('logout')}}">Logout</a>
@@ -104,8 +104,7 @@
                     <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{asset('admin/blog_category')}}">List Admin</a>
-                            <a class="nav-link" href="{{asset('admin/blog')}}">Admin</a>
+                            <a class="nav-link" href="{{asset('admin/admin_manager')}}">Admin Manager</a>
                         </nav>
                     </div>
 

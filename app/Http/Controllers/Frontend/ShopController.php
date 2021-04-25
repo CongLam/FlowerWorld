@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Color;
+use App\Models\Product;
 use App\Models\Topic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -53,5 +54,28 @@ class ShopController extends Controller
             ->with('topicList', $topicList)
             ->with('colorList', $colorList);
 
+    }
+
+    public function searchWithPrice(Request $request){
+        $minPrice = $request->min_price;
+        $maxPrice = $request->max_price;
+        $products = DB::table('products')->join('topics','products.topic_id','=','topics.id')
+            ->select(
+                'products.id as product_id',
+                'products.*',
+                'topics.*'
+            )
+//            ->where('products.price', '>=', $minPrice)
+//            ->orWhere('products.price', '<=', $maxPrice)
+            ->whereBetween('products.price', [$minPrice, $maxPrice])
+            ->paginate(12);
+//        dd($products);
+
+        $topicList= Topic::all();
+
+        $colorList = Color::all();
+        return view('frontend/shop')->with('products', $products)
+            ->with('topicList', $topicList)
+            ->with('colorList', $colorList);
     }
 }
