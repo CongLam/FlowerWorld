@@ -19,8 +19,23 @@ use Illuminate\Support\Facades\Route;
 
 //------------------------------Frontend--------------------------------------
 Route::group(['namespace' => 'Frontend'], function () {
-   Route::get('/', 'HomeController@getHome');
 
+    //login
+    Route::group(['prefix' => 'login_customer'/*, 'middleware' => 'CheckLogedIn'*/], function () {
+        Route::get('/', 'LoginCustomerController@getLogin');
+        Route::post('/', 'LoginCustomerController@postLogin');
+    });
+
+    //register
+    Route::group(['prefix' => 'register_customer'/*, 'middleware' => 'CheckLogedIn'*/], function () {
+        Route::get('/', 'RegisterController@getRegisterCustomer');
+        Route::post('/', 'RegisterController@postRegisterCustomer');
+    });
+
+    //logout
+    Route::get('logout', 'HomeController@getLogout');
+
+    Route::get('/', 'HomeController@getHome');
 
    //detail product
     Route::get('product_detail/{id}', 'HomeController@getProduct');
@@ -70,6 +85,11 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::get('blog','BlogController@getBlog');
     Route::get('detail/{id}','BlogController@getDetail');
 
+    //register
+    Route::group(['prefix' => 'customer_register'/*, 'middleware' => 'CheckLogedIn'*/], function () {
+        Route::get('/', 'RegisterController@getRegisterCustomer');
+        Route::post('/', 'RegisterController@postRegisterCustomer');
+    });
 
 });
 
@@ -98,6 +118,15 @@ Route::group(['namespace' => 'Backend'], function () {
             Route::get('/', 'AdminController@getListAdmin');
             Route::get('/edit/{id}', 'AdminController@getEditAdmin');
             Route::post('/edit/{id}', 'AdminController@postEditAdmin');
+            Route::get('delete/{id}', 'AdminController@getDeleteAdmin');
+        });
+
+        //customer manager
+        Route::group(['prefix' => 'customer_manager', /*'middleware' =>'CheckSuperAdmin'*/], function () {
+            Route::get('/', 'CustomerController@getListCustomer');
+            Route::get('/edit/{id}', 'CustomerController@getEditCustomer');
+            Route::post('/edit/{id}', 'CustomerController@postEditCustomer');
+            Route::get('delete/{id}', 'AdminController@getDeleteAdmin');
         });
 
 
@@ -197,8 +226,6 @@ Route::group(['namespace' => 'Backend'], function () {
     Route::get('logout', 'HomeController@getLogout');
 
     //register
-
-
      Route::group(['prefix' => 'register', 'middleware' => 'CheckLogedIn'], function () {
          Route::get('/', 'RegisterController@getRegister');
          Route::post('/', 'RegisterController@postRegister');

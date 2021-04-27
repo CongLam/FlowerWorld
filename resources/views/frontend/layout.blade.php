@@ -79,7 +79,12 @@
                 <!--Start Header Right Cart area -->
                 <div class="account_card_area">
                     <ul id="account_nav">
-                        <li><a href="#"><i class="fa fa-key"></i>Account</a>
+                        <li>
+                            @if(isset(Auth::user()->id))
+                                <a href="/"><i class="fa fa-key"></i>{{Auth::user()->name}}</a>
+                            @else
+                                <a href="/"><i class="fa fa-key"></i>Account</a>
+                            @endif
                             <div class="account_menu_list">
                                 <div class="account_single_item">
                                     <h2>Currency</h2>
@@ -103,9 +108,8 @@
                                         <li><a href="/">My Wishlist</a></li>
                                         <li><a href="{{asset('cart')}}">My Cart</a></li>
                                         <li><a href="{{asset('checkout')}}">Checkout</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="blog-right-sidebar.html">Blog</a></li>
-                                        <li><a href="#">Log In</a></li>
+                                        <li><a href="{{asset('login_customer')}}">Log In</a></li>
+                                        <li><a href="{{asset('login_customer')}}">Log out</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -345,7 +349,7 @@
                         <h2>HELP & SUPPORT</h2>
                         <ul class="footer_menu">
                             <li><a href="{{asset('my_account')}}">My Account</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><a href="{{asset('login_customer')}}">Login</a></li>
                             <li><a href="{{asset('cart')}}">My Cart</a></li>
                             <li><a href="{{asset('wishlist')}}">Wishlist</a></li>
                             <li><a href="{{asset('checkout')}}">Checkout</a></li>
@@ -357,7 +361,7 @@
                         <h2>MY ACCOUNT</h2>
                         <ul class="footer_menu">
                             <li><a href="{{asset('my_account')}}">My Account</a></li>
-                            <li><a href="#">Login</a></li>
+                            <li><a href="{{asset('login_customer')}}">Login</a></li>
                             <li><a href="{{asset('cart')}}">My Cart</a></li>
                             <li><a href="{{asset('wishlist')}}">Wishlist</a></li>
                             <li><a href="{{asset('checkout')}}">Checkout</a></li>
@@ -369,7 +373,6 @@
                         <h2>HELP & SUPPORT</h2>
                         <ul class="footer_menu">
                             <li><a href="{{asset('my_account')}}">My Account</a></li>
-                            <li><a href="#">Login</a></li>
                             <li><a href="{{asset('cart')}}">My Cart</a></li>
                             <li><a href="{{asset('wishlist')}}">Wishlist</a></li>
                             <li><a href="{{asset('checkout')}}">Checkout</a></li>

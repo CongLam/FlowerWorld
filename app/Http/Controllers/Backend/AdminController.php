@@ -80,8 +80,8 @@ class AdminController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function getDeleteTopic($id){
-        Topic::destroy($id);
+    public function getDeleteAdmin($id){
+        DB::table('users')->where('id',$id)->delete();
         return back();
     }
 }

@@ -90,8 +90,7 @@
                     <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{asset('admin/blog_category')}}">List Customer</a>
-                            <a class="nav-link" href="{{asset('admin/blog')}}">Vip Customer</a>
+                            <a class="nav-link" href="{{asset('admin/customer_manager')}}">Customer Manager</a>
                         </nav>
                     </div>
 
