@@ -32,7 +32,11 @@ class LoginCustomerController extends Controller
     }
 
     public function getLogout(){
-        Auth::logout();
-        return redirect()->intended('login_customer');
+//        Auth::logout();
+//        return redirect()->intended('/');
+
+        if (Auth::guest()) {
+            return redirect()->guest('/');
+        }
     }
 }

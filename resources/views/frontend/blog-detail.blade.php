@@ -60,48 +60,107 @@
 							<img src="img/social/shareicon.png" alt="" />
 						</div>
 						<div class="blog_add_comment_area">
-							<div class="row">
-								<div class="col-lg-12">
-									<div class="comment_text">
-										<h2>Add comment</h2>
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="comment_name">
-										<input type="text" placeholder="Name">
-									</div>
-								</div>
-								<div class="col-lg-6">
-									<div class="comment_email">
-										<input type="text" placeholder="E-mail">
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="comment_title">
-										<input type="text" placeholder="Title">
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="comment_textarea">
-										<textarea cols="65" rows="8"></textarea>
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="chapcha">
-										<img src="img/social/capcha.jpg" alt="" />
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="chapcha_type">
-										<input type="text">
-									</div>
-								</div>
-								<div class="col-lg-12">
-									<div class="send_button">
-										<input type="submit" value="Send">
-									</div>
-								</div>
-							</div>
+                            <div class="product_description">
+                                @foreach($blog->comment as $comment)
+                                    <div class="comments">
+                                        <div class="block_comment">
+                                            <ul id="Motorola">
+                                                <li> Comment by <span
+                                                        class="Motorola_cl">{{\App\User::select('name')->where('id', $comment->customer_id)->first()->name}}</span>
+                                                </li>
+                                                <li><span>Quality</span>
+                                                    @if($comment->star_rate == 1)
+                                                        <i class="fa fa-star"></i>
+                                                    @elseif($comment->star_rate == 2)
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    @elseif($comment->star_rate == 3)
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    @elseif($comment->star_rate == 4)
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    @elseif($comment->star_rate == 5)
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                    @endif
+                                                </li>
+                                                <li>(Posted on {{$comment->created_at}})</li>
+                                            </ul>
+                                            <div class="content">
+                                                <p> {{$comment->content_comment}}</p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                @endforeach
+
+                                <form action="{{route('comment_blog')}}" method="post">
+                                    @csrf
+                                    <div class="fieldsets">
+                                        <h3>You're reviewing: <span>Lorem ipsum dolor</span></h3>
+                                        <h4>How do you rate this product?*</h4>
+                                        <div class="start_tab_pricing_area">
+                                            <fieldset>
+                                                <table class="star_pricing_tb">
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>1 Star</th>
+                                                        <th>2 Stars</th>
+                                                        <th>3 Stars</th>
+                                                        <th>4 Stars</th>
+                                                        <th>5 Stars</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Quality</td>
+                                                        <td><input required type="radio" name="ratings" value="1"
+                                                                   class="radio"></td>
+                                                        <td><input required type="radio" name="ratings" value="2"
+                                                                   class="radio"></td>
+                                                        <td><input required type="radio" name="ratings" value="3"
+                                                                   class="radio"></td>
+                                                        <td><input required type="radio" name="ratings" value="4"
+                                                                   class="radio"></td>
+                                                        <td><input required type="radio" name="ratings" value="5"
+                                                                   class="radio"></td>
+                                                    </tr>
+                                                </table>
+                                            </fieldset>
+                                        </div>
+
+                                        <div class="rating_contact">
+                                            <ul id="review_contact">
+                                                <li>Nickname<span>*</span></li>
+                                                <li><input type="text" name="nickname"
+                                                           class="input-text required-entry"
+                                                           value="{{(!empty(Auth::user()->name)) ? Auth::user()->name : ''}} ">
+                                                </li>
+                                                <li>Comment<span>*</span></li>
+                                                <li><textarea required name="comment_content" cols="5" rows="3"
+                                                              class="required-entry"></textarea></li>
+                                                <input type="hidden" name="blog_id" value="{{$blog->blog_id}}">
+                                            </ul>
+                                        </div>
+                                        @if(!empty(Auth::user()->id))
+                                            <div class="review_button">
+                                                <button type="submit" title="Submit Review" class="button">Submit
+                                                    Review
+                                                </button>
+                                            </div>
+                                        @else
+                                            <div class="review_button">
+                                                <p>Login to submit review!</p>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </form>
+                            </div>
 						</div>
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -118,7 +177,7 @@
                                @foreach($latest as $lat)
                                    <div class="single_l_post">
                                        <a href="#">{{$lat->title}}</a>
-                                       <p>{{($lat->created_at)}}</p>
+                                       <p>{{($lat->created_blog)}}</p>
                                    </div>
                                @endforeach
                            </div>

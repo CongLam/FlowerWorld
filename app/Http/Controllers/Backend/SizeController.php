@@ -54,7 +54,7 @@ class SizeController extends Controller
     public function postEditSize(EditSizeRequest $request , $id)
     {
         $size = Size::where('id', $id)->first();
-        $size->size_name = $request->edit_name;
+        $size->size_name = $request->size_name;
         $size->description = $request->description;
         $size->status = $request->status;
         $size->save();

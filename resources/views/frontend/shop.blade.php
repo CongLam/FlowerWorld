@@ -73,19 +73,6 @@
 						</div>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<div class="popular_tag_area popular_tag_response">
-									<div class="popular_items">
-										<h2>COMPARE PRODUCTS</h2>
-										<div class="conpany_product_details">
-											<p>You have no items to compare.</p>
-											<a href="#"><img src="img/banner/banner_left.jpg" alt="" /></a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div class="popular_tag_area">
 									<div class="popular_items">
 										<h2>Highlights</h2>
@@ -93,42 +80,21 @@
 								</div>
 								<div class="clothing_carousel_list">
 									<div class="single_clothing_product">
-										<div class="clothing_item">
-											<img src="img/product/pr1.png" alt="" />
-											<div class="product_clothing_details">
-												<h2><a href="#">Beauty Calla Lily Bouquety</a></h2>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<p>$13.00</p>
-											</div>
-										</div>
-										<div class="clothing_item">
-											<img src="img/product/pr6.png" alt="" />
-											<div class="product_clothing_details">
-												<h2><a href="#">Special Bouquet</a></h2>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<p>$12.00</p>
-											</div>
-										</div>
-										<div class="clothing_item">
-											<img src="img/product/pr8.png" alt="" />
-											<div class="product_clothing_details">
-												<h2><a href="#">Breathtaking Beauty Bouquet</a></h2>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<p>$123.00</p>
-											</div>
-										</div>
+                                        @foreach($specialProduct as $specialPro)
+                                            <div class="clothing_item">
+                                                <img src="{{ asset('storage/thumbnail/'.$specialPro->thumbnail) }}" alt="" />
+                                                <div class="product_clothing_details">
+                                                    <h2><a href="{{ asset('product_detail/'.$specialPro->id) }}">{{$specialPro->product_name}}</a></h2>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <p>$12.00</p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+
 									</div>
 									<div class="single_clothing_product">
 										<div class="clothing_item">

@@ -57,6 +57,7 @@ class ProductController extends Controller
         $product->description =  $request->desc;
         $product->qty =  $request->qty;
         $product->title =  $request->title;
+        $product->featured =  $request->featured;
         $product->status =  $request->status;
         $product->topic_id =  $request->topic;
 
@@ -121,6 +122,7 @@ class ProductController extends Controller
         $product->description =  $request->desc;
         $product->qty =  $request->qty;
         $product->title =  $request->title;
+        $product->featured =  $request->featured;
         $product->status =  $request->status;
         $product->topic_id =  $request->topic;
 

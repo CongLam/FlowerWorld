@@ -230,96 +230,23 @@
 				</div>
 				<div class="row">
 					<div class="carousel_blog_list">
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="img/blog-post-image/cl-1.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">Aliquam Erat Volutpat</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="img/blog-post-image/cl-2.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">Mauris Posuere</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="img/blog-post-image/cl-3.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">Donec Tempor Libero</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="img/blog-post-image/cl-4.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">Etiam Dictum Egestas</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="img/blog-post-image/cl-3.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">Phasellus Fringilla</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="single_blog">
-								<a href="#"><img src="img/blog-post-image/cl-1.jpg" alt="" /></a>
-								<div class="blog_details">
-									<a href="#">William Eto</a>
-									<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam...</p>
-									<h3>18 Aug 2015</h3>
-									<a href="#">
-									<div class="read_more">
-										<i class="fa fa-angle-right"></i>
-									</div>
-									</a>
-								</div>
-							</div>
-						</div>
+						@foreach($latestBlogs as $blog)
+                            <div class="col-lg-3">
+                                <div class="single_blog">
+                                    <a href="{{ asset('detail/'.$blog->blog_id) }}"><img style="width: 200px;" src="{{ asset('storage/blog_thumbnail/'.$blog->thumbnail) }}" alt="" /></a>
+                                    <div class="blog_details">
+                                        <a href="{{ asset('detail/'.$blog->blog_id) }}">{{$blog->blog_category_name}}</a>
+                                        <p>{{$blog->title}}</p>
+                                        <h3>{{$blog->created_at}}</h3>
+                                        <a href="{{ asset('detail/'.$blog->blog_id) }}">
+                                        <div class="read_more">
+                                            <i class="fa fa-angle-right"></i>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 					</div>
 				</div>
 			</div>

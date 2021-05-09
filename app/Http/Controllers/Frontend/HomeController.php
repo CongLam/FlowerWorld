@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Color;
+use App\Models\Comment;
 use App\Models\Product;
 use App\Models\ProductColor;
 use App\Models\ProductSize;
 use App\Models\Size;
 use App\Models\Topic;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,7 +25,20 @@ class HomeController extends Controller
             )
             ->paginate(8);
 
-        return view('frontend/index')->with('products', $products);
+        $latestBlogs = DB::table('blogs')
+            ->join('blog_categories','blogs.blog_category_id','=','blog_categories.id')
+            ->select(
+                'blogs.id as blog_id',
+                'blogs.*',
+                'blog_categories.*',
+                'blogs.created_at as created_blog'
+            )
+            ->orderBy('created_blog', 'desc')
+            ->paginate(7);
+
+        return view('frontend/index')
+            ->with('products', $products)
+            ->with('latestBlogs', $latestBlogs);
     }
 
     public function getAboutUs(){
@@ -33,8 +48,9 @@ class HomeController extends Controller
 
 
     public function getProduct($id){
-        $product = Product::where('id',$id)->first();
 
+        $product = Product::where('id',$id)->with('comment')->first();
+//        dd($product);
         $topicList= Topic::all();
 
         $colorList = Color::all();
@@ -104,12 +120,15 @@ class HomeController extends Controller
 //            dd($products);
         }
 
+        $specialProduct = Product::where('featured',1)->paginate(10);
+
         $topicList= Topic::all();
 
         $colorList = Color::all();
         return view('frontend/shop')->with('products', $products)
             ->with('topicList', $topicList)
             ->with('colorList', $colorList)
+            ->with('specialProduct', $specialProduct)
             ;
     }
 

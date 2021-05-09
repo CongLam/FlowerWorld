@@ -12,7 +12,6 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
 
             <div class="panel panel-primary">
-                <div class="panel-heading">Product List</div>
                 <div class="panel-body">
                     <form action="{{ route('seach_product_backend') }}" method="get">
                         <div class="input-group" style="margin-bottom: 30px">
@@ -26,9 +25,12 @@
                             </div>
                         </div>
                     </form>
+
                     <div class="bootstrap-table">
                         <div class="table-responsive">
                             <a href="{{ asset('admin/product/add') }}" class="btn btn-primary">Add Product</a>
+                            <hr>
+                            <h3 class="page-header">List</h3>
                             <table class="table table-bordered" style="margin-top:20px;">
                                 <thead>
                                 <tr class="bg-primary">
@@ -59,7 +61,6 @@
                                                 <a href="{{ asset('admin/product/delete/'.$product->product_id) }}" class="btn btn-danger" onclick="return confirm('Do you want to detele this product?')" ><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                                             </td>
                                         </tr>
-{{--                                        {{$i++}}--}}
                                     @endforeach
                                 </tbody>
                             </table>

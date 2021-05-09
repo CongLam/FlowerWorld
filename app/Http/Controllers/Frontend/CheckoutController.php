@@ -4,18 +4,21 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InfoCheckoutRequest;
+use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class CheckoutController extends Controller
 {
     public function getCheckout(){
-
-        return view('frontend/checkout');
+        $data['items'] =Cart::content();
+        $data['totalPrice'] = Cart::total();
+        return view('frontend/checkout', $data);
     }
 
     public function postCheckout(InfoCheckoutRequest $request){
@@ -25,7 +28,6 @@ class CheckoutController extends Controller
 
         $data['cart'] = Cart::content();
 
-//        dd($data['cart']);
         $data['totalPrice'] = Cart::total();
         //update product qty
         foreach ($data['cart'] as $item){
@@ -35,12 +37,15 @@ class CheckoutController extends Controller
             $product->qty = ($product->qty) - ($item->qty);
             $product->save();
         }
+//        dd($data['totalPrice']);
 
         //insert data transaction table
         $transaction = new Transaction();
-        $transaction->customer_name = $request->firstname.' '.$request->middlename.' '.$request->lastname;
+        $transaction->customer_id = (!empty(Auth::user()->id)) ? Auth::user()->id : null;
+        $transaction->customer_name = $request->fullname;
         $transaction->customer_email = $request->email;
         $transaction->customer_phone = $request->telephone;
+        $transaction->payment_method = 1;
         $transaction->address = $request->street.' - '.$request->city;
         $transaction->amount = $data['totalPrice'];
 
@@ -73,7 +78,21 @@ class CheckoutController extends Controller
         });
 
         Cart::destroy();
+
+
+
         return redirect('complete');
+    }
+
+    public function postApplyCoupon(Request $request){
+        $couponCode = $request->coupon_code;
+        $coupon = Coupon::where('code', $couponCode)->first();
+
+        if(!empty($coupon)){
+            //mai cho input coupon sang ben checkout
+        }else{
+            dd('khong co coupon');
+        }
     }
 
     public function getComplete(){

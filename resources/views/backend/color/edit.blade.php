@@ -20,17 +20,17 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>color Name:</label>
-                            <input required type="text" name="edit_name" class="form-control" placeholder="..." value="{{$color->color_name}}">
+                            <input required type="text" name="color_name" class="form-control" placeholder="..." value="{{$color->color_name}}">
                         </div>
                         <div class="form-group" >
                             <label>Status:</label></br>
                             <div class="status" >
                                 @if($color->status == 1)
-                                    <input type="radio" id="enable" name="status" value="1" checked><label for="male">Enable</label><br>
-                                    <input type="radio" id="disable" name="status" value="0"><label for="female">Disable</label><br>
+                                    <input type="radio" id="enable" name="status" value="1" checked><label for="enable">Enable</label><br>
+                                    <input type="radio" id="disable" name="status" value="0"><label for="disable">Disable</label><br>
                                 @else
-                                    <input type="radio" id="enable" name="status" value="1" ><label for="male">Enable</label><br>
-                                    <input type="radio" id="disable" name="status" value="0" checked><label for="female">Disable</label><br>
+                                    <input type="radio" id="enable" name="status" value="1" ><label for="enable">Enable</label><br>
+                                    <input type="radio" id="disable" name="status" value="0" checked><label for="disable">Disable</label><br>
                                 @endif
                             </div>
                         </div>

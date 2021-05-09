@@ -107,10 +107,18 @@
                                     @endforeach
 
                                 </div>
+
                                 <div class="form-group">
-                                    <label>Featured Product: </label><br>
-                                    Yes: <input type="radio" name="featured" value="1">
-                                    No: <input type="radio" checked name="featured" value="0">
+                                    <label>Featured Product:</label></br>
+                                    <div class="status" >
+                                        @if($product->featured == 1)
+                                            <input type="radio" id="enable" name="featured" value="1" checked><label for="enable">Yes</label><br>
+                                            <input type="radio" id="disable" name="featured" value="0"><label for="disable">No</label><br>
+                                        @else
+                                            <input type="radio" id="enable" name="featured" value="1" ><label for="enable">Yes</label><br>
+                                            <input type="radio" id="disable" name="featured" value="0" checked><label for="disable">No</label><br>
+                                        @endif
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>Description: </label>

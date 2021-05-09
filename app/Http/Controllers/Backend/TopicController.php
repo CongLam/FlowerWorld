@@ -56,7 +56,7 @@ class TopicController extends Controller
     public function postEditTopic(EditTopicRequest $request , $id)
     {
         $topic = Topic::where('id', $id)->first();
-        $topic->topic_name = $request->edit_name;
+        $topic->topic_name = $request->topic_name;
         $topic->description = $request->description;
         $topic->status = $request->status;
         $topic->save();

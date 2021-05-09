@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('backend.topic.edit');
-//});
 
 //------------------------------Frontend--------------------------------------
 Route::group(['namespace' => 'Frontend'], function () {
@@ -40,6 +37,13 @@ Route::group(['namespace' => 'Frontend'], function () {
    //detail product
     Route::get('product_detail/{id}', 'HomeController@getProduct');
 
+    //comment product
+    Route::post('comment_product', 'ProductController@postComment')->name('comment_product');
+
+    //comment blog
+    Route::post('comment_blog', 'BlogController@postCommentBlog')->name('comment_blog');
+
+
     Route::get('cart', 'HomeController@getCart');
 
 //    Route::get('checkout', 'CheckoutController@getCheckout');
@@ -57,7 +61,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     //Cart
     Route::group(['prefix' => 'cart'], function () {
-        Route::get('add/{id}', 'CartController@getAddCart');
+        Route::get('add/{id}', 'CartController@getAddCart')->name('add_to_cart');
         Route::get('show', 'CartController@getShowCart');
         Route::get('delete/{id}', 'CartController@getDeleteCart');
         Route::get('update', 'CartController@getUpdateCart')->name('update_cart');
@@ -69,6 +73,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     });
 
     //checkout
+    Route::post('apply_coupon', 'CheckoutController@postApplyCoupon')->name('apply_coupon');
     Route::get('checkout', 'CheckoutController@getCheckout');
     Route::post('checkout', 'CheckoutController@postCheckout');
     Route::get('complete', 'CheckoutController@getComplete');
@@ -188,13 +193,18 @@ Route::group(['namespace' => 'Backend'], function () {
         Route::group(['prefix' => 'transaction'], function () {
             Route::get('/', 'TransactionController@getTransaction');
             Route::get('seach_transaction_by_date', 'TransactionController@searchByDatetime')->name('transaction.seach_transaction_by_date');
-
+            Route::post('/export-transaction','TransactionController@exportAllTransaction' )->name('transaction.export_transaction');
+            Route::post('/export-transaction-period','TransactionController@exportTransactionPeriod' )->name('transaction.export_transaction_period');
+            Route::get('/detail_order/{transaction_id}', 'TransactionController@detailOrder')->name('transaction.detail_order');
+            Route::get('/export-detail-order/{transaction_id}', 'TransactionController@exportDetailOrder')->name('transaction.export_order');
         });
+
+        //statics
+        Route::get('top_customer', 'TransactionController@getTopCustomer');
 
         //category blog
         Route::group(['prefix' => 'blog_category'], function () {
             Route::get('/', 'BlogCategoryController@getBlogCategory');
-            Route::post('/', 'BlogCategoryController@postAddBlogCategory');
 
             //Route::get('/', 'ProductSizeController@getSearchSize')->name('admin.size.search');
 
@@ -207,7 +217,6 @@ Route::group(['namespace' => 'Backend'], function () {
         //blog
         Route::group(['prefix' => 'blog'], function () {
             Route::get('/', 'BlogController@getBlog');
-            Route::post('/', 'BlogController@postAdBlog');
 
             //Route::get('/', 'ProductSizeController@getSearchSize')->name('admin.size.search');
 
@@ -219,6 +228,21 @@ Route::group(['namespace' => 'Backend'], function () {
 
             Route::get('delete/{id}', 'BlogController@getDeleteBlog');
         });
+
+        Route::group(['prefix' => 'coupon'], function () {
+            Route::get('/', 'CouponController@getCoupon');
+
+            //Route::get('/', 'ProductSizeController@getSearchSize')->name('admin.size.search');
+
+            Route::get('add', 'CouponController@getAddCoupon');
+            Route::post('add', 'CouponController@postAddCoupon');
+
+            Route::get('edit/{id}', 'CouponController@getEditCoupon')->name('admin.coupon.edit');
+            Route::post('edit/{id}', 'CouponController@postEditCoupon');
+
+            Route::get('delete/{id}', 'CouponController@getDeleteCoupon');
+        });
+
 
     });
 
@@ -241,4 +265,3 @@ Route::group(['namespace' => 'Backend'], function () {
 
 
 
-//------------------------------Frontend--------------------------------------

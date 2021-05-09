@@ -1,5 +1,5 @@
 @extends('backend/layout')
-@section('title', 'Admin List')
+@section('title', 'Customer List')
 @section('content')
 
     <div class="row">
@@ -74,7 +74,7 @@
                                     <td>{{ $item->address }}</td>
                                     <td>
                                         <a href="{{ asset('admin/customer_manager/edit/'.$item->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                                        <a href="{{ asset('admin/customer_manager/delete/'.$item->id) }}" onclick="return confirm('Do you want to delete this category?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                        <a href="{{ asset('admin/customer_manager/delete/'.$item->id) }}" onclick="return confirm('Do you want to delete this customer?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

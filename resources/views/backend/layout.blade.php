@@ -63,7 +63,7 @@
                             <a class="nav-link" href="{{asset('admin/topic')}}">Product Topic</a>
                             <a class="nav-link" href="{{asset('admin/size')}}">Product Size</a>
                             <a class="nav-link" href="{{asset('admin/color')}}">Product Color</a>
-                            <a class="nav-link" href="{{asset('admin/transaction')}}">Transaction</a>
+
                         </nav>
                     </div>
 
@@ -78,6 +78,22 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="{{asset('admin/blog_category')}}">Blog Category</a>
                             <a class="nav-link" href="{{asset('admin/blog')}}">Blog</a>
+                        </nav>
+                    </div>
+
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5"
+                       aria-expanded="false" aria-controls="collapseLayouts5">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        Statistics and Promotions
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne"
+                         data-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="{{asset('admin/transaction')}}">Transaction</a>
+                            <a class="nav-link" href="{{asset('admin/coupon')}}">Coupon </a>
+                            <a class="nav-link" href="{{asset('admin/top_customer')}}">Top Customer </a>
+                            <a class="nav-link" href="{{asset('admin/top_selling')}}">Top Selling</a>
                         </nav>
                     </div>
 
@@ -139,6 +155,15 @@
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 <script src="assets/demo/datatables-demo.js"></script>
 
+<style>
+    #collapseLayouts, #collapseLayouts2, #collapseLayouts3, #collapseLayouts4, #collapseLayouts5 {
+        background: rgb(67, 67, 67);
+    }
+    .sb-sidenav-menu-nested .nav .nav-link:hover {
+        color: #ffffff;
+    }
+
+</style>>
 
 
 </body>

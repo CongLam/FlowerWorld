@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Add product" onclick="return confirm('Do you want to add new product?')">
+                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Add Blog" onclick="return confirm('Do you want to add new blog?')">
                                 </div>
                                 <div class="form-group">
                                     <a href="{{ asset('admin/blog') }}" class="form-control btn btn-danger">Cancel</a>

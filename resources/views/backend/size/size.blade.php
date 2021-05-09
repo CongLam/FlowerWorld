@@ -23,7 +23,7 @@
                 <div class="panel-heading">
                     <h3>Add Size</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="border: solid gray; padding: 20px">
                     @include('errors.note')
                     <form action="" method="post">
                         {{ csrf_field() }}
@@ -38,8 +38,8 @@
                         <div class="form-group" >
                             <label>Status:</label></br>
                             <div class="status" >
-                                <input type="radio" id="enable" name="status" value="1"><label for="male">Enable</label><br>
-                                <input type="radio" id="disable" name="status" value="0"><label for="female">Disable</label><br>
+                                <input type="radio" id="enable" name="status" value="1" checked><label for="enable">Enable</label><br>
+                                <input type="radio" id="disable" name="status" value="0"><label for="disable">Disable</label><br>
                             </div>
                         </div>
                         <input type="submit" name="submit" class="btn btn-primary" value="Add size" onclick="return confirm('Do you want to add new size?')">

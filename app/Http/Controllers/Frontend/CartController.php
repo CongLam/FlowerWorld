@@ -16,11 +16,17 @@ class CartController extends Controller
             'name' => $product->product_name,
             'qty' => 1,
             'price' => (!empty($product->sale_price) ? $product->sale_price : $product->price ),
-            'options' => ['img' => $product->thumbnail]
+            'options' => ['img' => $product->thumbnail,
+                          'size'=> null,
+                          'color'=>null,
+                        ]
         ]);
 
-            //'options' => ['size' => $product->product_img]]);
-
+        /*if(Cart::content()->isNotEmpty()){
+            dd(Cart::content());
+        }else{
+            dd('Cart empty');
+        }*/
 //        $data = Cart::content();
 //        dd($data);
         return redirect('cart/show');
@@ -29,7 +35,6 @@ class CartController extends Controller
 
     public function getShowCart(){
         $data['items'] =Cart::content();
-       // dd($data);
         $data['totalPrice'] = Cart::total();
         return view('frontend/cart', $data);
     }

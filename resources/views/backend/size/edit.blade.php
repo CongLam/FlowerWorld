@@ -20,21 +20,21 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>Size Name:</label>
-                            <input type="text" name="edit_name" class="form-control" placeholder="..." value="{{$size->size_name}}">
+                            <input type="text" name="size_name" class="form-control" placeholder="..." value="{{!(empty(old('size_name'))) ? old('size_name') : $size->size_name}}">
                         </div>
                         <div class="form-group">
                             <label>Description:</label>
-                            <input required type="text" name="description" class="form-control" placeholder="..." value="{{$size->description}}">
+                            <input required type="text" name="description" class="form-control" placeholder="..." value="{{!(empty(old('description'))) ? old('description') : $size->description}}">
                         </div>
                         <div class="form-group" >
                             <label>Status:</label></br>
                             <div class="status" >
                                 @if($size->status == 1)
-                                    <input type="radio" id="enable" name="status" value="1" checked><label for="male">Enable</label><br>
-                                    <input type="radio" id="disable" name="status" value="0"><label for="female">Disable</label><br>
+                                    <input type="radio" id="enable" name="status" value="1" checked><label for="enable">Enable</label><br>
+                                    <input type="radio" id="disable" name="status" value="0"><label for="disable">Disable</label><br>
                                 @else
-                                    <input type="radio" id="enable" name="status" value="1" ><label for="male">Enable</label><br>
-                                    <input type="radio" id="disable" name="status" value="0" checked><label for="female">Disable</label><br>
+                                    <input type="radio" id="enable" name="status" value="1" ><label for="enable">Enable</label><br>
+                                    <input type="radio" id="disable" name="status" value="0" checked><label for="disable">Disable</label><br>
                                 @endif
                             </div>
                         </div>

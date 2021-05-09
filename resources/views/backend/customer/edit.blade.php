@@ -1,5 +1,5 @@
 @extends('backend/layout')
-@section('title', 'Edit Admin')
+@section('title', 'Edit Customer')
 @section('content')
 
     <div class="row">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Edit Information" onclick="return confirm('Do you want to edit this admin?')">
+                            <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Edit Information" onclick="return confirm('Do you want to edit this customer?')">
                         </div>
                         <div class="form-group">
                             <a href="{{ asset('admin/admin_manager') }}" class="form-control btn btn-danger">Cancel</a>

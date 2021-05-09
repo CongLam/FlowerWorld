@@ -23,7 +23,7 @@
                 <div class="panel-heading">
                     <h3>Add topic</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="border: solid gray; padding: 20px">
                     @include('errors.note')
                     <form action="" method="post">
                         {{ csrf_field() }}
@@ -58,7 +58,7 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr class="bg-primary">
-                                <th>NO</th>>
+                                <th>NO</th>
                                 <th>Topic Name</th>
                                 <th>Topic Description</th>
                                 <th style="width:30%">Action</th>

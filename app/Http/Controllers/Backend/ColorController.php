@@ -53,7 +53,7 @@ class ColorController extends Controller
     public function postEditColor(EditColorRequest $request , $id)
     {
         $color = Color::where('id', $id)->first();
-        $color->color_name = $request->edit_name;
+        $color->color_name = $request->color_name;
         $color->status = $request->status;
         $color->save();
         return redirect()->intended('admin/color');

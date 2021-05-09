@@ -20,11 +20,11 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>Topic Name:</label>
-                            <input required type="text" name="edit_name" class="form-control" placeholder="Enter topic name..." value="{{$topic->topic_name}}">
+                            <input required type="text" name="topic_name" class="form-control" placeholder="Enter topic name..." value="{{!(empty(old('topic_name'))) ? old('topic_name') : $topic->topic_name}}">
                         </div>
                         <div class="form-group">
                             <label>Description:</label>
-                            <input required type="text" name="description" class="form-control" placeholder="Enter description..." value="{{$topic->description}}">
+                            <input required type="text" name="description" class="form-control" placeholder="Enter description..." value="{{!(empty(old('description'))) ? old('description') : $topic->description}}">
                         </div>
                         <div class="form-group" >
                             <label>Status:</label></br>
