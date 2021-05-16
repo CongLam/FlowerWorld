@@ -104,6 +104,7 @@
                         </div>
                         <div class="pricing_rate">
                             <p class="stack">Availability:
+{{--                                {{dump($product->qty)}}--}}
                                 @if($product->qty !=0)
                                     <span class="in-stock"> In stock</span>
                                 @else
@@ -182,7 +183,11 @@
                                 {{--<button type="button" title="Add to Cart" class="cart_button"
                                         onclick="location.href = '{{asset('cart/add/'.$product->id)}}';"><span>Add to Cart</span>
                                 </button>--}}
-                                <button type="submit" title="Add to Cart" class="cart_button"><span>Add to Cart</span></button>
+                                @if($product->qty !=0)
+                                    <button type="submit" title="Add to Cart" class="cart_button"><span>Add To Cart</span></button>
+                                @else
+                                    <button title="Add to Cart" class="cart_button" disabled style="background: grey"><span>Out Of Stock</span></button>
+                                @endif
                             </div>
                         </div>
                     </div>

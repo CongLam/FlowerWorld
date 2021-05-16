@@ -1,49 +1,75 @@
 <div id="wrap-inner">
     <div id="khach-hang">
-        <h3>Thông tin khách hàng</h3>
+        <h3>Your personal information</h3>
         <p>
-            <span class="info">Khách hàng: </span>
-            {{ $info['firstname'] }}
-            {{ $info['middlename'] }}
-            {{ $info['lastname'] }}
+            <span class="info">Customer: </span>
+            {{ $info['fullname'] }}
+            {{--{{ $info['middlename'] }}
+            {{ $info['lastname'] }}--}}
         </p>
         <p>
             <span class="info">Email: </span>
             {{ $info['email'] }}
         </p>
         <p>
-            <span class="info">Điện thoại: </span>
+            <span class="info">Phone number: </span>
             {{ $info['telephone'] }}
         </p>
         <p>
-            <span class="info">Địa chỉ: </span>
+            <span class="info">Address: </span>
             {{ $info['city'] }}
         </p>
     </div>
     <div id="hoa-don">
-        <h3>Hóa đơn mua hàng</h3>
-        <table class="table-bordered table-responsive">
-            @foreach ($cart as $item)
-                <tr class="bold">
-                    <td width="30%">{{ $item->name }}</td>
-                    <td width="25%">${{ number_format($item->price) }}</td>
-                    <td width="20%">{{ $item->qty }}</td>
-                    <td width="15%">${{ number_format($item->price*$item->qty,0,',','.') }}</td>
-                </tr>
-            @endforeach
-            <tr>
-                <td colspan="3">Tổng tiền:</td>
-                <td class="total-price">{{ $totalPrice }}</td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+                        <div class="bootstrap-table">
+                            <div class="table-responsive">
+                                <h2 class="customer_info" style="text-align: center; background: lightskyblue">Order Information</h2>
+                                <table class="table table-bordered" style="margin-top:20px;">
+                                    <thead>
+                                    <tr class="bg-primary">
+                                        <th width="10%">Product Id</th>
+                                        <th width="20%">Product Name</th>
+                                        <th width="15%" >Price</th>
+                                        <th width="10%">Quantity</th>
+                                        <th width="15%">Total Price</th>
+                                        <th width="30 %">Address</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($detailOrder as $detail)
+                                        <tr>
+                                            <td style="text-align: center">{{$detail->product_id}}</td>
+                                            <td style="text-align: center">{{$detail->product_name}}</td>
+                                            <td style="text-align: center">${{$detail->amount / $detail->qty}}</td>
+                                            <td style="text-align: center">{{$detail->qty}}</td>
+                                            <td style="text-align: center">${{$detail->amount}}</td>
+                                            <td style="text-align: center">{{$detail->address}}</td>
+                                        </tr>
+                                    @endforeach
+                                    <tr>
+                                        <td colspan="6"><p style="text-align: right"><b>Total price order: ${{$detailOrder->first()->total_price}}</b></p></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div><!--/.row-->
     </div>
     <div id="xac-nhan">
         <br>
         <p align="justify">
-            <b>Quý khách đã đặt hàng thành công!</b><br />
-            • Sản phẩm của Quý khách sẽ được chuyển đến Địa chỉ có trong phần Thông tin Khách hàng của chúng Tôi sau thời gian 2 đến 3 ngày, tính từ thời điểm này.<br />
-            • Nhân viên giao hàng sẽ liên hệ với Quý khách qua Số Điện thoại trước khi giao hàng 24 tiếng.<br />
-            <b><br />Cám ơn Quý khách đã sử dụng Sản phẩm của Công ty chúng Tôi!</b>
+            <b>Your order has been successfully placed! </b><br />
+            • Your products will be delivered to the Address listed in our customer information section after 2 to 3 days from this time..<br />
+            •  Delivery staff will contact you via phone number 24 hours before delivery.<br />
+            <b><br />Thank you for using Our Company's Products! </b>
         </p>
     </div>
 </div>

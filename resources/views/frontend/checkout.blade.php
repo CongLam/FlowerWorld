@@ -16,9 +16,8 @@
 									<span>1</span>Billing Information
 								  </a>
 								</div>
+                                @include('errors.note')
 								<div id="collapseTwo" class="panel-collapse collapse" aria-labelledby="headingTwo">
-                                    @include('errors.note')
-
                                         @csrf
 								        <div class="accordion-inner">
                                             <div class="row">
@@ -31,9 +30,9 @@
                                                             <li>Company</li>
                                                             <li><input type="text" id="billing:company" name="company" value="{{old('company')}}" title="Company" class="input-text"></li>
                                                             <li>Email Address<span>*</span></li>
-                                                            <li><input required type="text" name="email" id="billing:email" value="{{!empty(old('telephone')) ? old('telephone') : (!empty(Auth::user()->email) ? Auth::user()->email : '')}}" title="Email Address" class="input-text validate-email required-entry"></li>
+                                                            <li><input required type="text" name="email" id="billing:email" value="{{!empty(old('email')) ? old('email') : (!empty(Auth::user()->email) ? Auth::user()->email : '')}}" title="Email Address" class="input-text validate-email required-entry"></li>
                                                             <li>Address<span>*</span></li>
-                                                            <li><input required type="text" title="Street Address 2" name="street" id="billing:street2" value="{{!empty(old('telephone')) ? old('telephone') : (!empty(Auth::user()->address) ? Auth::user()->address : '')}}" class="input-text"></li>
+                                                            <li><input required type="text" title="Street Address 2" name="street" id="billing:street2" value="{{!empty(old('street')) ? old('street') : (!empty(Auth::user()->address) ? Auth::user()->address : '')}}" class="input-text"></li>
                                                             <li>City<span>*</span></li>
                                                             <li><input required type="text" title="City" name="city" value="{{old('city')}}" class="input-text  required-entry" id="billing:city"></li>
                                                             <li>Telephone<span>*</span></li>

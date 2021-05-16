@@ -24,8 +24,7 @@ class InfoCheckoutRequest extends FormRequest
     public function rules()
     {
         return [
-            'firstname'=>'required',
-            'lastname'=>'required',
+            'fullname'=>'required',
             'email'=>'required|email',
             'street'=>'required',
             'city'=>'required',

@@ -161,7 +161,11 @@
                                         </div>
                                         <div class="product_button">
                                             <div class="cart_details">
-                                                <a href="{{ asset('cart/add/'.$product->product_id)}}" target="blank">Add to cart</a>
+                                                @if($product->qty !=0)
+                                                    <a href="{{ asset('cart/add/'.$product->product_id)}}" target="blank">Add to cart</a>
+                                                @else
+                                                    <a target="blank" style="background: grey">Out Of Stock</a>
+                                                @endif
                                             </div>
                                             <div class="cart_details">
                                                 <a href="#" target="expand"><i class="fa fa-expand"></i></a>
