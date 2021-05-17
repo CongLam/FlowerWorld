@@ -8,6 +8,7 @@ use App\Http\Requests\AddTopicRequest;
 use App\Http\Requests\EditColorRequest;
 use App\Models\Color;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ColorController extends Controller
 {
@@ -25,11 +26,18 @@ class ColorController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postAddColor(AddColorRequest $request){
-        $color = new Color();
-        $color->color_name = $request->color_name;
-        $color->status = $request->status;
-        //$color->color_slug = Str::slug($request->cateName);
-        $color->save();
+        DB::beginTransaction();
+        try{
+            $color = new Color();
+            $color->color_name = $request->color_name;
+            $color->status = $request->status;
+            $color->save();
+            DB::commit();
+            session()->flash('success', 'Created successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Created failed.');
+        }
         return back();
     }
 
@@ -40,9 +48,8 @@ class ColorController extends Controller
     public function getEditColor($id)
     {
         $data['color'] = Color::where('id', $id)->first();
-        //dd($data);
+
         return view('backend/color/edit', $data);
-        //return View::make('backend/color/edit')->with(['color'=>$data['color']]);
     }
 
     /**
@@ -52,12 +59,20 @@ class ColorController extends Controller
      */
     public function postEditColor(EditColorRequest $request , $id)
     {
-        $color = Color::where('id', $id)->first();
-        $color->color_name = $request->color_name;
-        $color->status = $request->status;
-        $color->save();
-        return redirect()->intended('admin/color');
+        DB::beginTransaction();
+        try{
+            $color = Color::where('id', $id)->first();
+            $color->color_name = $request->color_name;
+            $color->status = $request->status;
+            $color->save();
+            DB::commit();
+            session()->flash('success', 'Updated successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Updated failed.');
+        }
 
+        return redirect()->intended('admin/color');
     }
 
     /**
@@ -65,7 +80,16 @@ class ColorController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function getDeleteColor($id){
-        Color::destroy($id);
+        DB::beginTransaction();
+        try{
+            Color::destroy($id);
+            DB::commit();
+            session()->flash('success', 'Deleted successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Deleted failed.');
+        }
+
         return back();
     }
 

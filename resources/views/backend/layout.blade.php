@@ -15,8 +15,10 @@
             crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../editor/ckeditor/ckeditor.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 </head>
 <body class="sb-nav-fixed">
+@include('sweetalert::alert')
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand" href="{{asset('admin/home')}}">FlowersWorld</a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i>

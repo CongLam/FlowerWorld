@@ -13,7 +13,7 @@ class LoginController extends Controller
     }
 
     public function postLogin(Request $request){
-        $arr = ['email'=>$request->email, 'password'=>$request->password, 'role_id'=>[0,1] ];
+        $arr = ['email'=>$request->email, 'password'=>$request->password, 'role_id'=>[0,1], 'status'=>1 ];
 
         if($request->rememberPasswordCheck == 'Remember password'){
             $remember = true;

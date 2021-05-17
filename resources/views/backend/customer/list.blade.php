@@ -1,7 +1,11 @@
 @extends('backend/layout')
 @section('title', 'Customer List')
 @section('content')
-
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">Customers</h2>
@@ -62,6 +66,7 @@
                                 <th>Full Name</th>
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>Status</th>
                                 <th style="width:30%">Action</th>
                             </tr>
                             </thead>
@@ -72,6 +77,13 @@
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->address }}</td>
+                                    <td>
+                                        @if($item->status == 1)
+                                            <p style="color: green">Approved</p>
+                                        @else
+                                            <p style="color: red">Not Approve</p>
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ asset('admin/customer_manager/edit/'.$item->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
                                         <a href="{{ asset('admin/customer_manager/delete/'.$item->id) }}" onclick="return confirm('Do you want to delete this customer?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>

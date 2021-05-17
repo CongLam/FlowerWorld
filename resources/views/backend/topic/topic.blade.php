@@ -1,7 +1,11 @@
 @extends('backend/layout')
-@section('title', 'Home')
+@section('title', 'Topic')
 @section('content')
-
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">Topic</h2>

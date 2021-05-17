@@ -1,7 +1,11 @@
 @extends('backend/layout')
 @section('title', 'Category')
 @section('content')
-
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">Category Blog</h2>
@@ -23,9 +27,9 @@
                 <div class="panel-heading">
                     <h3>Add Blog Category</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body" style="border: solid gray; padding: 20px">
                     @include('errors.note')
-                    <form action="" method="post">
+                    <form action="" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label>Category Name:</label>

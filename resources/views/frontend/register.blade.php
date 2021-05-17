@@ -91,3 +91,16 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+<style>
+
+    body, html {
+        background-image: url("https://wallpaper.dog/large/407845.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+</style>

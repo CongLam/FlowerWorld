@@ -91,3 +91,17 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+
+<style>
+
+    body, html {
+        background-image: url("https://images.unsplash.com/photo-1507646871303-331b8f659227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+</style>

@@ -46,27 +46,37 @@ class CustomerController extends Controller
      */
     public function postEditCustomer(Request $request , $id)
     {
-        $name = $request->name;
-        $email = $request->email;
-        $phone = $request->phone;
-        $address = $request->address_admin;
-        $gender = $request->gender;
-        $birthday = $request->birthday;
-        if(!empty($request->password)){
-            $password = $request->password;
+        DB::beginTransaction();
+        try{
+            $name = $request->name;
+            $email = $request->email;
+            $phone = $request->phone;
+            $address = $request->address_admin;
+            $gender = $request->gender;
+            $birthday = $request->birthday;
+            $status = $request->status;
+            if(!empty($request->password)){
+                $password = $request->password;
+            }
+
+            $user = DB::table('users')->where('id',$id);
+
+            $user->update([
+                'email' => $email,
+                'name' => $name,
+                'phone' => $phone,
+                'address'=> $address,
+                'gender' => $gender,
+                'birthday' => $birthday,
+                'password' =>  !(empty($request->password)) ? Hash::make($password) : $user->first()->password,
+                'status' => $status
+            ]);
+            DB::commit();
+            session()->flash('success', 'Updated successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Updated failed.');
         }
-
-        $user = DB::table('users')->where('id',$id);
-
-        $user->update([
-            'email' => $email,
-            'name' => $name,
-            'phone' => $phone,
-            'address'=> $address,
-            'gender' => $gender,
-            'birthday' => $birthday,
-            'password' =>  !(empty($request->password)) ? Hash::make($password) : $user->first()->password,
-        ]);
 
         return redirect()->intended('admin/customer_manager');
 
@@ -77,7 +87,15 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function getDeleteCustomer($id){
-        DB::table('users')->where('id',$id)->delete();
+        DB::beginTransaction();
+        try{
+            DB::table('users')->where('id',$id)->delete();
+            DB::commit();
+            session()->flash('success', 'Deleted successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Deleted failed.');
+        }
         return back();
     }
 }

@@ -1,7 +1,11 @@
 @extends('backend/layout')
 @section('title', 'Product')
 @section('content')
-
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">Product</h1>
@@ -17,7 +21,7 @@
                         <div class="input-group" style="margin-bottom: 30px">
                             @csrf
                             <input type="text" class="form-control" id="keyword" name="keyword"
-                                   placeholder="Search product...">
+                                   placeholder="Search product..." value="{{old('keyword')}}">
                             <div class="input-group-append">
                                 <button class="btn btn-secondary" id="search_btn" type="submit">
                                     <i class="fa fa-search"></i>

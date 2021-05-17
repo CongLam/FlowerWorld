@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterAdminRequest;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class RegisterController extends Controller
@@ -15,25 +16,26 @@ class RegisterController extends Controller
     }
 
     public function postRegister(RegisterAdminRequest $request){
-//        dd($request->all());
-        $user = new User();
-        $user->name = $request->first_name.' '.$request->last_name;
-//        $user->phone = $request->phone;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->role_id = 1;
-        $user->status = 1;
-        $user->remember_token = Str::random(10);
+        DB::beginTransaction();
+        try{
+            $user = new User();
+            $user->name = $request->first_name.' '.$request->last_name;
+            $user->email = $request->email;
+            $user->password = bcrypt($request->password);
+            $user->role_id = 1;
+            $user->status = 1;
+            $user->remember_token = Str::random(10);
 
-        $user->save();
-
+            $user->save();
+            DB::commit();
+            session()->flash('success', 'Register successfully! Waiting Super Admin Approve!');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Register failed.');
+        }
         return redirect('login');
     }
 
-    public function getRegisterCustomer(){
-        dd(1);
-        return view('frontend.register');
-    }
 
     public function postRegisterCustomer(RegisterAdminRequest $request){
         $user = new User();

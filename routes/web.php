@@ -205,6 +205,7 @@ Route::group(['namespace' => 'Backend'], function () {
         //category blog
         Route::group(['prefix' => 'blog_category'], function () {
             Route::get('/', 'BlogCategoryController@getBlogCategory');
+            Route::post('/', 'BlogCategoryController@postAddBlogCategory');
 
             //Route::get('/', 'ProductSizeController@getSearchSize')->name('admin.size.search');
 

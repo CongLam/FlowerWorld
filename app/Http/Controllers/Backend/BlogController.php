@@ -42,22 +42,29 @@ class BlogController extends Controller
     }
 
     public function postAddBlog(AddBlogRequest $request){
+        DB::beginTransaction();
+        try{
+            $filename = $request->blog_thumbnail->getClientOriginalName(); //get filename
 
-        $filename = $request->blog_thumbnail->getClientOriginalName(); //get filename
+            $blog = new Blog();
 
-        $blog = new Blog();
+            $blog->title = $request->title;
+            $blog->blog_short_description = $request->blog_short_description;
+            $blog->thumbnail = $filename;
+            $blog->content = $request->blog_content;
+            $blog->blog_category_id = $request->blog_category;
+            $blog->status =  $request->status;
 
-        $blog->title = $request->title;
-        $blog->blog_short_description = $request->blog_short_description;
-        $blog->thumbnail = $filename;
-        $blog->content = $request->blog_content;
-        $blog->blog_category_id = $request->blog_category;
-        $blog->status =  $request->status;
+            $blog->save();
 
-        $blog->save();
-
-        $file = $request->blog_thumbnail;
-        $file->move('storage/blog_thumbnail', $file->getClientOriginalName());
+            $file = $request->blog_thumbnail;
+            $file->move('storage/blog_thumbnail', $file->getClientOriginalName());
+            DB::commit();
+            session()->flash('success', 'Created successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Created failed.');
+        }
 
         return redirect('admin/blog');
 
@@ -70,7 +77,6 @@ class BlogController extends Controller
         $blog = Blog::where('id',$id)->first();
         $categories= BlogCategory::all();
 
-        //dd($sizeChoosed ) ;
         return view('backend.blog.edit')
             ->with('blog', $blog)
             ->with('categories', $categories);
@@ -78,28 +84,43 @@ class BlogController extends Controller
 
 
     public function postEditBlog($id, EditBlogRequest $request){
-        $blog = Blog::where('id', $id)->first();
+        DB::beginTransaction();
+        try{
+            $blog = Blog::where('id', $id)->first();
 
-        $blog->title = $request->title;
-        $blog->blog_short_description = $request->blog_short_description;
-        $blog->content = $request->blog_content;
-        $blog->blog_category_id = $request->blog_category;
-        $blog->status =  $request->status;
+            $blog->title = $request->title;
+            $blog->blog_short_description = $request->blog_short_description;
+            $blog->content = $request->blog_content;
+            $blog->blog_category_id = $request->blog_category;
+            $blog->status =  $request->status;
 
-        if($request->hasFile('blog_thumbnail')){
-            $img = $request->blog_thumbnail->getClientOriginalName();
-            $blog->thumbnail = $img;
+            if($request->hasFile('blog_thumbnail')){
+                $img = $request->blog_thumbnail->getClientOriginalName();
+                $blog->thumbnail = $img;
 
-            $file = $request->blog_thumbnail;
-            $file->move('storage/blog_thumbnail', $file->getClientOriginalName());
+                $file = $request->blog_thumbnail;
+                $file->move('storage/blog_thumbnail', $file->getClientOriginalName());
+            }
+            $blog->save();
+            DB::commit();
+            session()->flash('success', 'Updated successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Updated failed.');
         }
-        $blog->save();
-
         return redirect('admin/blog');
     }
 
     public function getDeleteBlog($id){
-        Blog::destroy($id);
+        DB::beginTransaction();
+        try{
+            Blog::destroy($id);
+            DB::commit();
+            session()->flash('success', 'Deleted successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Deleted failed.');
+        }
         return back();
     }
 

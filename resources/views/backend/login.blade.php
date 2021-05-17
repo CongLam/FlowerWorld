@@ -19,8 +19,13 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Admin Login</h3></div>
                                     <div class="card-body">
+                                        @if(session('success'))
+                                            <div class="alert alert-success">
+                                                {{ session()->get('success') }}
+                                            </div>
+                                        @endif
                                         <form method="post">
                                             @include('errors.note')
                                             {{ csrf_field() }}
@@ -57,7 +62,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">FLOWERS WORLD</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -73,3 +78,17 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+<style>
+
+    body, html {
+        background-image: url("https://images.unsplash.com/photo-1507646871303-331b8f659227?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+
+</style>

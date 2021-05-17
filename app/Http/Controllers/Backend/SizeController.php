@@ -7,6 +7,7 @@ use App\Http\Requests\AddSizeRequest;
 use App\Http\Requests\EditSizeRequest;
 use App\Models\Size;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class SizeController extends Controller
@@ -25,12 +26,19 @@ class SizeController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function postAddSize(AddSizeRequest $request){
-        $size = new Size;
-        $size->size_name = $request->size_name;
-        $size->description = $request->description;
-        $size->status = $request->status;
-        //$size->size_slug = Str::slug($request->cateName);
-        $size->save();
+        DB::beginTransaction();
+        try{
+            $size = new Size;
+            $size->size_name = $request->size_name;
+            $size->description = $request->description;
+            $size->status = $request->status;
+            $size->save();
+            DB::commit();
+            session()->flash('success', 'Created successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Created failed.');
+        }
         return back();
     }
 
@@ -41,8 +49,6 @@ class SizeController extends Controller
     public function getEditSize($id)
     {
         $data['size'] = Size::where('id', $id)->first();
-        //dd($data);
-        //return view('backend/size/edit', $data);
         return View::make('backend/size/edit')->with(['size'=>$data['size']]);
     }
 
@@ -53,11 +59,19 @@ class SizeController extends Controller
      */
     public function postEditSize(EditSizeRequest $request , $id)
     {
-        $size = Size::where('id', $id)->first();
-        $size->size_name = $request->size_name;
-        $size->description = $request->description;
-        $size->status = $request->status;
-        $size->save();
+        DB::beginTransaction();
+        try{
+            $size = Size::where('id', $id)->first();
+            $size->size_name = $request->size_name;
+            $size->description = $request->description;
+            $size->status = $request->status;
+            $size->save();
+            DB::commit();
+            session()->flash('success', 'Updated successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Updated failed.');
+        }
         return redirect()->intended('admin/size');
 
     }
@@ -67,13 +81,16 @@ class SizeController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function getDeleteSize($id){
-        Size::destroy($id);
+        DB::beginTransaction();
+        try{
+            Size::destroy($id);
+            DB::commit();
+            session()->flash('success', 'Deleted successfully.');
+        }catch (\Exception $e){
+            DB::rollBack();
+            session()->flash('failed', 'Deleted failed.');
+        }
         return back();
     }
 
-//    public function getSearchSize(Request $request){
-//        $key = $request->search;
-//        $data['sizeList'] = size::where('id', 'like', $key)->orWhere('size_name', 'like', $key)->get();
-//        return  $data;
-//    }
 }
