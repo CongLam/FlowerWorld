@@ -21,7 +21,7 @@ class TopicController extends Controller
      */
     public function getTopic()
     {
-        $data['topicList'] = Topic::paginate(10);
+        $data['topicList'] = Topic::paginate(7);
         return view('backend/topic/topic', $data)->with('i', $i=1);
     }
 

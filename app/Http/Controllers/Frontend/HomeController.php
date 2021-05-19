@@ -107,7 +107,7 @@ class HomeController extends Controller
                 'products.*',
                 'topics.*'
             )
-            ->paginate(8);
+            ->paginate(12);
         }else{
             $products = DB::table('products')->join('topics','products.topic_id','=','topics.id')
                 ->select(
@@ -116,11 +116,10 @@ class HomeController extends Controller
                     'topics.*'
                 )
                 ->where('product_name', 'LIKE', '%' . $request->keyword . '%')
-                ->paginate(8);
-//            dd($products);
+                ->paginate(12);
         }
 
-        $specialProduct = Product::where('featured',1)->paginate(10);
+        $specialProduct = Product::where('featured',1)->paginate(3);
 
         $topicList= Topic::all();
 

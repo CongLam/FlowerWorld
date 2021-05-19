@@ -17,7 +17,7 @@ class ColorController extends Controller
      */
     public function getcolor()
     {
-        $data['colorList'] = Color::paginate(10);
+        $data['colorList'] = Color::paginate(7);
         return view('backend/color/color', $data)->with('i', $i=1);
     }
 

@@ -19,7 +19,7 @@
                                <h3 class="sp_module_title sp_module_title_rv"><span>Latest Posts</span></h3>
                                @foreach($latest as $lat)
                                    <div class="single_l_post">
-                                       <a href="#">{{$lat->title}}</a>
+                                       <a href="{{ asset('detail/'.$lat->blog_id) }}">{{$lat->title}}</a>
                                        <p>{{($lat->created_at)}}</p>
                                    </div>
                                @endforeach

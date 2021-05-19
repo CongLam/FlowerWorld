@@ -23,7 +23,7 @@ class ShopController extends Controller
 
         $colorList = Color::all();
 
-        $specialProduct = Product::where('featured',1)->paginate(10);
+        $specialProduct = Product::where('featured',1)->paginate(4);
 
         return view('frontend/shop')->with('products', $products)
             ->with('topicList', $topicList)
@@ -53,7 +53,7 @@ class ShopController extends Controller
 
         $colorList = Color::all();
 
-        $specialProduct = Product::where('featured',1)->paginate(10);
+        $specialProduct = Product::where('featured',1)->paginate(4);
 
         return view('frontend/shop')->with('products', $products)
             ->with('topicList', $topicList)
@@ -81,7 +81,7 @@ class ShopController extends Controller
 
         $colorList = Color::all();
 
-        $specialProduct = Product::where('featured',1)->paginate(10);
+        $specialProduct = Product::where('featured',1)->paginate(4);
 
         return view('frontend/shop')->with('products', $products)
             ->with('topicList', $topicList)

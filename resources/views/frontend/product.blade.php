@@ -180,9 +180,7 @@
                             @endif
                             <div class="add-to-cart">
                                 <input type="text" required title="qty" value="1" class="qty"/>
-                                {{--<button type="button" title="Add to Cart" class="cart_button"
-                                        onclick="location.href = '{{asset('cart/add/'.$product->id)}}';"><span>Add to Cart</span>
-                                </button>--}}
+
                                 @if($product->qty !=0)
                                     <button type="submit" title="Add to Cart" class="cart_button"><span>Add To Cart</span></button>
                                 @else
@@ -227,7 +225,6 @@
                                                             class="Motorola_cl">{{\App\User::select('name')->where('id', $comment->customer_id)->first()->name}}</span>
                                                     </li>
                                                     <li><span>Quality</span>
-{{--                                                        {{dd()}}--}}
                                                         @if($comment->star_rate == 1)
                                                             <i class="fa fa-star"></i>
                                                         @elseif($comment->star_rate == 2)

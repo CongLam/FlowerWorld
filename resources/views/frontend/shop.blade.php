@@ -10,7 +10,7 @@
 							<ul id="breadcrumbs">
 								<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
 								<li><span>Ι</span></li>
-								<li>Clothings</li>
+								<li>Flowers</li>
 							</ul>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 								</ul>
 							</div>
 						</div>
-						<div class="popular_tag_area">
+						{{--<div class="popular_tag_area">
 							<div class="popular_items">
 								<h2>POPULAR TAGS</h2>
 								<ul id="single_popular">
@@ -70,7 +70,7 @@
 									<li><a href="#">Magnolia</a></li>
 								</ul>
 							</div>
-						</div>
+						</div>--}}
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div class="popular_tag_area">
@@ -151,7 +151,7 @@
 								<li class="active"><a data-toggle="tab" href="#tab1"><span><i class="fa fa-th"></i></span></a></li>
 								<li><a data-toggle="tab" href="#tab2"><span><i class="fa fa-th-list"></i></span></a></li>
 							</ul>
-							<div class="limiter">
+							{{--<div class="limiter">
 								<label>Show</label>
 								<select>
 									<option value="">9</option>
@@ -159,8 +159,8 @@
 									<option value="">24</option>
 									<option value="">36</option>
 								</select> per page
-							</div>
-							<div class="sort-by">
+							</div>--}}
+							{{--<div class="sort-by">
 								<label>Sort By</label>
 								<select>
 									<option value="" selected="selected">Position</option>
@@ -168,7 +168,7 @@
 									<option value="">Price</option>
 								</select>
 								<a href=""><i class="fa fa-long-arrow-up"></i></a>
-							</div>
+							</div>--}}
 							<div class="tab-content tab_content_style">
 								<div id="tab1" class="tab-pane fade in active">
 									<div class="row">
@@ -203,7 +203,7 @@
                                                                 <div class="cart_details">
 {{--                                                                    <a href="{{ asset('cart/add/'.$product->product_id)}}" target="blank">Add to cart</a>--}}
                                                                     @if($product->qty !=0)
-                                                                        <a href="{{ asset('cart/add/'.$product->product_id)}}" target="blank">Add to cart</a>
+                                                                        <a href="{{asset('product_detail/'.$product->product_id)}}" target="blank">Add to cart</a>
                                                                     @else
                                                                         <a target="blank" style="background: grey">Out Of Stock</a>
                                                                     @endif
@@ -287,7 +287,7 @@
 													<div class="cart_blog_details">
 {{--														<a href="{{ asset('cart/add/'.$product->product_id)}}" target="blank">Add to cart</a>--}}
                                                         @if($product->qty !=0)
-                                                            <a href="{{ asset('cart/add/'.$product->product_id)}}" target="blank">Add to cart</a>
+                                                            <a href="{{asset('product_detail/'.$product->product_id)}}" target="blank">Add to cart</a>
                                                         @else
                                                             <a target="blank" style="background: grey">Out Of Stock</a>
                                                         @endif

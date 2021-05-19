@@ -61,6 +61,7 @@ class BlogController extends Controller
             $file->move('storage/blog_thumbnail', $file->getClientOriginalName());
             DB::commit();
             session()->flash('success', 'Created successfully.');
+//            dd($blog);
         }catch (\Exception $e){
             DB::rollBack();
             session()->flash('failed', 'Created failed.');
@@ -84,8 +85,10 @@ class BlogController extends Controller
 
 
     public function postEditBlog($id, EditBlogRequest $request){
+
         DB::beginTransaction();
         try{
+
             $blog = Blog::where('id', $id)->first();
 
             $blog->title = $request->title;
@@ -102,10 +105,14 @@ class BlogController extends Controller
                 $file->move('storage/blog_thumbnail', $file->getClientOriginalName());
             }
             $blog->save();
+//            dd($blog);
+
             DB::commit();
             session()->flash('success', 'Updated successfully.');
+//            dd(11);
         }catch (\Exception $e){
             DB::rollBack();
+            dd($e);
             session()->flash('failed', 'Updated failed.');
         }
         return redirect('admin/blog');

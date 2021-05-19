@@ -53,7 +53,7 @@
                                         <tr>
                                             <td>{{$i++}}</td>
                                             <td> {{$product->product_name}}</td>
-                                            <td>{{$product->price}}$</td>
+                                            <td>${{$product->price}}</td>
                                             <td>{{$product->qty}}</td>
                                             <td>
                                                 <img width="200px" src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}" class="thumbnail">
