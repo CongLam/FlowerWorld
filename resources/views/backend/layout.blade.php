@@ -54,7 +54,7 @@
                     <div class="sb-sidenav-menu-heading">Manager</div>
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
-                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-atom"></i></div>
                         Product Manager
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
@@ -71,7 +71,7 @@
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2"
                        aria-expanded="false" aria-controls="collapseLayouts2">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
                         Blog Manager
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
@@ -85,7 +85,7 @@
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5"
                        aria-expanded="false" aria-controls="collapseLayouts5">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                         Statistics and Promotions
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
@@ -101,7 +101,7 @@
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3"
                        aria-expanded="false" aria-controls="collapseLayouts3">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         Customer Manager
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
@@ -114,7 +114,7 @@
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4"
                        aria-expanded="false" aria-controls="collapseLayouts4">
-                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
                         Admin Manager
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>

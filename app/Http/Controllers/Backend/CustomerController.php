@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EditInforUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -44,14 +45,14 @@ class CustomerController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postEditCustomer(Request $request , $id)
+    public function postEditCustomer(EditInforUserRequest $request , $id)
     {
         DB::beginTransaction();
         try{
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
-            $address = $request->address_admin;
+            $address = $request->address;
             $gender = $request->gender;
             $birthday = $request->birthday;
             $status = $request->status;

@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Frontend'], function () {
         Route::get('/', 'LoginCustomerController@getLogin');
         Route::post('/', 'LoginCustomerController@postLogin');
     });
+    Route::get('logout_customer', 'LoginCustomerController@getLogout');
 
     //register
     Route::group(['prefix' => 'register_customer'/*, 'middleware' => 'CheckLogedIn'*/], function () {
@@ -32,7 +33,7 @@ Route::group(['namespace' => 'Frontend'], function () {
     //logout
     Route::get('logout', 'HomeController@getLogout');
 
-    Route::get('/', 'HomeController@getHome');
+    Route::get('/', 'HomeController@getHome')->name('/');
 
    //detail product
     Route::get('product_detail/{id}', 'HomeController@getProduct');
@@ -228,6 +229,8 @@ Route::group(['namespace' => 'Backend'], function () {
             Route::post('edit/{id}', 'BlogController@postEditBlog');
 
             Route::get('delete/{id}', 'BlogController@getDeleteBlog');
+
+            Route::get('/search', 'BlogController@search')->name('seach_blog_backend');
         });
 
         Route::group(['prefix' => 'coupon'], function () {

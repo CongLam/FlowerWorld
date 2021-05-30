@@ -28,8 +28,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Blog Thumbnail: </label>
-                                    <input required id="img" type="file" name="blog_thumbnail" class="form-control hidden"
-                                           onchange="previewFile(this)" value="{{$blog->thumbnail}}">
+                                    <input id="img" type="file" name="blog_thumbnail" class="form-control hidden"
+                                           onchange="loadFile(event)" value="{{$blog->thumbnail}}">
                                     <img id="previewImg" class="blog_thumbnail" width="300px" src="{{ asset('storage/blog_thumbnail/'.$blog->thumbnail) }}">
                                 </div>
                                 <div class="form-group">
@@ -81,5 +81,15 @@
             </div>
         </div>
     </div><!--/.row-->
+
+    <script>
+        var loadFile = function(event) {
+            var output = document.getElementById('previewImg');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+    </script>
 
 @endsection

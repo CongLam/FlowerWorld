@@ -23,7 +23,9 @@ class LoginCustomerController extends Controller
         }
 
         if(Auth::attempt($arr, $remember)){
-            return redirect()->intended('/');
+//            dd(1);
+            return redirect()->guest(route('/'));
+//            return redirect()->intended('/');
         }
         else{
             return back()->withInput()->with('error', 'Email or password incorrect!');
@@ -32,7 +34,7 @@ class LoginCustomerController extends Controller
     }
 
     public function getLogout(){
-//        Auth::logout();
+        Auth::logout();
 //        return redirect()->intended('/');
 
         if (Auth::guest()) {

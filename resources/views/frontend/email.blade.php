@@ -17,7 +17,7 @@
         </p>
         <p>
             <span class="info">Address: </span>
-            {{ $info['city'] }}
+            {{ $info['city'] /*- $info['street']*/ }}
         </p>
     </div>
     <div id="hoa-don">
@@ -32,11 +32,13 @@
                                     <thead>
                                     <tr class="bg-primary">
                                         <th width="10%">Product Id</th>
-                                        <th width="20%">Product Name</th>
-                                        <th width="15%" >Price</th>
+                                        <th width="15%">Product Name</th>
+                                        <th width="10%" >Price</th>
                                         <th width="10%">Quantity</th>
+                                        <th width="10%">Color</th>
+                                        <th width="10%">Size</th>
                                         <th width="15%">Total Price</th>
-                                        <th width="30 %">Address</th>
+                                        <th width="20 %">Address</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -46,6 +48,8 @@
                                             <td style="text-align: center">{{$detail->product_name}}</td>
                                             <td style="text-align: center">${{$detail->amount / $detail->qty}}</td>
                                             <td style="text-align: center">{{$detail->qty}}</td>
+                                            <td style="text-align: center"> {{$detail->color}}</td>
+                                            <td style="text-align: center">{{$detail->size}}</td>
                                             <td style="text-align: center">${{$detail->amount}}</td>
                                             <td style="text-align: center">{{$detail->address}}</td>
                                         </tr>

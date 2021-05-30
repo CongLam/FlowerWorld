@@ -56,6 +56,8 @@
                                     <th width="20%">Product Name</th>
                                     <th width="15%" >Price</th>
                                     <th width="10%">Quantity</th>
+                                    <th width="10%">Color</th>
+                                    <th width="10%">Size</th>
                                     <th width="15%">Total Price</th>
                                     <th width="30 %">Address</th>
                                 </tr>
@@ -67,6 +69,8 @@
                                         <td>{{$detail->product_name}}</td>
                                         <td>${{$detail->amount / $detail->qty}}</td>
                                         <td>{{$detail->qty}}</td>
+                                        <td>{{$detail->color}}</td>
+                                        <td>{{$detail->size}}</td>
                                         <td>${{$detail->amount}}</td>
                                         <td>{{$detail->address}}</td>
                                     </tr>

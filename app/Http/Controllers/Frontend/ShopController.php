@@ -71,11 +71,10 @@ class ShopController extends Controller
                 'products.*',
                 'topics.*'
             )
-//            ->where('products.price', '>=', $minPrice)
-//            ->orWhere('products.price', '<=', $maxPrice)
+
             ->whereBetween('products.price', [$minPrice, $maxPrice])
+            ->orWhereBetween('products.sale_price', [$minPrice, $maxPrice])
             ->paginate(12);
-//        dd($products);
 
         $topicList= Topic::all();
 

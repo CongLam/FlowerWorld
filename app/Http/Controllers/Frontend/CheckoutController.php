@@ -37,12 +37,10 @@ class CheckoutController extends Controller
             //update product qty
             foreach ($data['cart'] as $item) {
                 $product = Product::where('id', $item->id)->first();
-//                dump($product);
 
                 $product->qty = ($product->qty) - ($item->qty);
 
                 $product->save();
-//                dump($product);
             }
 
             //insert data transaction table
@@ -60,12 +58,13 @@ class CheckoutController extends Controller
             //insert data order table
             foreach ($data['cart'] as $item) {
                 $product = Product::where('id', $item->id)->first();
-
                 $order = new Order();
                 $order->transaction_id = $transaction->id;
                 $order->product_id = $item->id;
                 $order->product_name = $item->name;
                 $order->qty = $item->qty;
+                $order->color = $item->options->color;
+                $order->size = $item->options->size;
                 $order->amount = $item->qty * $item->price;
 
                 $order->save();
@@ -95,16 +94,13 @@ class CheckoutController extends Controller
             });
 
             Cart::destroy();
-//            dump('end');
             DB::commit();
         } catch (\Exception $e){
-            dump($e);
             DB::rollBack();
 
-            throw new \Exception($e->getMessage());
+//            throw new \Exception($e->getMessage());
         }
 
-//        dd(111);
         return redirect('complete');
     }
 

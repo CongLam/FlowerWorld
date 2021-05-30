@@ -123,7 +123,7 @@
                                 </p>
 
                             @endif
-                            <p class="blog_texts">{{$product->title}}}</p>
+                            <p class="blog_texts">{{$product->title}}</p>
                         </div>
                         <div class="product_blog_button">
                             <div class="cart_blog_details blog_icon_border">
@@ -137,6 +137,11 @@
                             </div>
                         </div>
                     </div>
+                    @if(session('error_qty'))
+                        <div class="alert alert-danger" style="margin-top: 20px">
+                            {{ session()->get('error_qty') }}
+                        </div>
+                    @endif
                     <form method="get" action="{{route('add_to_cart', ['id'=>$product->id])}}"  enctype="multipart/form-data">
                         <div class="product_options_area">
                         <div class="product_options_selection">
@@ -179,7 +184,7 @@
                                 </p>
                             @endif
                             <div class="add-to-cart">
-                                <input type="text" required title="qty" value="1" class="qty"/>
+                                <input type="text" required title="qty" name="quantity" value="1" class="qty" maxlength="2" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"/>
 
                                 @if($product->qty !=0)
                                     <button type="submit" title="Add to Cart" class="cart_button"><span>Add To Cart</span></button>

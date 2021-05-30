@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group focused">
                             <label class="form-control-label" for="input-address">Address</label>
-                            <input type="text" id="input-address" name="address_admin"
+                            <input type="text" id="input-address" name="address"
                                    class="form-control form-control-alternative"
                                    placeholder="Address" required
                                    value="{{ !empty($admin->address) ? $admin->address : null  }}">

@@ -58,7 +58,7 @@
                 <!--Start Search area -->
                 <form action="{{route('shop')}}" name="myForm">
                     <div class="search_box">
-                        <input name="keyword" id="itp" class="input_text" type="text" value="Search"/>
+                        <input name="keyword" id="itp" class="input_text" type="text" placeholder="Search"/>
                         <button type="submit" class="btn-search">
                             <span><i class="fa fa-search"></i></span>
                         </button>
@@ -82,40 +82,76 @@
                         <li>
                             @if(isset(Auth::user()->id))
                                 <a href="/"><i class="fa fa-key"></i>{{Auth::user()->name}}</a>
+
+                                <div class="account_menu_list">
+                                    <div class="account_single_item">
+                                        <h2>Currency</h2>
+                                        <ul id="account_single_nav_1">
+                                            <li><a href="#">Euro</a></li>
+                                            <li><a href="#">US Dollor</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="account_single_item">
+                                        <h2>Language</h2>
+                                        <ul id="account_single_nav_2">
+                                            <li><a href="#">English</a></li>
+                                            <li><a href="#">France</a></li>
+                                            <li><a href="#">Germany</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="account_single_item">
+                                        <h2>Setting</h2>
+                                        <ul id="account_single_nav_3">
+                                            <li><a href="{{asset('my_account')}}">My Account</a></li>
+                                            <li><a href="/">My Wishlist</a></li>
+                                            <li><a href="{{asset('cart')}}">My Cart</a></li>
+                                            <li><a href="{{asset('checkout')}}">Checkout</a></li>
+                                            <li><a href="{{asset('logout_customer')}}">Log out</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             @else
-                                <a href="/"><i class="fa fa-key"></i>Account</a>
+                                <a ><i class="fa fa-key"></i>Login or Register</a>
+
+                                <div class="account_menu_list">
+                                    <div class="account_single_item">
+                                        <h2>Currency</h2>
+                                        <ul id="account_single_nav_1">
+                                            <li><a href="#">Euro</a></li>
+                                            <li><a href="#">US Dollor</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="account_single_item">
+                                        <h2>Language</h2>
+                                        <ul id="account_single_nav_2">
+                                            <li><a href="#">English</a></li>
+                                            <li><a href="#">France</a></li>
+                                            <li><a href="#">Germany</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="account_single_item">
+                                        <h2>Setting</h2>
+                                        <ul id="account_single_nav_3">
+                                            <li><a href="{{asset('my_account')}}">My Account</a></li>
+                                            <li><a href="/">My Wishlist</a></li>
+                                            <li><a href="{{asset('cart')}}">My Cart</a></li>
+                                            <li><a href="{{asset('checkout')}}">Checkout</a></li>
+                                            <li><a href="{{asset('login_customer')}}">Log in</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             @endif
-                            <div class="account_menu_list">
-                                <div class="account_single_item">
-                                    <h2>Currency</h2>
-                                    <ul id="account_single_nav_1">
-                                        <li><a href="#">Euro</a></li>
-                                        <li><a href="#">US Dollor</a></li>
-                                    </ul>
-                                </div>
-                                <div class="account_single_item">
-                                    <h2>Language</h2>
-                                    <ul id="account_single_nav_2">
-                                        <li><a href="#">English</a></li>
-                                        <li><a href="#">France</a></li>
-                                        <li><a href="#">Germany</a></li>
-                                    </ul>
-                                </div>
-                                <div class="account_single_item">
-                                    <h2>Setting</h2>
-                                    <ul id="account_single_nav_3">
-                                        <li><a href="{{asset('my_account')}}">My Account</a></li>
-                                        <li><a href="/">My Wishlist</a></li>
-                                        <li><a href="{{asset('cart')}}">My Cart</a></li>
-                                        <li><a href="{{asset('checkout')}}">Checkout</a></li>
-                                        <li><a href="{{asset('login_customer')}}">Log In</a></li>
-                                        <li><a href="{{asset('login_customer')}}">Log out</a></li>
-                                    </ul>
-                                </div>
-                            </div>
                         </li>
                         <li><a href="{{asset('cart/show')}}"><i class="fa fa-shopping-cart"></i>Cart
-                                {{--<span class="cart_zero">0</span>--}}
+                                @if(Cart::content() )
+                                    @php $total = 0; @endphp
+                                    @foreach(Cart::content() as $item)
+                                        @php
+                                             $total += $item->qty;
+                                        @endphp
+                                    @endforeach
+                                @endif
+                                <span class="cart_zero">{{$total}}</span>
                             </a>
                             <div class="cart_down_area">
                                 {{--@foreach($items as $item)

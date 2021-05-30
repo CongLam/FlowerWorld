@@ -3,32 +3,39 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Color;
 use App\Models\Product;
+use App\Models\Size;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class CartController extends Controller
 {
-    public function getAddCart($id){
+    public function getAddCart($id, Request $request){
         $product =Product::find($id);
+
+        $availableQty = $product->qty;
+
+        $qty = $request->quantity;
+        $color = Color::whereId($request->select_color)->first()->color_name;
+        $size = Size::whereId($request->select_size)->first()->size_name;
+
+        if($qty > $availableQty){
+            session()->flash('error_qty', 'This product is not enough quantity!');
+            return back();
+        }
+
         Cart::add([
             'id' => $id,
             'name' => $product->product_name,
-            'qty' => 1,
+            'qty' => $qty,
             'price' => (!empty($product->sale_price) ? $product->sale_price : $product->price ),
             'options' => ['img' => $product->thumbnail,
-                          'size'=> null,
-                          'color'=>null,
+                          'size'=> $size,
+                          'color'=>$color,
                         ]
         ]);
 
-        /*if(Cart::content()->isNotEmpty()){
-            dd(Cart::content());
-        }else{
-            dd('Cart empty');
-        }*/
-//        $data = Cart::content();
-//        dd($data);
         return redirect('cart/show');
 
     }
@@ -53,34 +60,4 @@ class CartController extends Controller
         //return $cartUpdate;
     }
 
-   /* public function addTocCartAjax(Request $request){
-        $product =Product::find($request->rowId);
-        Cart::add([
-            'id' => $id,
-            'name' => $product->product_name,
-            'qty' => 1,
-            'price' => (!empty($product->sale_price) ? $product->sale_price : $product->price )]);
-    }*/
-
-
-
-   /* public function getShowCart(){
-        $items =Cart::content();
-        //$data['totalPrice'] = Cart::total();
-        //dd($items);
-
-        return view('frontend/cart')->with('items', $items);
-    }*/
-
-//     public function getDeleteCart($id){
-//         //xoa het:Cart::destroy()
-//         Cart::remove($id);
-//         return back();
-//     }
-
-
-
-//    public function getDeleteCartAjax(Request $request){
-//        Cart::remove($request->rowId);
-//    }
 }

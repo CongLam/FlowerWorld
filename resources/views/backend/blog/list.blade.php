@@ -18,7 +18,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Blog List</div>
                 <div class="panel-body">
-                    <form action="" method="get">
+                    <form action="{{ route('seach_blog_backend') }}" method="get">
                         <div class="input-group" style="margin-bottom: 30px">
                             @csrf
                             <input type="text" class="form-control" id="keyword" name="keyword"

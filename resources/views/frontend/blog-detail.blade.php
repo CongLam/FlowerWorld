@@ -105,7 +105,7 @@
                                     @csrf
                                     <div class="fieldsets">
                                         <h3>You're reviewing: <span>Lorem ipsum dolor</span></h3>
-                                        <h4>How do you rate this product?*</h4>
+                                        <h4>How do you rate this blog?*</h4>
                                         <div class="start_tab_pricing_area">
                                             <fieldset>
                                                 <table class="star_pricing_tb">
@@ -147,17 +147,17 @@
                                                 <input type="hidden" name="blog_id" value="{{$blog->blog_id}}">
                                             </ul>
                                         </div>
-                                        @if(!empty(Auth::user()->id))
+                                        {{--@if(!empty(Auth::user()->id))--}}
                                             <div class="review_button">
                                                 <button type="submit" title="Submit Review" class="button">Submit
                                                     Review
                                                 </button>
                                             </div>
-                                        @else
+                                       {{-- @else--}}
                                             <div class="review_button">
                                                 <p>Login to submit review!</p>
                                             </div>
-                                        @endif
+                                       {{-- @endif--}}
                                     </div>
                                 </form>
                             </div>

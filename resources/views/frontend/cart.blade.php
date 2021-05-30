@@ -31,24 +31,26 @@
 						<div class="shopping-cart-table">
 							<table class="cart_items">
 								<tr>
-									<th>Remove</th>
-									<th>Image</th>
-									<th>Product Name</th>
-{{--									<th>Edit</th>--}}
-									<th>Unit Price</th>
-									<th>Quantity</th>
-									<th>Subtotal</th>
+									<th width="5%">Remove</th>
+									<th width="20%">Image</th>
+									<th width="15%" style="padding: 10px 10px;">Product Name</th>
+									<th width="15%"  style="padding: 2px 2px;">Unit Price</th>
+									<th width="10%">Quantity</th>
+									<th width="10%">Size</th>
+									<th width="10%">Main Color</th>
+									<th width="15%">Subtotal</th>
 								</tr>
                                 @foreach($items as $item)
                                     <tr>
                                         <td><a href="{{asset('cart/delete/'.$item->rowId)}}"><img src="img/arrow/btn_trash.gif" alt="" /></a></td>
-                                        <td><a href="#"><img width="200px" src="{{ asset('storage/thumbnail/'.$item->options->img) }}" alt="" /></a></td>
-                                        <td><a href="#">{{$item->name}}</a></td>
-{{--                                        <td><a href="#">Edit</a></td>--}}
+                                        <td><a ><img width="100%" src="{{ asset('storage/thumbnail/'.$item->options->img) }}" alt="" /></a></td>
+                                        <td width="100%" style="padding: 10px 10px;"><a href="#">{{$item->name}}</a></td>
                                         <td>${{$item->price}}</td>
                                         <td>
                                             <input name="cart[390][qty]" value="{{$item->qty}}" size="4" title="Qty" class="input-text qty" maxlength="12" onchange="updateCart(this.value, '{{$item->rowId}}')">
                                         </td>
+                                        <td>{{$item->options->size}}</td>
+                                        <td>{{$item->options->color}}</td>
                                         <td>${{$item->qty * $item->price}}</td>
                                     </tr>
                                 @endforeach

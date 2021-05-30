@@ -30,14 +30,10 @@
                                     <label>Quantity: </label>
                                     <input required type="number" name="qty" class="form-control" value="{{$product->qty}}">
                                 </div>
-                                {{--<div class="form-group">
-                                    <label>Thumbnail: </label>
-                                    <input id="img" type="file" name="thumbnail" class="form-control hidden" onchange="changeImg(this)">
-                                </div>--}}
                                 <div class="form-group">
-                                    <label  for="thumbnail">Choose Thumbnail: ({{$product->thumbnail}}) </label>
-                                    <input required id="img" type="file" name="thumbnail" class="form-control hidden"
-                                           onchange="previewFile(this)" value="{{$product->thumbnail}}">
+                                    <label  for="thumbnail">Choose Thumbnail:  </label>
+                                    <input id="img" type="file" name="thumbnail" class="form-control hidden"
+                                           onchange="loadFile(event)" value="{{ asset('storage/thumbnail/'.$product->thumbnail) }}">
                                     <img id="previewImg" class="thumbnail" width="300px" src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}">
                                 </div>
                                 <div class="form-group">
@@ -147,5 +143,15 @@
             </div>
         </div>
     </div><!--/.row-->
+
+    <script>
+        var loadFile = function(event) {
+            var output = document.getElementById('previewImg');
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+    </script>
 
 @endsection

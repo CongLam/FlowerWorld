@@ -105,11 +105,9 @@ class BlogController extends Controller
                 $file->move('storage/blog_thumbnail', $file->getClientOriginalName());
             }
             $blog->save();
-//            dd($blog);
 
             DB::commit();
             session()->flash('success', 'Updated successfully.');
-//            dd(11);
         }catch (\Exception $e){
             DB::rollBack();
             dd($e);
@@ -129,6 +127,22 @@ class BlogController extends Controller
             session()->flash('failed', 'Deleted failed.');
         }
         return back();
+    }
+
+    public function search(Request $request){
+
+        $blogs = DB::table('blogs')
+            ->join('blog_categories','blogs.blog_category_id','=','blog_categories.id')
+            ->select(
+                'blogs.id as blog_id',
+                'blogs.*',
+                'blog_categories.*'
+            )
+            ->where('title', 'LIKE', '%' . $request->keyword . '%')
+            ->orWhere('blog_category_name', 'LIKE', '%' . $request->keyword . '%')
+            ->paginate(10);
+
+        return view('backend.blog.list')->with('blogs',$blogs)->with('i', $i=1);
     }
 
 

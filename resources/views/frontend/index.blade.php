@@ -203,15 +203,15 @@
 					<div class="col-lg-12">
 						<div class="testimonial_list">
 							<div class="testimonial_single">
-								<a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</a>
-								<p>alexmax</p>
+								<a href="#">"A garden to walk in and immensity to dream in--what more could he ask? A few flowers at his feet and above him the stars."</a>
+								<p> Victor Hugo</p>
 								<div class="author">
 									<img src="img/author/avatar.png" alt="" />
 								</div>
 							</div>
 							<div class="testimonial_single">
-								<a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</a>
-								<p>alexmax</p>
+								<a href="#">"I felt after I finished Slaughterhouse-Five that I didn’t have to write at all anymore if I didn’t want to. It was the end of some sort of career. I don’t know why, exactly. I suppose that flowers, when they’re through blooming, have some sort of awareness of some purpose having been served. Flowers didn’t ask to be flowers and I didn’t ask to be me. At the end of Slaughterhouse-Five…I had a shutting-off feeling…that I had done what I was supposed to do and everything was OK ."</a>
+								<p>Kurt Vonnegut</p>
 								<div class="author">
 									<img src="img/author/avatar.png" alt="" />
 								</div>
@@ -237,7 +237,7 @@
 						@foreach($latestBlogs as $blog)
                             <div class="col-lg-3">
                                 <div class="single_blog">
-                                    <a href="{{ asset('detail/'.$blog->blog_id) }}"><img style="width: 200px;" src="{{ asset('storage/blog_thumbnail/'.$blog->thumbnail) }}" alt="" /></a>
+                                    <a href="{{ asset('detail/'.$blog->blog_id) }}"><img  src="{{ asset('storage/blog_thumbnail/'.$blog->thumbnail) }}" alt="" /></a>
                                     <div class="blog_details">
                                         <a href="{{ asset('detail/'.$blog->blog_id) }}">{{$blog->blog_category_name}}</a>
                                         <p>{{$blog->title}}</p>
