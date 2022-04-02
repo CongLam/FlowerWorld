@@ -58,7 +58,7 @@
                 <!--Start Search area -->
                 <form action="{{route('shop')}}" name="myForm">
                     <div class="search_box">
-                        <input name="keyword" id="itp" class="input_text" type="text" placeholder="Search"/>
+                        <input name="keyword" id="itp" class="input_text" type="text" placeholder="Tìm kiếm"/>
                         <button type="submit" class="btn-search">
                             <span><i class="fa fa-search"></i></span>
                         </button>
@@ -85,14 +85,14 @@
 
                                 <div class="account_menu_list">
                                     <div class="account_single_item">
-                                        <h2>Currency</h2>
+                                        <h2>Tiền tệ</h2>
                                         <ul id="account_single_nav_1">
                                             <li><a href="#">Euro</a></li>
                                             <li><a href="#">US Dollor</a></li>
                                         </ul>
                                     </div>
                                     <div class="account_single_item">
-                                        <h2>Language</h2>
+                                        <h2>Ngôn ngữ</h2>
                                         <ul id="account_single_nav_2">
                                             <li><a href="#">English</a></li>
                                             <li><a href="#">France</a></li>
@@ -100,29 +100,29 @@
                                         </ul>
                                     </div>
                                     <div class="account_single_item">
-                                        <h2>Setting</h2>
+                                        <h2>Thiết lập</h2>
                                         <ul id="account_single_nav_3">
-                                            <li><a href="{{asset('my_account')}}">My Account</a></li>
-                                            <li><a href="/">My Wishlist</a></li>
-                                            <li><a href="{{asset('cart')}}">My Cart</a></li>
-                                            <li><a href="{{asset('checkout')}}">Checkout</a></li>
-                                            <li><a href="{{asset('logout_customer')}}">Log out</a></li>
+                                            <li><a href="{{asset('my_account')}}">Tài khoản</a></li>
+                                            {{--<li><a href="/">My Wishlist</a></li>--}}
+                                            <li><a href="{{asset('cart')}}">Giỏ hàng</a></li>
+                                            <li><a href="{{asset('checkout')}}">Thanh toán</a></li>
+                                            <li><a href="{{asset('logout_customer')}}">Đăng xuất</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             @else
-                                <a ><i class="fa fa-key"></i>Login or Register</a>
+                                <a ><i class="fa fa-key"></i>Đăng ký/Đăng nhâp</a>
 
                                 <div class="account_menu_list">
                                     <div class="account_single_item">
-                                        <h2>Currency</h2>
+                                        <h2>Tiền tệ</h2>
                                         <ul id="account_single_nav_1">
                                             <li><a href="#">Euro</a></li>
                                             <li><a href="#">US Dollor</a></li>
                                         </ul>
                                     </div>
                                     <div class="account_single_item">
-                                        <h2>Language</h2>
+                                        <h2>Ngôn ngữ</h2>
                                         <ul id="account_single_nav_2">
                                             <li><a href="#">English</a></li>
                                             <li><a href="#">France</a></li>
@@ -130,19 +130,19 @@
                                         </ul>
                                     </div>
                                     <div class="account_single_item">
-                                        <h2>Setting</h2>
+                                        <h2>Thiết lập</h2>
                                         <ul id="account_single_nav_3">
-                                            <li><a href="{{asset('my_account')}}">My Account</a></li>
-                                            <li><a href="/">My Wishlist</a></li>
-                                            <li><a href="{{asset('cart')}}">My Cart</a></li>
-                                            <li><a href="{{asset('checkout')}}">Checkout</a></li>
-                                            <li><a href="{{asset('login_customer')}}">Log in</a></li>
+                                            <li><a href="{{asset('my_account')}}">Tài khoản</a></li>
+                                            {{--<li><a href="/">My Wishlist</a></li>--}}
+                                            <li><a href="{{asset('cart')}}">Giỏ hàng</a></li>
+                                            <li><a href="{{asset('checkout')}}">Thanh toán</a></li>
+                                            <li><a href="{{asset('login_customer')}}">Đăng nhập</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             @endif
                         </li>
-                        <li><a href="{{asset('cart/show')}}"><i class="fa fa-shopping-cart"></i>Cart
+                        <li><a href="{{asset('cart/show')}}"><i class="fa fa-shopping-cart"></i>Giỏ hàng
                                 @if(Cart::content() )
                                     @php $total = 0; @endphp
                                     @foreach(Cart::content() as $item)
@@ -183,21 +183,21 @@
                 <!--Start desktop menu area -->
                 <div class="main_menu">
                     <ul id="nav_menu" class="active_cl">
-                        <li><a href="{{asset('/')}}"><span class="Home">Home</span></a>
+                        <li><a href="{{asset('/')}}"><span class="Home">Trang Chủ</span></a>
 
                         </li>
-                        <li><a href="{{asset('shop')}}"><span class="Clothings">Shop</span></a>
+                        <li><a href="{{asset('shop')}}"><span class="Clothings">Cửa Hàng</span></a>
                             <div class="home_mega_menu">
-                                <a href="{{asset('cart/show')}}">Cart</a>
-                                <a href="{{asset('checkout')}}">Checkout</a>
+                                <a href="{{asset('cart/show')}}">Giỏ Hàng</a>
+                                <a href="{{asset('checkout')}}">Thanh Toán</a>
 {{--                                <a href="{{asset('my_account')}}">My Account</a>--}}
                             </div>
                         </li>
-                        <li><a href="{{asset('blog')}}"><span class="Footwear">Blog</span></a></li>
-                        <li><a href="{{asset('contact')}}"><span class="Contact">Contact</span></a>
-                        <li><a href="{{asset('about_us')}}"><span class="About">About Us</span></a>
+                        <li><a href="{{asset('blog')}}"><span class="Footwear">Bài Viết</span></a></li>
+                        <li><a href="{{asset('contact')}}"><span class="Contact">Liên Hệ</span></a>
+                        <li><a href="{{asset('about_us')}}"><span class="About">Về Chúng Tôi</span></a>
                         </li>
-                        <li><a><span class="Accessaries">Pages</span></a>
+                        {{--<li><a><span class="Accessaries">Trang</span></a>
                             <div class="home_mega_menu">
                                 <a href="{{asset('about_us')}}">About Us</a>
                                 <a href="{{asset('contact')}}">Contact</a>
@@ -209,7 +209,7 @@
                                 <a href="{{asset('wishlist')}}">Wishlist</a>
 
                             </div>
-                        </li>
+                        </li>--}}
                     </ul>
                 </div>
                 <!--End desktop menu area -->

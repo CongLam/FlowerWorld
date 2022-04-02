@@ -26,7 +26,6 @@ class RegisterAdminRequest extends FormRequest
         return [
             'last_name'=>'required',
             'first_name'=>'required',
-//            'phone'=>'required|min:10|numeric',
             'email'=>'unique:users|email|required',
             'password' => ['required','string','min:10','regex:/[a-z]/',
 
@@ -38,7 +37,6 @@ class RegisterAdminRequest extends FormRequest
 
                 'regex:/[@$!%*#?&]/'
             ],
-//            'password' => 'required|min:6',
             're_password' => 'required|same:password',
         ];
     }

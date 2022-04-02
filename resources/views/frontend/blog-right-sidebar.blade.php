@@ -321,9 +321,9 @@
 					<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 						<div class="breadcrumb-single blog_top_area">
 							<ul id="breadcrumbs">
-								<li><a href=""><i class="fa fa-home"></i>Home</a></li>
+								<li><a href=""><i class="fa fa-home"></i>Trang chủ</a></li>
 								<li><span>Ι</span></li>
-								<li>Blog</li>
+								<li>Bài viết</li>
 							</ul>
 						</div>
 						<div class="blog_list_area">
@@ -341,7 +341,7 @@
 							<i class="fa fa-picture-o"></i>
 							<div class="blog_details_list">
 								<ul class="blog_author">
-									<li><i class="fa fa-folder-open-o"></i> <a href="">blog</a></li>
+									<li><i class="fa fa-folder-open-o"></i> <a href="">bài viết</a></li>
 									<li><i class="fa fa-user"></i> Super User</li>
 									<li><i class="fa fa-eye"></i> Hits: 256</li>
 									<li>

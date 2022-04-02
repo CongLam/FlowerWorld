@@ -123,10 +123,10 @@
             <div class="cart-collaterals-item">
                 <div class="container" style="text-align: center; text-transform: uppercase;">
                     <div class="row">
-                        <p style="text-align: center; text-transform: uppercase;"> Your shopping cart is empty!</p>
+                        <p style="text-align: center; text-transform: uppercase;"> Giỏ hàng trống!</p>
                     </div>
                     <div class="shopping_button">
-                        <button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('shop')}}';">Continue Shopping</button>
+                        <button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('shop')}}';">Tiếp tục mua sắm</button>
                     </div>
                 </div>
             </div>

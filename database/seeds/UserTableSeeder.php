@@ -14,10 +14,10 @@ class UserTableSeeder extends Seeder
         $data=[
             [
                 'name'=>'Cong',
-                'email'=>'cong@gmail.com',
+                'email'=>'admin@gmail.com',
                 'password'=>bcrypt('123'),
                 'phone'=>123456,
-                'role_id'=>1,
+                'role_id'=>0,
                 'status'=>1,
             ],
             [

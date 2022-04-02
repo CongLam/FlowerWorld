@@ -35,7 +35,7 @@ Route::group(['namespace' => 'Frontend'], function () {
 
     Route::get('/', 'HomeController@getHome')->name('/');
 
-   //detail product
+    //detail product
     Route::get('product_detail/{id}', 'HomeController@getProduct');
 
     //comment product
@@ -88,8 +88,8 @@ Route::group(['namespace' => 'Frontend'], function () {
 
 
     //blog
-    Route::get('blog','BlogController@getBlog');
-    Route::get('detail/{id}','BlogController@getDetail');
+    Route::get('blog', 'BlogController@getBlog');
+    Route::get('detail/{id}', 'BlogController@getDetail');
 
     //register
     Route::group(['prefix' => 'customer_register'/*, 'middleware' => 'CheckLogedIn'*/], function () {
@@ -98,7 +98,6 @@ Route::group(['namespace' => 'Frontend'], function () {
     });
 
 });
-
 
 
 //------------------------------Backend---------------------------------------
@@ -120,7 +119,7 @@ Route::group(['namespace' => 'Backend'], function () {
         });
 
         //admin manager
-        Route::group(['prefix' => 'admin_manager', 'middleware' =>'CheckSuperAdmin'], function () {
+        Route::group(['prefix' => 'admin_manager', 'middleware' => 'CheckSuperAdmin'], function () {
             Route::get('/', 'AdminController@getListAdmin');
             Route::get('/edit/{id}', 'AdminController@getEditAdmin');
             Route::post('/edit/{id}', 'AdminController@postEditAdmin');
@@ -194,8 +193,8 @@ Route::group(['namespace' => 'Backend'], function () {
         Route::group(['prefix' => 'transaction'], function () {
             Route::get('/', 'TransactionController@getTransaction');
             Route::get('seach_transaction_by_date', 'TransactionController@searchByDatetime')->name('transaction.seach_transaction_by_date');
-            Route::post('/export-transaction','TransactionController@exportAllTransaction' )->name('transaction.export_transaction');
-            Route::post('/export-transaction-period','TransactionController@exportTransactionPeriod' )->name('transaction.export_transaction_period');
+            Route::post('/export-transaction', 'TransactionController@exportAllTransaction')->name('transaction.export_transaction');
+            Route::post('/export-transaction-period', 'TransactionController@exportTransactionPeriod')->name('transaction.export_transaction_period');
             Route::get('/detail_order/{transaction_id}', 'TransactionController@detailOrder')->name('transaction.detail_order');
             Route::get('/export-detail-order/{transaction_id}', 'TransactionController@exportDetailOrder')->name('transaction.export_order');
         });
@@ -254,10 +253,10 @@ Route::group(['namespace' => 'Backend'], function () {
     Route::get('logout', 'HomeController@getLogout');
 
     //register
-     Route::group(['prefix' => 'register', 'middleware' => 'CheckLogedIn'], function () {
-         Route::get('/', 'RegisterController@getRegister');
-         Route::post('/', 'RegisterController@postRegister');
-     });
+    Route::group(['prefix' => 'register', 'middleware' => 'CheckLogedIn'], function () {
+        Route::get('/', 'RegisterController@getRegister');
+        Route::post('/', 'RegisterController@postRegister');
+    });
 
 });
 

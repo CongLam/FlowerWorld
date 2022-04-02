@@ -8,7 +8,7 @@
 				<div class="row">
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 						<div class="blog_right_sidebar">
-                           <h2 class="sp_module_title"><span>Newsletter</span></h2>
+                           <h2 class="sp_module_title"><span>Bản tin</span></h2>
                            <div class="sub_area">
                                <form action="#">
                                    <input type="text" placeholder="E-mail">
@@ -16,7 +16,7 @@
                                </form>
                            </div>
                            <div class="latest_posts">
-                               <h3 class="sp_module_title sp_module_title_rv"><span>Latest Posts</span></h3>
+                               <h3 class="sp_module_title sp_module_title_rv"><span>Bài viết mới</span></h3>
                                @foreach($latest as $lat)
                                    <div class="single_l_post">
                                        <a href="{{ asset('detail/'.$lat->blog_id) }}">{{$lat->title}}</a>
@@ -33,9 +33,9 @@
 					<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 						<div class="breadcrumb-single blog_top_area">
 							<ul id="breadcrumbs">
-								<li><a href=""><i class="fa fa-home"></i>Home</a></li>
+								<li><a href=""><i class="fa fa-home"></i>Trang chủ</a></li>
 								<li><span>Ι</span></li>
-								<li>Blog</li>
+								<li>Bài viết</li>
 							</ul>
 						</div>
 						<div class="blog_list_area">
@@ -57,7 +57,7 @@
                                     <ul class="blog_author">
 {{--                                        <li><i class="fa fa-folder-open-o"></i> <a href="">blog</a></li>--}}
                                         <li><i class="fa-journal-whills"></i> {{$blog->blog_category_name}}</li>
-                                        <li><i class="fa fa-eye"></i> Hits: 256</li>
+                                        <li><i class="fa fa-eye"></i> Lượt xem: 256</li>
                                         <li>
                                             <div class="star_blog">
                                                 Rating:
@@ -76,8 +76,8 @@
                                     </h2>
 
                                     <p>{{$blog->blog_short_description}}</p>
-                                    <a class="readmore_link" href="{{ asset('detail/'.$blog->blog_id) }}" title="Images">Read more ...</a>
-                                    <a class="comments_link" href="#" title="1 comment">1 comment</a>
+                                    <a class="readmore_link" href="{{ asset('detail/'.$blog->blog_id) }}" title="Images">Đọc thêm ...</a>
+                                    <a class="comments_link" href="#" title="1 comment">1 bình luận</a>
                                 </div>
                             </div>
                             <hr>
@@ -96,7 +96,7 @@
 {{--                        </div>--}}
 
                         <div class="single_blog_area">
-								<img src="img/slider-image/4.jpg" alt="" />
+{{--								<img src="img/slider-image/4.jpg" alt="" />--}}
 							</div></div>
 						{{--<div class="audio_blog_area">
 							<div class="post-format-area">

@@ -8,7 +8,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcrumb-single breadcrumb_top">
                         <ul id="breadcrumbs">
-                            <li><a href=""><i class="fa fa-home"></i>Home</a></li>
+                            <li><a href=""><i class="fa fa-home"></i>Bài viết</a></li>
                             <li><span>I</span></li>
                             <li>@foreach($topicList as $topic)
                                     @if ($product->topic_id == $topic->id)

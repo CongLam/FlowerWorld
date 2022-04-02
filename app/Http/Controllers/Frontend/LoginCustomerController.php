@@ -8,34 +8,37 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginCustomerController extends Controller
 {
-    public function getLogin(){
+    public function getLogin()
+    {
         return view('frontend.login');
     }
 
-    public function postLogin(Request $request){
-        $arr = ['email'=>$request->email, 'password'=>$request->password, 'status'=>1, 'role_id'=>[2]];
+    public function postLogin(Request $request)
+    {
+        $arr = [
+            'email' => $request->email,
+            'password' => $request->password,
+            'status' => 1,
+            'role_id' => [2]
+        ];
 
-        if($request->rememberPasswordCheck == 'Remember password'){
+        if (!empty($request->rememberPasswordCheck)) {
             $remember = true;
-        }
-        else{
+        } else {
             $remember = false;
         }
 
-        if(Auth::attempt($arr, $remember)){
-//            dd(1);
+        if (Auth::attempt($arr, $remember)) {
             return redirect()->guest(route('/'));
-//            return redirect()->intended('/');
-        }
-        else{
-            return back()->withInput()->with('error', 'Email or password incorrect!');
+        } else {
+            return back()->withInput()->with('error', 'Email hoặc mật khẩu của bạn không chính xác!');
         }
 
     }
 
-    public function getLogout(){
+    public function getLogout()
+    {
         Auth::logout();
-//        return redirect()->intended('/');
 
         if (Auth::guest()) {
             return redirect()->guest('/');

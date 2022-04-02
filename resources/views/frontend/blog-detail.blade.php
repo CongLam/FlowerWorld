@@ -9,11 +9,11 @@
 					<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
 						<div class="breadcrumb-single blog_top_area">
 							<ul id="breadcrumbs">
-								<li><a href=""><i class="fa fa-home"></i>Home</a></li>
+								<li><a href=""><i class="fa fa-home"></i>Trang chủ</a></li>
 								<li><span>Ι</span></li>
-								<li>Blog</li>
+								<li>Bài viết</li>
 								<li><span>Ι</span></li>
-								<li>Images</li>
+								<li>Ảnh</li>
 							</ul>
 						</div>
 						<div class="blog_list_area">

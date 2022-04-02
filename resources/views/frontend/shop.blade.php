@@ -8,9 +8,9 @@
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="breadcrumb-single">
 							<ul id="breadcrumbs">
-								<li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+								<li><a href="#"><i class="fa fa-home"></i>Trang chủ</a></li>
 								<li><span>Ι</span></li>
-								<li>Flowers</li>
+								<li>Laptop</li>
 							</ul>
 						</div>
 					</div>
@@ -25,7 +25,7 @@
 					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 						<div class="catagory_price_color">
 							<div class="catagory_area">
-								<h2>TOPIC</h2>
+								<h2>Danh Mục</h2>
 								<ul class="catagory">
                                     @foreach($topicList as $topic)
                                         <li><a href="{{asset('topic/'.$topic->id)}}"><i class="fa fa-angle-right"></i>{{$topic->topic_name}}</a> <span></span></li>
@@ -33,22 +33,22 @@
 								</ul>
 							</div>
 							<div class="priceing_area">
-								<h2>Price</h2>
+								<h2>Tìm Theo Giá</h2>
 								<div class="info_widget">
 									<div class="price_filter">
 										<div id="slider-range"></div>
                                         <form method="post" action="{{ route('shop.search_by_price') }}">
                                             @csrf
                                             <div class="search_price">
-                                                <input type="text" id="amount" name="min_price" required placeholder="Min Price" style="margin-bottom: 20px"/>
-                                                <input type="text" id="amount" name="max_price" required placeholder="Max Price" style="margin-bottom: 20px"/>
-                                                <input type="submit" id="search_with_price"  value="Search"/>
+                                                <input type="text" id="amount" name="min_price" required placeholder="Giá từ" style="margin-bottom: 20px"/>
+                                                <input type="text" id="amount" name="max_price" required placeholder="Giá đến" style="margin-bottom: 20px"/>
+                                                <input type="submit" id="search_with_price"  value="Tìm kiếm"/>
                                             </div>
                                         </form>
 									</div>
 								</div>
 							</div>
-							<div class="catagory_area">
+							{{--<div class="catagory_area">
 								<h2>COLOR</h2>
 								<ul class="catagory">
                                     @foreach($colorList as $color)
@@ -56,7 +56,7 @@
                                     @endforeach
 
 								</ul>
-							</div>
+							</div>--}}
 						</div>
 						{{--<div class="popular_tag_area">
 							<div class="popular_items">
@@ -75,7 +75,7 @@
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div class="popular_tag_area">
 									<div class="popular_items">
-										<h2>Highlights</h2>
+										<h2>Nổi bật</h2>
 									</div>
 								</div>
 								<div class="clothing_carousel_list">
