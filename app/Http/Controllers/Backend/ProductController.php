@@ -62,12 +62,10 @@ class ProductController extends Controller
 
             $product->save();
 
-            //        $request->thumbnail->storeAs('thumbnail', $filename);
-
             $file = $request->thumbnail;
             $file->move('storage/thumbnail', $file->getClientOriginalName());
 
-            //insert product product_color
+            /*//insert product product_color
             $colors = [];
             foreach (array_keys($request->color) as $color) {
                 $colors[] = [
@@ -85,10 +83,11 @@ class ProductController extends Controller
                     'size_id' => $size,
                 ];
             }
-            ProductSize::insert($sizes);
+            ProductSize::insert($sizes);*/
             DB::commit();
             session()->flash('success', 'Created successfully.');
         }catch(\Exception $e){
+            dd($e);
             DB::rollBack();
             session()->flash('failed', 'Created failed.');
         }
@@ -132,13 +131,13 @@ class ProductController extends Controller
             $product->status =  $request->status;
             $product->topic_id =  $request->topic;
 
-            //sync product color table
+            /*//sync product color table
             $colors = $request['color'];
             $product->color()->sync($colors);
 
             //sync product size table
             $sizes = $request['size'];
-            $product->size()->sync($sizes);
+            $product->size()->sync($sizes);*/
 
             if($request->hasFile('thumbnail')){
 

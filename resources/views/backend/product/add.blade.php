@@ -4,14 +4,14 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Product</h1>
+            <h1 class="page-header">Quản Lý Sản Phẩm</h1>
         </div>
     </div><!--/.row-->
 
     <div class="row center align-content-center">
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
-                <div class="panel-heading">Add Product</div>
+                <div class="panel-heading">Thêm Sản Phẩm</div>
                 <div class="panel-body">
                     <form method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -19,52 +19,52 @@
                         <div class="row" style="margin-bottom:40px">
                             <div class="col-xs-8">
                                 <div class="form-group">
-                                    <label>Product Name: </label>
+                                    <label>Tên SP: </label>
                                     <input required type="text" name="product_name" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Price: </label>
+                                    <label>Giá: </label>
                                     <input required type="number" name="price" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Quantity: </label>
+                                    <label>Số lượng: </label>
                                     <input required type="number" name="qty" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Thumbnail: </label>
+                                    <label>Ảnh: </label>
                                     <input required id="img" type="file" name="thumbnail" class="form-control hidden"
                                            onchange="previewFile(this)">
                                     <img id="previewImg" class="thumbnail" width="300px" src="img/new_seo-10-512.png">
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Accessories: </label>
+                                    <label>Phụ kiện: </label>
                                     <input required type="text" name="accessories" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Discount: </label>
+                                    <label>Khuyến mại: </label>
                                     <input required type="text" name="sale" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Title: </label>
+                                    <label>Tiêu đề: </label>
                                     <input required type="text" name="title" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Status: </label>
+                                    <label>Trạng thái: </label>
                                     <div class="status" >
-                                        <input type="radio" id="enable" name="status" value="1" checked><label for="enable">Enable</label><br>
-                                        <input type="radio" id="disable" name="status" value="0"><label for="disable">Disable</label><br>
+                                        <input type="radio" id="enable" name="status" value="1" checked><label for="enable">Bật</label><br>
+                                        <input type="radio" id="disable" name="status" value="0"><label for="disable">Tắt</label><br>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Topic: </label>
+                                    <label>Danh mục: </label>
                                     <select required name="topic" class="form-control">
                                         @foreach($topics as $topic)
                                             <option value="{{ $topic->id }}">{{ $topic->topic_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group">
+                                {{--<div class="form-group">
                                     <label>Size: </label>
                                     @foreach($sizes as $size)
                                         <div class="form-check form-check-inline" >
@@ -72,8 +72,8 @@
                                             <label class="form-check-label" for="inlineCheckbox1">{{$size->size_name }}</label>
                                         </div>
                                     @endforeach
-                                </div>
-                                <div class="form-group">
+                                </div>--}}
+                                {{--<div class="form-group">
                                     <label>Color: </label>
                                     @foreach($colors as $color)
                                         <div class="form-check form-check-inline" >
@@ -82,16 +82,16 @@
                                         </div>
                                     @endforeach
 
-                                </div>
+                                </div>--}}
                                 <div class="form-group">
-                                    <label>Featured Product:  </label>
+                                    <label>Sản phẩm nổi bật:  </label>
                                     <div class="status" >
-                                        <input type="radio" id="enable" name="featured" value="1" checked><label for="enable">Yes</label><br>
-                                        <input type="radio" id="disable" name="featured" value="0"><label for="disable">No</label><br>
+                                        <input type="radio" id="enable" name="featured" value="1" checked><label for="enable">Bật</label><br>
+                                        <input type="radio" id="disable" name="featured" value="0"><label for="disable">Tắt</label><br>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Description: </label>
+                                    <label>Mô tả: </label>
                                     <textarea class="ckeditor" required name="desc"></textarea>
                                     <script type="text/javascript">
                                         var editor = CKEDITOR.replace('desc', {
@@ -104,10 +104,10 @@
                                     </script>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Add product" onclick="return confirm('Do you want to add new product?')">
+                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Thêm SP" onclick="return confirm('Bạn có chắc chắn thêm sản phẩm này?')">
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ asset('admin/product') }}" class="form-control btn btn-danger">Cancel</a>
+                                    <a href="{{ asset('admin/product') }}" class="form-control btn btn-danger">Hủy bỏ</a>
                                 </div>
                             </div>
                         </div>

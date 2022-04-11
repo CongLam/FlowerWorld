@@ -34,23 +34,23 @@
                                                 <input class="form-control py-4" id="inputEmailAddress" name="email" type="email" value="{{old('email')}}" placeholder="Enter email address" />
                                             </div>
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputPassword">Password</label>
+                                                <label class="small mb-1" for="inputPassword">Mật khẩu</label>
                                                 <input class="form-control py-4" id="inputPassword" name="password" type="password" placeholder="Enter password" />
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox">
                                                     <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                    <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
+                                                    <label class="custom-control-label" for="rememberPasswordCheck">Nhớ tài khoản</label>
                                                 </div>
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
+                                                <a class="small" href="password.html">Quên mật khẩu?</a>
                                                 <input class="btn btn-primary" name="submit" type="submit" value="Login">
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="{{asset('register')}}">Need an account? Sign up!</a></div>
+                                        <div class="small"><a href="{{asset('register')}}">Đăng ký</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">FLOWERS WORLD</div>
+                            <div class="text-muted">MINHANH SHOP</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

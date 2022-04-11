@@ -19,7 +19,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Tạo tài khoản</h3></div>
                                     <div class="card-body">
                                         <form method="POST">
                                             @csrf
@@ -27,43 +27,43 @@
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputFirstName">First Name</label>
-                                                        <input required name="first_name" class="form-control py-4" id="inputFirstName" value="{{old('first_name')}}" type="text" placeholder="Enter first name" />
+                                                        <label class="small mb-1" for="inputFirstName">Họ</label>
+                                                        <input required name="first_name" class="form-control py-4" id="inputFirstName" value="{{old('first_name')}}" type="text" placeholder="Nhập họ" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputLastName">Last Name</label>
-                                                        <input required name="last_name" class="form-control py-4" id="inputLastName" value="{{old('last_name')}}" type="text" placeholder="Enter last name" />
+                                                        <label class="small mb-1" for="inputLastName">Tên</label>
+                                                        <input required name="last_name" class="form-control py-4" id="inputLastName" value="{{old('last_name')}}" type="text" placeholder="Nhập tên" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input required name="email" class="form-control py-4" id="inputEmailAddress" type="email" value="{{old('email')}}" aria-describedby="emailHelp" placeholder="Enter email address" />
+                                                <input required name="email" class="form-control py-4" id="inputEmailAddress" type="email" value="{{old('email')}}" aria-describedby="emailHelp" placeholder="Nhập email" />
                                             </div>
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputPassword">Password</label>
-                                                        <input name="password" required class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
+                                                        <label class="small mb-1" for="inputPassword">Mật khẩu</label>
+                                                        <input name="password" required class="form-control py-4" id="inputPassword" type="password" placeholder="Nhập mật khẩu" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="small mb-1" for="inputConfirmPassword">Confirm Password</label>
-                                                        <input name="re_password" required class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Confirm password" />
+                                                        <label class="small mb-1" for="inputConfirmPassword">Xác nhận mật khẩu</label>
+                                                        <input name="re_password" required class="form-control py-4" id="inputConfirmPassword" type="password" placeholder="Xác nhận mật khẩu" />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group mt-4 mb-0">
 {{--                                                <a class="btn btn-primary btn-block" type="submit" href="{{asset('register')}}">Create Account</a>--}}
-                                                <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Create Account" onclick="return confirm('Confirm create account?')">
+                                                <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Tạo tài khoản" onclick="return confirm('Xác nhận tạo tài khoản?')">
                                             </div>
                                         </form>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <div class="small"><a href="{{asset('login')}}">Have an account? Go to login</a></div>
+                                        <div class="small"><a href="{{asset('login')}}">Bạn đã có tài khoản? Đăng nhập ngay!</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">MINHANHSHOP 2022</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

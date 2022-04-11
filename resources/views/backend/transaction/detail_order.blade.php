@@ -5,9 +5,9 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Detail Order</h1>
-            <h3>Order ID: {{$detailOrder->first()->transaction_id}} </h3>
-            <h6>Order Date: {{$detailOrder->first()->created_at}}</h6>
+            <h1 class="page-header">Chi tiết đơn hàng</h1>
+            <h3>Mã đơn hàng: {{$detailOrder->first()->transaction_id}} </h3>
+            <h6>Ngày đặt: {{$detailOrder->first()->created_at}}</h6>
         </div>
     </div><!--/.row-->
 
@@ -17,15 +17,15 @@
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">Customer Information</h2>
+                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">Thông tin khách hàng</h2>
                             <table class="table table-bordered" style="margin-top:20px;">
                                 <thead>
                                 <tr class="bg-primary">
-                                    <th  width="10%">Customer Id</th>
-                                    <th width="20%">Customer Name</th>
+                                    <th  width="10%">Mã khách hàng</th>
+                                    <th width="20%">Tên khách hàng</th>
                                     <th width="20%">Email</th>
-                                    <th width="20%" >Phone</th>
-                                    <th width="30%">Address</th>
+                                    <th width="20%" >Số điện thoại</th>
+                                    <th width="30%">Địa chỉ</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -53,18 +53,18 @@
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">Order Information</h2>
+                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">Thông tin đơn hàng</h2>
                             <table class="table table-bordered" style="margin-top:20px;">
                                 <thead>
                                 <tr class="bg-primary">
-                                    <th width="10%">Product Id</th>
-                                    <th width="15%">Product Name</th>
-                                    <th width="10%" >Price</th>
-                                    <th width="10%">Quantity</th>
-                                    <th width="10%">Color</th>
-                                    <th width="10%">Size</th>
-                                    <th width="15%">Total Price</th>
-                                    <th width="20 %">Address</th>
+                                    <th width="10%">Mã SP</th>
+                                    <th width="20%">Tên SP</th>
+                                    <th width="15%" >Gía</th>
+                                    <th width="15%">Sô lượng</th>
+                                    {{--<th width="10%">Color</th>
+                                    <th width="10%">Size</th>--}}
+                                    <th width="20%">Tổng tiền</th>
+                                    <th width="20 %">Địa chỉ</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -72,16 +72,16 @@
                                     <tr>
                                         <td>{{$detail->product_id}}</td>
                                         <td>{{$detail->product_name}}</td>
-                                        <td>${{$detail->amount / $detail->qty}}</td>
+                                        <td>{{$detail->amount / $detail->qty}}</td>
                                         <td>{{$detail->qty}}</td>
-                                        <td>{{$detail->color}}</td>
-                                        <td>{{$detail->size}}</td>
-                                        <td>${{$detail->amount}}</td>
+                                        {{--<td>{{$detail->color}}</td>
+                                        <td>{{$detail->size}}</td>--}}
+                                        <td>{{$detail->amount}}VNĐ</td>
                                         <td>{{$detail->address}}</td>
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td colspan="6"><p style="text-align: right"><b>Total price order: ${{$detailOrder->first()->total_price}}</b></p></td>
+                                    <td colspan="6"><p style="text-align: right"><b>Tổng tiền: {{$detailOrder->first()->total_price}}VNĐ</b></p></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -94,7 +94,7 @@
     </div><!--/.row-->
     <form action="{{route('transaction.export_order', ['transaction_id' => $detailOrder->first()->transaction_id])}}" method="get" enctype="multipart/form-data">
         @csrf
-        <input type="submit" value="Export Order" name="export_pdf" class="btn btn-success">
+        <input type="submit" value="Xuất hóa đơn" name="export_pdf" class="btn btn-success">
     </form>
 
     <script>

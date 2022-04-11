@@ -1,5 +1,5 @@
 @extends('frontend/layout')
-@section('title', 'Home | Flower World')
+@section('title', 'Home | MinhAnhShop')
 @section('content')
 
 		<!-- slider-area start -->
@@ -139,13 +139,13 @@
                                     <div class="product_details">
                                         <h2>{{$product->product_name}}</h2>
                                         @if(!empty($product->sale_price))
-                                        <p><span class="regular_price">{{ number_format($product->price, 0, '.', ',') }}$</span> <span class="popular_price">
-                                                    {{ number_format($product->sale_price, 0, '.', ',') }}$
+                                        <p><span class="regular_price">{{ number_format($product->price, 0, '.', ',') }}VNĐ</span> <span class="popular_price">
+                                                    {{ number_format($product->sale_price, 0, '.', ',') }}VNĐ
                                             </span>
                                         </p>
                                         @elseif(empty($product->sale_price))
                                             <p> <span class="popular_price">
-                                                    {{ number_format($product->price, 0, '.', ',') }}$
+                                                    {{ number_format($product->price, 0, '.', ',') }}VNĐ
                                             </span>
                                             </p>
                                         @endif

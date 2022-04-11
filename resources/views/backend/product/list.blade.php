@@ -8,7 +8,7 @@
     @endif
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Product</h1>
+            <h1 class="page-header">Quản Lý Sản Phẩm</h1>
         </div>
     </div><!--/.row-->
 
@@ -21,7 +21,7 @@
                         <div class="input-group" style="margin-bottom: 30px">
                             @csrf
                             <input type="text" class="form-control" id="keyword" name="keyword"
-                                   placeholder="Search product..." value="{{old('keyword')}}">
+                                   placeholder="Nhập từ khóa..." value="{{old('keyword')}}">
                             <div class="input-group-append">
                                 <button class="btn btn-secondary" id="search_btn" type="submit">
                                     <i class="fa fa-search"></i>
@@ -32,20 +32,20 @@
 
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-                            <a href="{{ asset('admin/product/add') }}" class="btn btn-primary">Add Product</a>
+                            <a href="{{ asset('admin/product/add') }}" class="btn btn-primary">Thêm sản phẩm</a>
                             <hr>
-                            <h3 class="page-header">List</h3>
+                            <h3 class="page-header">Danh Sách</h3>
                             <table class="table table-bordered" style="margin-top:20px;">
                                 <thead>
                                 <tr class="bg-primary">
                                     <th>NO</th>
-                                    <th width="15%">Product Name</th>
-                                    <th width="5%">Price</th>
-                                    <th width="5%" >Quantity</th>
-                                    <th width="15%">Thumbnail </th>
-                                    <th width="15%">Topic</th>
-                                    <th width="25%">Accesories</th>
-                                    <th width="20%">Action</th>
+                                    <th width="15%">Tên SP</th>
+                                    <th width="5%">Giá</th>
+                                    <th width="5%" >Số lượng</th>
+                                    <th width="15%">Ảnh </th>
+                                    <th width="15%">Danh mục</th>
+                                    <th width="25%">Phụ kiện</th>
+                                    <th width="20%">Tác vụ</th>
                                 </tr>
                                 </thead>
                                 <tbody
@@ -61,8 +61,8 @@
                                             <td>{{$product->topic_name}}</td>
                                             <td>{{$product->accessories}}</td>
                                             <td>
-                                                <a href="{{ asset('admin/product/edit/'.$product->product_id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                                                <a href="{{ asset('admin/product/delete/'.$product->product_id) }}" class="btn btn-danger" onclick="return confirm('Do you want to detele this product?')" ><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                                                <a href="{{ asset('admin/product/edit/'.$product->product_id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> SỬa</a>
+                                                <a href="{{ asset('admin/product/delete/'.$product->product_id) }}" class="btn btn-danger" onclick="return confirm('Bạn chắc chắn sẽ xóa sản phẩm này?')" ><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach

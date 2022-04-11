@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Transaction</h1>
+            <h1 class="page-header">Giao dịch/Đơn hàng</h1>
         </div>
     </div><!--/.row-->
 
@@ -20,12 +20,12 @@
                         @csrf
                         <div class="input-group" style="margin-bottom: 30px">
                             <div class="form-group">
-                                <label >Start date</label>
+                                <label >Ngày bắt đầu</label>
                                 <input type="date" name="start_date" max="3000-12-31"
                                        min="1000-01-01" class="form-control" value="{{ !empty(old('start_date')) ? date('Y-m-d',strtotime(old('start_date'))) : '' }}">
                             </div>
                             <div class="form-group" style="margin-left: 10px">
-                                <label >End date</label>
+                                <label >Ngày kết thúc</label>
                                 <input type="date" name="end_date" max="3000-12-31"
                                        min="1000-01-01" class="form-control" value="{{ !empty(old('end_date')) ? date('Y-m-d',strtotime(old('end_date'))) : '' }}">
                             </div>
@@ -42,12 +42,12 @@
                             @csrf
                             <input type="hidden" name="start_date_excel" class="form-control">
                             <input type="hidden" name="end_date_excel" class="form-control">
-                            <input type="submit" value="Export Transactions Period" name="export_csv" class="btn btn-success" style="margin-right:30px">
+                            <input type="submit" value="Xuất Excel theo khoảng thời gian" name="export_csv" class="btn btn-success" style="margin-right:30px">
                         </form>
 
                         <form action="{{route('transaction.export_transaction')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <input type="submit" value="Export All Transactions" name="export_csv" class="btn btn-success">
+                            <input type="submit" value="Xuất Excel tất cả" name="export_csv" class="btn btn-success">
                         </form>
                     </div>
 
@@ -57,15 +57,15 @@
                                 <thead>
                                 <tr class="bg-primary">
                                     <th  width="5%">NO</th>
-                                    <th width="5%">Transaction Id</th>
-                                    <th width="15%">Customer name</th>
+                                    <th width="5%">Mã giao dịch</th>
+                                    <th width="15%">Tên khách hàng</th>
                                     <th width="15%">Email</th>
-                                    <th width="10%" >Phone</th>
-                                    <th width="15%">Product</th>
-                                    <th width="5%">Quantity</th>
-                                    <th width="5%">Amount</th>
-                                    <th width="15%">Date</th>
-                                    <th width="10%">Action</th>
+                                    <th width="10%" >Số điện thoại</th>
+                                    <th width="15%">Sản phẩm</th>
+                                    <th width="5%">SL</th>
+                                    <th width="5%">Tổng</th>
+                                    <th width="15%">Ngày mua</th>
+                                    <th width="10%">Hàng động</th>
                                 </tr>
                                 </thead>
                                 <tbody>

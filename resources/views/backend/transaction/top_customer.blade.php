@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Customers</h2>
+            <h2 class="page-header">Khách hàng</h2>
         </div>
     </div><!--/.row-->
     <hr>
@@ -15,7 +15,7 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3>Customers List</h3>
+                    <h3>Danh sách khách hàng</h3>
                 </div>
                 <div class="panel-body">
                     <div class="bootstrap-table">
@@ -23,10 +23,10 @@
                             <thead>
                             <tr class="bg-primary">
                                 <th>NO</th>
-                                <th>Full Name</th>
+                                <th>Họ tên</th>
                                 <th>Email</th>
-                                <th>Address</th>
-                                <th style="width:30%">Action</th>
+                                <th>Địa chỉ</th>
+                                <th style="width:30%">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>

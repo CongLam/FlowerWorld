@@ -4,7 +4,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Product</h1>
+            <h1 class="page-header">Sản phẩm</h1>
         </div>
     </div><!--/.row-->
 
@@ -12,7 +12,7 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
 
             <div class="panel panel-primary">
-                <div class="panel-heading">Product List</div>
+                <div class="panel-heading">Quản Lý Sản Phẩm</div>
                 <div class="panel-body">
                     <form action="{{ route('seach_product_backend') }}" method="get">
                         <div class="input-group" style="margin-bottom: 30px">
@@ -34,12 +34,12 @@
                                 <thead>
                                 <tr class="bg-primary">
                                     <th>NO</th>
-                                    <th width="15%">Product Name</th>
-                                    <th width="5%">Price</th>
-                                    <th width="20%">Thumbnail</th>
-                                    <th width="15%">Topic</th>
-                                    <th width="25%">Accesories</th>
-                                    <th width="20%">Action</th>
+                                    <th width="15%">Tên SP</th>
+                                    <th width="5%">Giá</th>
+                                    <th width="20%">Ảnh</th>
+                                    <th width="15%">Danh mục</th>
+                                    <th width="25%">Phụ kiện</th>
+                                    <th width="20%">Tác vụ</th>
                                 </tr>
                                 </thead>
                                 <tbody>

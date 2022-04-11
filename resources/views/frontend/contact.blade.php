@@ -34,8 +34,8 @@
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="get_touch">
-							 <h2>GET IN TOUCH WITH US</h2>
-							 <p>We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power and complexity that it literally staggers the imagination.</p>
+							 <h2>LIÊN HỆ VỚI CHÚNG TÔI</h2>
+							 <p>Nếu muốn biết thêm chi tiết về các sản phẩm laptop hoặc các thông tin khác, hãy liên hệ ngay với chúng tôi qua form thông tin dưới đây hoặc gọi trực tiếp qua hotline!</p>
 						</div>
 					</div>
 				</div>
@@ -45,29 +45,29 @@
                             @include('errors.note')
                             <form method="POST">
                                 @csrf
-                                <input type="text" required name="name" placeholder="Name *">
-                                <input type="text" required name="phone" placeholder="Phone *">
+                                <input type="text" required name="name" placeholder="Tên *">
+                                <input type="text" required name="phone" placeholder="Số điện thoại *">
                                 <input type="text" required name="email" placeholder="Email *">
-                                <input type="text" required name="subject" placeholder="Subject">
-                                <textarea required name="message" placeholder="Message *" rows="10" cols="30"></textarea>
+                                <input type="text" required name="subject" placeholder="Tiêu đề">
+                                <textarea required name="message" placeholder="Nội dung *" rows="10" cols="30"></textarea>
                                 <div class="controls">
-                                    <button type="submit" title="Submit Review" class="btn btn-large btn-primary submit" onclick="return confirm('Send your message for us?')">Submit</button>
+                                    <button type="submit" title="Submit Review" class="btn btn-large btn-primary submit" onclick="return confirm('Gửi thông tin liên hệ cho chúng tôi?')">Gửi!</button>
                                 </div>
                             </form>
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 						<div class="company_right_area">
-							<h6>INFORMATION</h6>
+							<h6>THÔNG TIN</h6>
 							<div class="contact_addon_content">
-								<p><span><i class="fa fa-map-marker"></i></span> FlowersWorld JSC 228 Thanhbinh Street, Hanoi, VN</p>
-								<p><span><i class="fa fa-envelope"></i></span> flowerworld@gmail.com</p>
-								<p><span><i class="fa fa-phone"></i></span> (+84) 37 353 9357</p>
+								<p><span><i class="fa fa-map-marker"></i></span> MinhAnhShop 28 Đường Thanh Bình, Hà Đông, Hà Nội, VN</p>
+								<p><span><i class="fa fa-envelope"></i></span> minhanhshop@gmail.com</p>
+								<p><span><i class="fa fa-phone"></i></span> (+84) 345678908</p>
 							</div>
                         </div>
 						<div class="company_right_hour">
-							<h6>BUSINESS HOURS</h6>
-						   <p>Monday &ndash; Friday: 9am to 20 pm Saturday: 9am to 17pm Sunday: day off</p>
+							<h6>GIỜ LÀM VIỆC</h6>
+						   <p>Thứ 2 &ndash; Chủ nhật: 9h sáng đến 21h tối</p>
 						   <div class="single_icons_contact">
 								<ul id="social_contact_icon">
 									<li><a href="#" class="black-tooltip s-1" title="" data-placement="top" data-toggle="tooltip" data-original-title="Follow us Facebook"><i class="fa fa-facebook"></i> </a></li>

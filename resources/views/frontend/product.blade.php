@@ -99,27 +99,27 @@
                             <i class="fa fa-star"></i>
                         </div>
                         <div class="product_rating">
-                            <a href="#">1 Review(s) <span>I</span></a>
-                            <a href="#"> Add Your Review</a>
+                            <a href="#">Review(s) <span>I</span></a>
+                            <a href="#">Thêm review</a>
                         </div>
                         <div class="pricing_rate">
-                            <p class="stack">Availability:
+                            <p class="stack">Tình trạng kho:
 {{--                                {{dump($product->qty)}}--}}
                                 @if($product->qty !=0)
-                                    <span class="in-stock"> In stock</span>
+                                    <span class="in-stock"> Còn hàng</span>
                                 @else
-                                    <span class="in-stock"> Out of stock</span>
+                                    <span class="in-stock"> Hết hàng</span>
                                 @endif
                             </p>
                             @if(!empty($product->sale_price))
                                 <p class="rating_dollor rating_margin"><span
-                                        class="rating_value_one dollor_size">${{ number_format($product->price, 0, '.', ',') }}</span>
+                                        class="rating_value_one dollor_size">{{ number_format($product->price, 0, '.', ',') }}VNĐ</span>
                                     <span
-                                        class="rating_value_two">${{ number_format($product->sale_price, 0, '.', ',') }}</span>
+                                        class="rating_value_two">{{ number_format($product->sale_price, 0, '.', ',') }}VNĐ</span>
                                 </p>
                             @elseif(empty($product->sale_price))
                                 <p class="rating_dollor rating_margin"><span
-                                        class="rating_value_two">${{ number_format($product->price, 0, '.', ',') }}</span>
+                                        class="rating_value_two">{{ number_format($product->price, 0, '.', ',') }}VNĐ</span>
                                 </p>
 
                             @endif
@@ -144,7 +144,7 @@
                     @endif
                     <form method="get" action="{{route('add_to_cart', ['id'=>$product->id])}}"  enctype="multipart/form-data">
                         <div class="product_options_area">
-                        <div class="product_options_selection">
+                        {{--<div class="product_options_selection">
                             <ul id="options_selection">
                                 <li><span class="star_color">*</span><span class="Product_color">Color</span> <span
                                         class="required">*Required Fields</span></li>
@@ -170,26 +170,26 @@
                                     </select>
                                 </li>
                             </ul>
-                        </div>
+                        </div>--}}
                         <div class="cart_blog_item">
                             @if(!empty($product->sale_price))
                                 <p class="rating_dollor rating_margin"><span
-                                        class="rating_value_one dollor_size">${{ number_format($product->price, 0, '.', ',') }}</span>
+                                        class="rating_value_one dollor_size">{{ number_format($product->price, 0, '.', ',') }}VNĐ</span>
                                     <span
-                                        class="rating_value_two">${{ number_format($product->sale_price, 0, '.', ',') }}</span>
+                                        class="rating_value_two">{{ number_format($product->sale_price, 0, '.', ',') }}VNĐ</span>
                                 </p>
                             @elseif(empty($product->sale_price))
                                 <p class="rating_dollor rating_margin"><span
-                                        class="rating_value_two">${{ number_format($product->price, 0, '.', ',') }}</span>
+                                        class="rating_value_two">{{ number_format($product->price, 0, '.', ',') }}VNĐ</span>
                                 </p>
                             @endif
                             <div class="add-to-cart">
                                 <input type="text" required title="qty" name="quantity" value="1" class="qty" maxlength="2" onkeypress="return event.charCode >= 48 &amp;&amp; event.charCode <= 57"/>
 
                                 @if($product->qty !=0)
-                                    <button type="submit" title="Add to Cart" class="cart_button"><span>Add To Cart</span></button>
+                                    <button type="submit" title="Add to Cart" class="cart_button"><span>Thêm vào giỏ hàng</span></button>
                                 @else
-                                    <button title="Add to Cart" class="cart_button" disabled style="background: grey"><span>Out Of Stock</span></button>
+                                    <button title="Add to Cart" class="cart_button" disabled style="background: grey"><span>Hết hàng</span></button>
                                 @endif
                             </div>
                         </div>
@@ -208,7 +208,7 @@
                     <div class="my_tabs_description">
                         <ul class="tab_style">
                             <li class="active">
-                                <a data-toggle="tab" href="#tab-1">Product Description</a>
+                                <a data-toggle="tab" href="#tab-1">Mô tả sản phẩm</a>
                             </li>
                             <li>
                                 <a data-toggle="tab" href="#tab-2">Reviews</a>
@@ -226,7 +226,7 @@
                                         <div class="comments">
                                             <div class="block_comment">
                                                 <ul id="Motorola">
-                                                    <li> Comment by <span
+                                                    <li> Bình luận từ <span
                                                             class="Motorola_cl">{{\App\User::select('name')->where('id', $comment->customer_id)->first()->name}}</span>
                                                     </li>
                                                     <li><span>Quality</span>
@@ -265,21 +265,21 @@
                                     <form action="{{route('comment_product')}}" method="post">
                                         @csrf
                                         <div class="fieldsets">
-                                            <h3>You're reviewing: <span>Lorem ipsum dolor</span></h3>
-                                            <h4>How do you rate this product?*</h4>
+                                            <h3>Bạn review</h3>
+                                            <h4>Hãy đánh giá về sản phẩm này*</h4>
                                             <div class="start_tab_pricing_area">
                                                 <fieldset>
                                                     <table class="star_pricing_tb">
                                                         <tr>
                                                             <th></th>
-                                                            <th>1 Star</th>
-                                                            <th>2 Stars</th>
-                                                            <th>3 Stars</th>
-                                                            <th>4 Stars</th>
-                                                            <th>5 Stars</th>
+                                                            <th>1 Sao</th>
+                                                            <th>2 Sao</th>
+                                                            <th>3 Sao</th>
+                                                            <th>4 Sao</th>
+                                                            <th>5 Sao</th>
                                                         </tr>
                                                         <tr>
-                                                            <td>Quality</td>
+                                                            <td>Chất lượng</td>
                                                             <td><input required type="radio" name="ratings" value="1"
                                                                        class="radio"></td>
                                                             <td><input required type="radio" name="ratings" value="2"
@@ -302,7 +302,7 @@
                                                                class="input-text required-entry"
                                                                value="{{(!empty(Auth::user()->name)) ? Auth::user()->name : ''}} ">
                                                     </li>
-                                                    <li>Comment<span>*</span></li>
+                                                    <li>Bình luận<span>*</span></li>
                                                     <li><textarea required name="comment_content" cols="5" rows="3"
                                                                   class="required-entry"></textarea></li>
                                                     <input type="hidden" name="product_id" value="{{$product->id}}">
@@ -310,13 +310,13 @@
                                             </div>
                                             @if(!empty(Auth::user()->id))
                                             <div class="review_button">
-                                                <button type="submit" title="Submit Review" class="button">Submit
+                                                <button type="submit" title="Submit Review" class="button">Đăng
                                                     Review
                                                 </button>
                                             </div>
                                             @else
                                                 <div class="review_button">
-                                                    <p>Login to submit review!</p>
+                                                    <p>Đăng nhập để review!</p>
                                                 </div>
                                             @endif
                                         </div>
@@ -338,7 +338,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="feature_text feature_upsell">
-                        <h4>Upsell Products</h4>
+                        <h4>Sản phẩm bán chạy</h4>
                     </div>
                     <div class="row">
                         <div class="upsell_product_list ">
@@ -357,18 +357,18 @@
                                             </div>
                                             <div class="product_rating">
                                                 <a href="#">1 Review(s) <span>I</span></a>
-                                                <a href="#"> Add Your Review</a>
+                                                <a href="#"> Thêm bình luận</a>
                                             </div>
                                             @if(!empty($specialPro->sale_price))
                                                 <p class="rating_dollor rating_margin">
                                                     <del class="rating_value_one dollor_size">
-                                                        ${{ number_format($specialPro->price, 0, '.', ',') }}</del>
+                                                        {{ number_format($specialPro->price, 0, '.', ',') }}VNĐ</del>
                                                     <span
-                                                        class="rating_value_two">${{ number_format($specialPro->sale_price, 0, '.', ',') }}</span>
+                                                        class="rating_value_two">{{ number_format($specialPro->sale_price, 0, '.', ',') }}VNĐ</span>
                                                 </p>
                                             @elseif(empty($specialPro->sale_price))
                                                 <p class="rating_dollor rating_margin"><span
-                                                        class="rating_value_two">${{ number_format($specialPro->price, 0, '.', ',') }}</span>
+                                                        class="rating_value_two">{{ number_format($specialPro->price, 0, '.', ',') }}VNĐ</span>
                                                 </p>
 
                                             @endif
@@ -389,7 +389,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="feature_text feature_upsell">
-                        <h4>Related Products</h4>
+                        <h4>Sản phẩm liên quan</h4>
                     </div>
                     <div class="row">
                         <div class="upsell_product_list">
@@ -408,19 +408,19 @@
                                                 <i class="fa fa-star-o"></i>
                                             </div>
                                             <div class="product_rating">
-                                                <a href="#">1 Review(s) <span>I</span></a>
-                                                <a href="#"> Add Your Review</a>
+                                                <a href="#">Review(s) <span>I</span></a>
+                                                <a href="#"> Thêm review</a>
                                             </div>
                                             @if(!empty($relatedPro->sale_price))
                                                 <p class="rating_dollor rating_margin">
                                                     <del class="rating_value_one dollor_size">
-                                                        ${{ number_format($relatedPro->price, 0, '.', ',') }}</del>
+                                                        {{ number_format($relatedPro->price, 0, '.', ',') }}VNĐ</del>
                                                     <span
-                                                        class="rating_value_two">${{ number_format($relatedPro->sale_price, 0, '.', ',') }}</span>
+                                                        class="rating_value_two">{{ number_format($relatedPro->sale_price, 0, '.', ',') }}VNĐ</span>
                                                 </p>
                                             @elseif(empty($relatedPro->sale_price))
                                                 <p class="rating_dollor rating_margin"><span
-                                                        class="rating_value_two">${{ number_format($relatedPro->price, 0, '.', ',') }}</span>
+                                                        class="rating_value_two">{{ number_format($relatedPro->price, 0, '.', ',') }}VNĐ</span>
                                                 </p>
 
                                             @endif

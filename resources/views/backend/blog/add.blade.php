@@ -4,14 +4,14 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Blog</h1>
+            <h1 class="page-header">Bài viết</h1>
         </div>
     </div><!--/.row-->
 
     <div class="row center align-content-center">
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
-                <div class="panel-heading">Add New Blog</div>
+                <div class="panel-heading">Thêm bài viết mới</div>
                 <div class="panel-body">
                     <form method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -19,21 +19,21 @@
                         <div class="row" style="margin-bottom:40px">
                             <div class="col-xs-8">
                                 <div class="form-group">
-                                    <label>Blog Title: </label>
+                                    <label>Tiêu đề: </label>
                                     <input required type="text" name="title" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Short Description: </label>
+                                    <label>Mô tả ngắn: </label>
                                     <input required type="text" name="blog_short_description" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label>Blog Thumbnail: </label>
+                                    <label>Ảnh: </label>
                                     <input required id="img" type="file" name="blog_thumbnail" class="form-control hidden"
                                            onchange="previewFile(this)">
                                     <img id="previewImg" class="blog_thumbnail" width="300px" src="img/new_seo-10-512.png">
                                 </div>
                                 <div class="form-group">
-                                    <label>Blog Category: </label>
+                                    <label>Danh mục: </label>
                                     <select required name="blog_category" class="form-control">
                                         @foreach($categories as $cate)
                                             <option value="{{ $cate->id }}">{{ $cate->blog_category_name }}</option>
@@ -41,7 +41,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Content: </label>
+                                    <label>Nội dung: </label>
                                     <textarea class="ckeditor" required name="blog_content"></textarea>
                                     <script type="text/javascript">
                                         var editor = CKEDITOR.replace('desc', {
@@ -55,18 +55,18 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Status: </label>
+                                    <label>Trạng thái: </label>
                                     <div class="status" >
-                                        <input type="radio" id="enable" name="status" value="1" checked><label for="male">Enable</label><br>
-                                        <input type="radio" id="disable" name="status" value="0"><label for="female">Disable</label><br>
+                                        <input type="radio" id="enable" name="status" value="1" checked><label for="male">Bật</label><br>
+                                        <input type="radio" id="disable" name="status" value="0"><label for="female">Tắt</label><br>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Add Blog" onclick="return confirm('Do you want to add new blog?')">
+                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Thêm bài viết" onclick="return confirm('Bạn chắc chắn muốn thêm bài viết?')">
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ asset('admin/blog') }}" class="form-control btn btn-danger">Cancel</a>
+                                    <a href="{{ asset('admin/blog') }}" class="form-control btn btn-danger">Hủy bỏ</a>
                                 </div>
                             </div>
                         </div>

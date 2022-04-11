@@ -28,12 +28,14 @@
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 						<div class="about_hope_text">
-							<h1>WELCOME TO <strong>FC Flower</strong></h1>
-							<p>Lorem ipsum scelerisque molestie id molestie magna ante etiam sollicitudin tempus consectetur conubia, urna eros nunc curabitur viverra rutrum tortor luctus torquent mollis est dictum euismod</p>
+							<h1>CHÀO MỪNG BẠN ĐẾN VỚI <strong>MINHANH SHOP</strong></h1>
+							<p>
+                                Công ty MinhAnh là nhà bán lẻ hàng đầu, chuyên cung cấp các sản phẩm công nghệ chính hãng tại thị trường Việt Nam. Năm 1996, MinhAnh được thành lập, từng bước trở thành địa chỉ đáng tin cậy của người tiêu dùng Việt. Với khẩu hiệu “Nếu những gì chúng tôi không có, nghĩa là bạn không cần”, chúng tôi đã, đang và sẽ tiếp tục nỗ lực đem đến các sản phẩm công nghệ chính hãng đa dạng, phong phú đi kèm mức giá tốt nhất phục vụ nhu cầu của quý khách hàng.
+                            </p>
 							<ul id="about_hope_details">
-								<li><i class="fa fa-angle-right"></i> We have a love for flowers.</li>
-								<li><i class="fa fa-angle-right"></i> we bring you the most beautiful flowers.</li>
-								<li><i class="fa fa-angle-right"></i> We bring nature to your party.</li>
+								<li><i class="fa fa-angle-right"></i> Uy tín hàng đầu.</li>
+								<li><i class="fa fa-angle-right"></i> Cam kết chất lượng.</li>
+								<li><i class="fa fa-angle-right"></i> Sẵn sàng hỗ trợ khách hàng.</li>
 							</ul>
 							<div class="about_read_more">
 

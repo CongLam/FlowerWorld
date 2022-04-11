@@ -1,8 +1,8 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Detail Order</h1>
-            <h3>Order ID: {{$detailOrder->first()->transaction_id}} </h3>
+            <h1 class="page-header">CHI TIET DON HANG</h1>
+            <h3>Ma don hang: {{$detailOrder->first()->transaction_id}} </h3>
         </div>
     </div><!--/.row-->
 
@@ -12,15 +12,15 @@
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">Customer Information</h2>
+                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">THONG TIN DON HANG</h2>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr class="bg-primary"  style="background: #0da5c0">
-                                    <th  width="10%">Customer Id</th>
-                                    <th width="20%">Customer Name</th>
+                                    <th  width="10%">Ma KH</th>
+                                    <th width="20%">Ten KH</th>
                                     <th width="20%">Email</th>
-                                    <th width="20%" >Phone</th>
-                                    <th width="30%">Address</th>
+                                    <th width="20%" >SDT</th>
+                                    <th width="30%">Dia chi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -48,18 +48,18 @@
                 <div class="panel-body">
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">Order Information</h2>
+                            <h2 class="customer_info" style="text-align: center; background: lightskyblue">THONG TIN DON HANG</h2>
                             <table class="table table-bordered">
                                 <thead>
                                 <tr class="bg-primary"  style="background: #0da5c0">
-                                    <th width="10%">Product Id</th>
-                                    <th width="20%">Product Name</th>
-                                    <th width="15%" >Price</th>
-                                    <th width="10%">Quantity</th>
-                                    <th width="10%">Color</th>
-                                    <th width="10%">Size</th>
-                                    <th width="15%">Total Price</th>
-                                    <th width="30 %">Address</th>
+                                    <th width="10%">Ma SP</th>
+                                    <th width="20%">Ten SP</th>
+                                    <th width="15%" >Gia</th>
+                                    <th width="10%">So luong</th>
+                                   {{-- <th width="10%">Color</th>
+                                    <th width="10%">Size</th>--}}
+                                    <th width="15%">Tong tien</th>
+                                    <th width="30 %">Dia chi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -67,16 +67,16 @@
                                     <tr>
                                         <td>{{$detail->product_id}}</td>
                                         <td>{{$detail->product_name}}</td>
-                                        <td>${{$detail->amount / $detail->qty}}</td>
+                                        <td>{{$detail->amount / $detail->qty}}</td>
                                         <td>{{$detail->qty}}</td>
-                                        <td>{{$detail->color}}</td>
-                                        <td>{{$detail->size}}</td>
-                                        <td>${{$detail->amount}}</td>
+                                        {{--<td>{{$detail->color}}</td>
+                                        <td>{{$detail->size}}</td>--}}
+                                        <td>{{$detail->amount}}VND</td>
                                         <td>{{$detail->address}}</td>
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td colspan="6"><p style="text-align: right"><b>Total price order: ${{$detailOrder->first()->total_price}}</b></p></td>
+                                    <td colspan="6"><p style="text-align: right"><b>Tong thanh tien: {{$detailOrder->first()->total_price}}VND</b></p></td>
                                 </tr>
                                 </tbody>
                             </table>

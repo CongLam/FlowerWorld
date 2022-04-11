@@ -17,8 +17,8 @@ class CartController extends Controller
         $availableQty = $product->qty;
 
         $qty = $request->quantity;
-        $color = Color::whereId($request->select_color)->first()->color_name;
-        $size = Size::whereId($request->select_size)->first()->size_name;
+       /* $color = Color::whereId($request->select_color)->first()->color_name;
+        $size = Size::whereId($request->select_size)->first()->size_name;*/
 
         if($qty > $availableQty){
             session()->flash('error_qty', 'This product is not enough quantity!');
@@ -31,8 +31,8 @@ class CartController extends Controller
             'qty' => $qty,
             'price' => (!empty($product->sale_price) ? $product->sale_price : $product->price ),
             'options' => ['img' => $product->thumbnail,
-                          'size'=> $size,
-                          'color'=>$color,
+                          /*'size'=> $size,
+                          'color'=>$color,*/
                         ]
         ]);
 

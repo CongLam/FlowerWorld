@@ -4,14 +4,14 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Blog</h1>
+            <h1 class="page-header">Bài viết</h1>
         </div>
     </div><!--/.row-->
 
     <div class="row center align-content-center">
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
-                <div class="panel-heading">Edit Blog</div>
+                <div class="panel-heading">Chỉnh sửa bài viết</div>
                 <div class="panel-body">
                     <form method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -19,21 +19,21 @@
                         <div class="row" style="margin-bottom:40px">
                             <div class="col-xs-8">
                                 <div class="form-group">
-                                    <label>Blog Title: </label>
+                                    <label>Tiêu đề: </label>
                                     <input required type="text" name="title" class="form-control" value="{{$blog->title}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Short Description: </label>
+                                    <label>Mô tả ngắn: </label>
                                     <input required type="text" name="blog_short_description" class="form-control"value="{{$blog->blog_short_description}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Blog Thumbnail: </label>
+                                    <label>Ảnh: </label>
                                     <input id="img" type="file" name="blog_thumbnail" class="form-control hidden"
                                            onchange="loadFile(event)" value="{{$blog->thumbnail}}">
                                     <img id="previewImg" class="blog_thumbnail" width="300px" src="{{ asset('storage/blog_thumbnail/'.$blog->thumbnail) }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Blog Category: </label>
+                                    <label>Danh mục: </label>
                                     <select required name="blog_category" class="form-control">
                                         @foreach($categories as $cate)
                                             <option value="{{ $cate->id }}">{{ $cate->blog_category_name }}</option>
@@ -55,23 +55,23 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Status:</label></br>
+                                    <label>Trạng thái:</label></br>
                                     <div class="status" >
                                         @if($blog->status == 1)
-                                            <input type="radio" id="enable" name="status" value="1" checked><label for="enable">Enable</label><br>
-                                            <input type="radio" id="disable" name="status" value="0"><label for="disable">Disable</label><br>
+                                            <input type="radio" id="enable" name="status" value="1" checked><label for="enable">Bật</label><br>
+                                            <input type="radio" id="disable" name="status" value="0"><label for="disable">Tắt</label><br>
                                         @else
-                                            <input type="radio" id="enable" name="status" value="1" ><label for="enable">Enable</label><br>
-                                            <input type="radio" id="disable" name="status" value="0" checked><label for="disable">Disable</label><br>
+                                            <input type="radio" id="enable" name="status" value="1" ><label for="enable">Bật</label><br>
+                                            <input type="radio" id="disable" name="status" value="0" checked><label for="disable">Tắt</label><br>
                                         @endif
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Update" onclick="return confirm('Do you want to add new blog?')">
+                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Cập nhật" onclick="return confirm('Bạn chắc chắn muốn sửa bài viết?')">
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ asset('admin/blog') }}" class="form-control btn btn-danger">Cancel</a>
+                                    <a href="{{ asset('admin/blog') }}" class="form-control btn btn-danger">Hủy bỏ</a>
                                 </div>
                             </div>
                         </div>

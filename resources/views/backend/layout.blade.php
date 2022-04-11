@@ -20,7 +20,7 @@
 <body class="sb-nav-fixed">
 @include('sweetalert::alert')
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{asset('admin/home')}}">FlowersWorld</a>
+    <a class="navbar-brand" href="{{asset('admin/home')}}">MinhAnh Shop</a>
     <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i>
     </button>
     <!-- Navbar Search-->
@@ -38,10 +38,10 @@
                 </span><i class="fas fa-user fa-fw"></i><span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ asset('admin/your_profile/') }}">Your Profile</a>
+                <a class="dropdown-item" href="{{ asset('admin/your_profile/') }}">Cá nhân</a>
                 <a class="dropdown-item" href="#">Activity Log</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{asset('logout')}}">Logout</a>
+                <a class="dropdown-item" href="{{asset('logout')}}">Đăng xuất</a>
             </div>
         </li>
     </ul>
@@ -55,16 +55,16 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts"
                        aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-atom"></i></div>
-                        Product Manager
+                        Quản lý sản phẩm
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{asset('admin/product')}}">Product List</a>
-                            <a class="nav-link" href="{{asset('admin/topic')}}">Product Topic</a>
-                            <a class="nav-link" href="{{asset('admin/size')}}">Product Size</a>
-                            <a class="nav-link" href="{{asset('admin/color')}}">Product Color</a>
+                            <a class="nav-link" href="{{asset('admin/product')}}">Sản phẩm</a>
+                            <a class="nav-link" href="{{asset('admin/topic')}}">Danh mục</a>
+{{--                            <a class="nav-link" href="{{asset('admin/size')}}">Product Size</a>--}}
+{{--                            <a class="nav-link" href="{{asset('admin/color')}}">Product Color</a>--}}
 
                         </nav>
                     </div>
@@ -72,56 +72,56 @@
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2"
                        aria-expanded="false" aria-controls="collapseLayouts2">
                         <div class="sb-nav-link-icon"><i class="fas fa-blog"></i></div>
-                        Blog Manager
+                        Quản lý bài viết
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{asset('admin/blog_category')}}">Blog Category</a>
-                            <a class="nav-link" href="{{asset('admin/blog')}}">Blog</a>
+                            <a class="nav-link" href="{{asset('admin/blog_category')}}">Danh mục bài viết</a>
+                            <a class="nav-link" href="{{asset('admin/blog')}}">Bài viết</a>
                         </nav>
                     </div>
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5"
                        aria-expanded="false" aria-controls="collapseLayouts5">
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Statistics and Promotions
+                        Báo cáo thống kê
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{asset('admin/transaction')}}">Transaction</a>
-                            <a class="nav-link" href="{{asset('admin/coupon')}}">Coupon </a>
-                            <a class="nav-link" href="{{asset('admin/top_customer')}}">Top Customer </a>
-                            <a class="nav-link" href="{{asset('admin/top_selling')}}">Top Selling</a>
+                            <a class="nav-link" href="{{asset('admin/transaction')}}">Giao dịch</a>
+{{--                            <a class="nav-link" href="{{asset('admin/coupon')}}">Coupon </a>--}}
+                            <a class="nav-link" href="{{asset('admin/top_customer')}}">Top khách hàng </a>
+                            <a class="nav-link" href="{{asset('admin/top_selling')}}">Top bán chạy</a>
                         </nav>
                     </div>
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3"
                        aria-expanded="false" aria-controls="collapseLayouts3">
                         <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
-                        Customer Manager
+                        Quản lý khách hàng
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{asset('admin/customer_manager')}}">Customer Manager</a>
+                            <a class="nav-link" href="{{asset('admin/customer_manager')}}">Quản lý khách hàng</a>
                         </nav>
                     </div>
 
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4"
                        aria-expanded="false" aria-controls="collapseLayouts4">
                         <div class="sb-nav-link-icon"><i class="fas fa-users-cog"></i></div>
-                        Admin Manager
+                        Quản lý QTV
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts4" aria-labelledby="headingOne"
                          data-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="{{asset('admin/admin_manager')}}">Admin Manager</a>
+                            <a class="nav-link" href="{{asset('admin/admin_manager')}}">Quản lý QTV</a>
                         </nav>
                     </div>
 
@@ -138,7 +138,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                    <div class="text-muted">MinhAnhShop Website 2022</div>
                     <div>
                         <a href="#">Privacy Policy</a>
                         &middot;

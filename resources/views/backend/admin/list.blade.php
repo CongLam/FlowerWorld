@@ -8,7 +8,7 @@
     @endif
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Administrator</h2>
+            <h2 class="page-header">Quản trị viên</h2>
         </div>
     </div><!--/.row-->
     <hr>
@@ -55,7 +55,7 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3>Administrator List</h3>
+                    <h3>Quản lý QTV</h3>
                 </div>
                 <div class="panel-body">
                     <div class="bootstrap-table">
@@ -63,11 +63,11 @@
                             <thead>
                             <tr class="bg-primary">
                                 <th>NO</th>
-                                <th>Full Name</th>
+                                <th>Họ tên</th>
                                 <th>Email</th>
-                                <th>Address</th>
-                                <th>Status</th>
-                                <th style="width:30%">Action</th>
+                                <th>Địa chỉ</th>
+                                <th>Trạng thái</th>
+                                <th style="width:30%">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -79,14 +79,14 @@
                                     <td>{{ $item->address }}</td>
                                     <td>
                                         @if($item->status == 1)
-                                            <p style="color: green">Approved</p>
+                                            <p style="color: green">Phê duyệt</p>
                                         @else
-                                            <p style="color: red">Not Approve</p>
+                                            <p style="color: red">Không phê duyệt</p>
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ asset('admin/admin_manager/edit/'.$item->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                                        <a href="{{ asset('admin/admin_manager/delete/'.$item->id) }}" onclick="return confirm('Do you want to delete this admin?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                        <a href="{{ asset('admin/admin_manager/edit/'.$item->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
+                                        <a href="{{ asset('admin/admin_manager/delete/'.$item->id) }}" onclick="return confirm('Bạn có chắc muốn xóa user này?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach

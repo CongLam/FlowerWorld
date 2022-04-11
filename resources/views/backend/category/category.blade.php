@@ -8,7 +8,7 @@
     @endif
     <div class="row">
         <div class="col-lg-12">
-            <h2 class="page-header">Category Blog</h2>
+            <h2 class="page-header">Danh mục bài viết</h2>
         </div>
     </div><!--/.row-->
     <hr>
@@ -32,21 +32,21 @@
                     <form action="" method="POST">
                         {{ csrf_field() }}
                         <div class="form-group">
-                            <label>Category Name:</label>
+                            <label>Tên danh mục:</label>
                             <input required type="text" name="blog_category_name" class="form-control" {{old('blog_category_name')}} placeholder="Input category name...">
                         </div>
                         <div class="form-group">
-                            <label>Description:</label>
+                            <label>Mô tả:</label>
                             <input required type="text" name="description" class="form-control" {{old('description')}} placeholder="Input description...">
                         </div>
                         <div class="form-group" >
-                            <label>Status:</label></br>
+                            <label>Trạng thái:</label></br>
                             <div class="status" >
-                                <input type="radio" id="enable" name="status" value="1" checked><label for="male" >Enable</label><br>
-                                <input type="radio" id="disable" name="status" value="0"><label for="female">Disable</label><br>
+                                <input type="radio" id="enable" name="status" value="1" checked><label for="male" >Bật</label><br>
+                                <input type="radio" id="disable" name="status" value="0"><label for="female">Tắt</label><br>
                             </div>
                         </div>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Add Category" onclick="return confirm('Do you want to add new category?')">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Thêm danh mục" onclick="return confirm('Bạn có chắc muốn thêm danh mục?')">
                     </form>
                 </div>
             </div>
@@ -63,9 +63,9 @@
                             <thead>
                             <tr class="bg-primary">
                                 <th>NO</th>
-                                <th>Category Name</th>
-                                <th>Category Description</th>
-                                <th style="width:30%">Action</th>
+                                <th>Tên danh mục</th>
+                                <th>Mô tả</th>
+                                <th style="width:30%">Hành động</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -75,8 +75,8 @@
                                     <td>{{ $item->blog_category_name }}</td>
                                     <td>{{ $item->description }}</td>
                                     <td>
-                                        <a href="{{ asset('admin/blog_category/edit/'.$item->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                                        <a href="{{ asset('admin/blog_category/delete/'.$item->id) }}" onclick="return confirm('Do you want to delete this category?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                                        <a href="{{ asset('admin/blog_category/edit/'.$item->id) }}" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Sửa</a>
+                                        <a href="{{ asset('admin/blog_category/delete/'.$item->id) }}" onclick="return confirm('Bạn chắc chắn muốn xóa?')" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Xóa</a>
                                     </td>
                                 </tr>
                             @endforeach

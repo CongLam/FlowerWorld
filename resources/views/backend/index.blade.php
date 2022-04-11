@@ -1,7 +1,7 @@
 @extends('backend/layout')
 @section('title', 'Home')
 @section('content')
-    <h1 class="mt-4">Welcome to Dashboard for Administrator</h1>
+    <h1 class="mt-4">Chào mừng bạn đến với Dashboard dành cho Quản trị viên</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Dashboard</li>
     </ol>
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <h2 class="text-center">Coronavirus Disease (COVID-19) Situation Reports</h2>
+    <h2 class="text-center">Coronavirus (COVID-19) Thống kê</h2>
     <div class="container text-center">
         <button class="btn btn-primary" id="btn1">Covid 19 - Global</button>
     </div>
@@ -87,9 +87,9 @@
                 .then((data) => {
                     results.innerHTML = `
                         <ul class="list-group mb-4">
-                        <li class="list-group-item"><strong>Country: ${data.country}</strong></li>
-                        <li class="list-group-item"><strong>Cases: </strong> ${data.cases}</li>
-                        <li class="list-group-item"><strong>Deaths: </strong> ${data.deaths}</li>
+                        <li class="list-group-item"><strong>Quốc gia: ${data.country}</strong></li>
+                        <li class="list-group-item"><strong>Số ca: </strong> ${data.cases}</li>
+                        <li class="list-group-item"><strong>Tử vong: </strong> ${data.deaths}</li>
                         </ul>
                         `;
                 })
@@ -111,9 +111,9 @@
                     data.forEach((element) => {
                         template += `
                             <ul class="list-group mb-4">
-                            <li class="list-group-item"><strong>Country: ${element.country}</strong></li>
-                            <li class="list-group-item"><strong>Cases: </strong> ${element.cases}</li>
-                            <li class="list-group-item"><strong>Deaths: </strong> ${element.deaths}</li>
+                            <li class="list-group-item"><strong>Quốc gia: ${element.country}</strong></li>
+                            <li class="list-group-item"><strong>Số ca: </strong> ${element.cases}</li>
+                            <li class="list-group-item"><strong>Tử vong: </strong> ${element.deaths}</li>
                             </ul>
                             `
                     })

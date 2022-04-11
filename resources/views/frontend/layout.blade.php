@@ -382,45 +382,42 @@
             <div class="footer_menu_area">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="help_support">
-                        <h2>HELP & SUPPORT</h2>
+                        <h2>Giúp đỡ & Hỗ trợ</h2>
                         <ul class="footer_menu">
-                            <li><a href="{{asset('my_account')}}">My Account</a></li>
-                            <li><a href="{{asset('login_customer')}}">Login</a></li>
-                            <li><a href="{{asset('cart')}}">My Cart</a></li>
-                            <li><a href="{{asset('wishlist')}}">Wishlist</a></li>
-                            <li><a href="{{asset('checkout')}}">Checkout</a></li>
+                            <li><a href="{{asset('my_account')}}">Tài khoản</a></li>
+                            <li><a href="{{asset('login_customer')}}">Đăng nhập</a></li>
+                            <li><a href="{{asset('cart')}}">Giỏ hàng</a></li>
+                            <li><a href="{{asset('checkout')}}">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="help_support help_border">
-                        <h2>MY ACCOUNT</h2>
+                        <h2>Tài khoản của tôi</h2>
                         <ul class="footer_menu">
-                            <li><a href="{{asset('my_account')}}">My Account</a></li>
-                            <li><a href="{{asset('login_customer')}}">Login</a></li>
-                            <li><a href="{{asset('cart')}}">My Cart</a></li>
-                            <li><a href="{{asset('wishlist')}}">Wishlist</a></li>
-                            <li><a href="{{asset('checkout')}}">Checkout</a></li>
+                            <li><a href="{{asset('my_account')}}">Tài khoản</a></li>
+                            <li><a href="{{asset('login_customer')}}">Đăng nhập</a></li>
+                            <li><a href="{{asset('cart')}}">Giỏ hàng</a></li>
+                            <li><a href="{{asset('checkout')}}">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="help_support help_border">
-                        <h2>HELP & SUPPORT</h2>
+                        <h2>Giúp đỡ & Hỗ trợ</h2>
                         <ul class="footer_menu">
-                            <li><a href="{{asset('my_account')}}">My Account</a></li>
-                            <li><a href="{{asset('cart')}}">My Cart</a></li>
-                            <li><a href="{{asset('wishlist')}}">Wishlist</a></li>
-                            <li><a href="{{asset('checkout')}}">Checkout</a></li>
+                            <li><a href="{{asset('my_account')}}">Tài khoản</a></li>
+                            <li><a href="{{asset('cart')}}">Giỏ hàng</a></li>
+                            <li><a href="{{asset('checkout')}}">Đăng xuất</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="help_support help_border">
-                        <h2>STORE INFORMATION</h2>
-                        <p>My Company: <span>FlowersWorld 228 Thanhbinh Street, Hadong, Hanoi, VN</span></p>
-                        <p>Call us now: <span>(+84) 373539357</span></p>
-                        <p>Email: <span>lamtuancong@yourcompany.com</span></p>
+                        <h2>Thông tin cửa hàng</h2>
+                        <p>Minh Anh Company: <span>MinhAnhShop 28 Đường Thanh Bình, Hà Đông, Hà Nội, VN</span></p>
+                        <p>Hotline: <span>(+84) 345678908</span></p>
+                        <p>Email: <span>minhanhshop@gmail.com</span></p>
                     </div>
                 </div>
             </div>

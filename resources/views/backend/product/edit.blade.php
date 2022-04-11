@@ -4,14 +4,14 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Product</h1>
+            <h1 class="page-header">Sản phẩm</h1>
         </div>
     </div><!--/.row-->
 
     <div class="row center align-content-center">
         <div class="col-xs-12 col-md-12 col-lg-12">
             <div class="panel panel-primary">
-                <div class="panel-heading">Edit Product</div>
+                <div class="panel-heading">Chỉnh sửa SP</div>
                 <div class="panel-body">
                     <form method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -19,15 +19,15 @@
                         <div class="row" style="margin-bottom:40px">
                             <div class="col-xs-8">
                                 <div class="form-group">
-                                    <label>Product Name: </label>
+                                    <label>Tên SP: </label>
                                     <input required type="text" name="product_name" class="form-control" value="{{$product->product_name}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Price: </label>
+                                    <label>Giá: </label>
                                     <input required type="number" name="price" class="form-control" value="{{$product->price}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Quantity: </label>
+                                    <label>Số lượng: </label>
                                     <input required type="number" name="qty" class="form-control" value="{{$product->qty}}">
                                 </div>
                                 <div class="form-group">
@@ -37,43 +37,43 @@
                                     <img id="previewImg" class="thumbnail" width="300px" src="{{ asset('storage/thumbnail/'.$product->thumbnail) }}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Accessories: </label>
+                                    <label>Phụ kiện: </label>
                                     <input required type="text" name="accessories" class="form-control" value="{{$product->accessories}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Promotion: </label>
+                                    <label>Khuyến mãi: </label>
                                     <input required type="text" name="sale" class="form-control" value="{{$product->sale_price}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Title: </label>
+                                    <label>Tiêu đề: </label>
                                     <input required type="text" name="title" class="form-control" value="{{$product->title}}">
                                 </div>
                                 <div class="form-group">
-                                    <label>Status:</label></br>
+                                    <label>Trạng thái:</label></br>
                                     <div class="status" >
                                         @if($product->status == 1)
-                                            <input type="radio" id="enable" name="status" value="1" checked><label for="male">Enable</label><br>
-                                            <input type="radio" id="disable" name="status" value="0"><label for="female">Disable</label><br>
+                                            <input type="radio" id="enable" name="status" value="1" checked><label for="male">Bật</label><br>
+                                            <input type="radio" id="disable" name="status" value="0"><label for="female">Tắt</label><br>
                                         @else
-                                            <input type="radio" id="enable" name="status" value="1" ><label for="male">Enable</label><br>
-                                            <input type="radio" id="disable" name="status" value="0" checked><label for="female">Disable</label><br>
+                                            <input type="radio" id="enable" name="status" value="1" ><label for="male">Bật</label><br>
+                                            <input type="radio" id="disable" name="status" value="0" checked><label for="female">Tắt</label><br>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Topic: </label>
+                                    <label>Danh mục: </label>
                                     <select required name="topic" class="form-control">
                                         @foreach($topicList as $topic)
                                             <option value="{{ $topic->id }}"
                                                     @if ($product->topic_id == $topic->id)
-                                                    selected
+                                                    chọn
                                                 @endif >
                                                 {{  $topic->topic_name }}
                                             </option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group">
+                               {{-- <div class="form-group">
                                     <label>Size: </label>
                                     @foreach($sizeList as $size)
                                             <div class="form-check form-check-inline" >
@@ -102,22 +102,22 @@
                                         </div>
                                     @endforeach
 
-                                </div>
+                                </div>--}}
 
                                 <div class="form-group">
-                                    <label>Featured Product:</label></br>
+                                    <label>Sản phẩm nổi bật:</label></br>
                                     <div class="status" >
                                         @if($product->featured == 1)
-                                            <input type="radio" id="enable" name="featured" value="1" checked><label for="enable">Yes</label><br>
-                                            <input type="radio" id="disable" name="featured" value="0"><label for="disable">No</label><br>
+                                            <input type="radio" id="enable" name="featured" value="1" checked><label for="enable">Bật</label><br>
+                                            <input type="radio" id="disable" name="featured" value="0"><label for="disable">Tắt</label><br>
                                         @else
-                                            <input type="radio" id="enable" name="featured" value="1" ><label for="enable">Yes</label><br>
-                                            <input type="radio" id="disable" name="featured" value="0" checked><label for="disable">No</label><br>
+                                            <input type="radio" id="enable" name="featured" value="1" ><label for="enable">Bật</label><br>
+                                            <input type="radio" id="disable" name="featured" value="0" checked><label for="disable">Tắt</label><br>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label>Description: </label>
+                                    <label>Mô tả: </label>
                                     <textarea class="ckeditor" required name="desc" >{{$product->description }}</textarea>
                                     <script type="text/javascript">
                                         var editor = CKEDITOR.replace('desc', {
@@ -130,10 +130,10 @@
                                     </script>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Update" onclick="return confirm('Do you want to edit this product?')">
+                                    <input type="submit" name="edit_btn" class="form-control btn btn-primary" value="Cập nhật" onclick="return confirm('Bạn có chắc muốn chỉnh sửa sản phẩn này?')">
                                 </div>
                                 <div class="form-group">
-                                    <a href="{{ asset('admin/product') }}" class="form-control btn btn-danger">Cancel</a>
+                                    <a href="{{ asset('admin/product') }}" class="form-control btn btn-danger">Hủy bỏ</a>
                                 </div>
                             </div>
                         </div>

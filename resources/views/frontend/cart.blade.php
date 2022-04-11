@@ -31,27 +31,27 @@
 						<div class="shopping-cart-table">
 							<table class="cart_items">
 								<tr>
-									<th width="5%">Remove</th>
-									<th width="20%">Image</th>
-									<th width="15%" style="padding: 10px 10px;">Product Name</th>
-									<th width="15%"  style="padding: 2px 2px;">Unit Price</th>
-									<th width="10%">Quantity</th>
-									<th width="10%">Size</th>
-									<th width="10%">Main Color</th>
-									<th width="15%">Subtotal</th>
+									<th width="5%">Xóa</th>
+									<th width="25%">Ảnh</th>
+									<th width="20%" style="padding: 10px 10px;">Tên</th>
+									<th width="20%"  style="padding: 2px 2px;">Giá</th>
+									<th width="10%">Số lượng</th>
+									{{--<th width="10%">Size</th>
+									<th width="10%">Main Color</th>--}}
+									<th width="20%">Tổng</th>
 								</tr>
                                 @foreach($items as $item)
                                     <tr>
                                         <td><a href="{{asset('cart/delete/'.$item->rowId)}}"><img src="img/arrow/btn_trash.gif" alt="" /></a></td>
                                         <td><a ><img width="100%" src="{{ asset('storage/thumbnail/'.$item->options->img) }}" alt="" /></a></td>
                                         <td width="100%" style="padding: 10px 10px;"><a href="#">{{$item->name}}</a></td>
-                                        <td>${{$item->price}}</td>
+                                        <td>{{ number_format($item->price, 0, '.', ',') }} VNĐ</td>
                                         <td>
                                             <input name="cart[390][qty]" value="{{$item->qty}}" size="4" title="Qty" class="input-text qty" maxlength="12" onchange="updateCart(this.value, '{{$item->rowId}}')">
                                         </td>
-                                        <td>{{$item->options->size}}</td>
-                                        <td>{{$item->options->color}}</td>
-                                        <td>${{$item->qty * $item->price}}</td>
+                                        {{--<td>{{$item->options->size}}</td>
+                                        <td>{{$item->options->color}}</td>--}}
+                                        <td>{{ number_format($item->qty * $item->price, 0, '.', ',') }} VNĐ</td>
                                     </tr>
                                 @endforeach
 							</table>
@@ -62,13 +62,13 @@
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<div class="shopping_cart_main">
 							<div class="shopping_button">
-								<button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('shop')}}';">Continue Shopping</button>
+								<button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('shop')}}';">Tiếp tục mua sắm</button>
 							</div>
 							<div class="shopping_button">
-								<button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('cart/delete/all')}}';">Clear Shopping Cart</button>
+								<button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('cart/delete/all')}}';">Xóa tất cả</button>
 							</div>
 							<div class="shopping_button">
-								<button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('')}}';">Update Shopping Cart</button>
+								<button type="button" title="shop"  class="continue_shopping" onclick="location.href = '{{asset('')}}';">Cập nhật giỏ hàng</button>
 							</div>
 						</div>
 					</div>
@@ -102,14 +102,14 @@
 						<div class="total_price">
 							<table class="total_rate">
 								<tr>
-									<th>Grand Total</th>
-									<th>${{$totalPrice}}</th>
+									<th>Tổng hóa đơn</th>
+									<th>{{$totalPrice}}VNĐ</th>
 								</tr>
 							</table>
 						</div>
 						<div class="check_out_simble review_button">
-							<button type="submit" title="Submit Review" class="button"  onclick="location.href = '{{asset('checkout')}}';" >Checkout</button>
-							<h2><a href="">Checkout with Multiple Addresses</a></h2>
+							<button type="submit" title="Submit Review" class="button"  onclick="location.href = '{{asset('checkout')}}';" >Thanh toán</button>
+{{--							<h2><a href="">Checkout with Multiple Addresses</a></h2>--}}
 						</div>
 					</div>
 				</div>

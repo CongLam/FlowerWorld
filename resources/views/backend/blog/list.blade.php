@@ -8,7 +8,7 @@
     @endif
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Blog</h1>
+            <h1 class="page-header">Bài viết</h1>
         </div>
     </div><!--/.row-->
 
@@ -16,7 +16,7 @@
         <div class="col-xs-12 col-md-12 col-lg-12">
 
             <div class="panel panel-primary">
-                <div class="panel-heading">Blog List</div>
+                <div class="panel-heading">Danh sách bài viết</div>
                 <div class="panel-body">
                     <form action="{{ route('seach_blog_backend') }}" method="get">
                         <div class="input-group" style="margin-bottom: 30px">
@@ -32,17 +32,17 @@
                     </form>
                     <div class="bootstrap-table">
                         <div class="table-responsive">
-                            <a href="{{ asset('admin/blog/add') }}" class="btn btn-primary">Add New Blog</a>
+                            <a href="{{ asset('admin/blog/add') }}" class="btn btn-primary">Thêm bài viết mới</a>
                             <table class="table table-bordered" style="margin-top:20px;">
                                 <thead>
                                 <tr class="bg-primary">
                                     <th width="5%">NO</th>
-                                    <th width="20%">Title</th>
-                                    <th width="15%">Thumbnail</th>
-                                    <th width="25%" >Short Description</th>
-                                    <th width="10%">Blog Category</th>
-                                    <th width="5%">Status</th>
-                                    <th width="20%">Action</th>
+                                    <th width="20%">Tiêu đề</th>
+                                    <th width="15%">Ảnh</th>
+                                    <th width="25%" >Mô tả ngắn</th>
+                                    <th width="10%">Danh mục</th>
+                                    <th width="5%">Trạng thái</th>
+                                    <th width="20%">Hành động</th>
                                 </tr>
                                 </thead>
                                 <tbody
@@ -57,8 +57,8 @@
                                             <td>{{$blog->blog_category_name}}</td>
                                             <td>{{$blog->status}}</td>
                                             <td>
-                                                <a href="{{ asset('admin/blog/edit/'.$blog->blog_id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
-                                                <a href="{{ asset('admin/blog/delete/'.$blog->blog_id) }}" class="btn btn-danger" onclick="return confirm('Do you want to detele this blog?')" ><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                                                <a href="{{ asset('admin/blog/edit/'.$blog->blog_id) }}" class="btn btn-warning"><i class="fa fa-pencil" aria-hidden="true"></i> Sửa</a>
+                                                <a href="{{ asset('admin/blog/delete/'.$blog->blog_id) }}" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa?')" ><i class="fa fa-trash" aria-hidden="true"></i> Xóa</a>
                                             </td>
                                         </tr>
 {{--                                        {{$i++}}--}}
