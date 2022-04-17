@@ -30,6 +30,10 @@ class TransactionController extends Controller
 
     public function searchByDatetime(Request $request){
 
+        if (empty($request['start_date_excel']) || empty($request['end_date_excel']))  {
+            return $this->getTransaction()->with('errorMessageDuration', 'Bạn cần nhập khoảng thời gian!');
+        }
+
         $startDate = $request->start_date;
         $endDate = $request->end_date;
 
@@ -66,6 +70,11 @@ class TransactionController extends Controller
     }
 
     public function exportTransactionPeriod(Request $request){
+
+        if (empty($request['start_date_excel']) || empty($request['end_date_excel']))  {
+            return $this->getTransaction()->with('errorMessageDuration', 'Bạn cần nhập khoảng thời gian!');
+        }
+
         return Excel::download(new ExportTransactionPeriod($request->start_date_excel, $request->end_date_excel), 'transaction_period.xlsx');
     }
 

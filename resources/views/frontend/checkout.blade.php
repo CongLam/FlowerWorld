@@ -119,10 +119,10 @@
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 						<div class="check_progress">
-							<h2>YOUR CHECKOUT PROGRESS</h2>
+							<h2>Quá trình thanh toán</h2>
 							<ul id="progress_btn">
-								<li><i class="fa fa-minus"></i>Billing Address</li>
-								<li><i class="fa fa-minus"></i>Order Review</li>
+								<li><i class="fa fa-minus"></i>Điền thông tin</li>
+								<li><i class="fa fa-minus"></i>Đơn hàng</li>
 							</ul>
 						</div>
 					</div>

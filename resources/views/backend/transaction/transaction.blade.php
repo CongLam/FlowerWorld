@@ -2,7 +2,12 @@
 @section('title', 'Transaction')
 @section('content')
 
-
+    @if(isset($errorMessageDuration))
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{ $errorMessageDuration }}
+        </div>
+    @endif
 
 
     <div class="row">
@@ -83,7 +88,7 @@
                                         <td>
                                             <form action="{{route('transaction.detail_order', ['transaction_id' => $transaction->transaction_id])}}" method="get" enctype="multipart/form-data">
                                                 @csrf
-                                                <input type="submit" value="See Detail Order" name="export_order" class="btn btn-success">
+                                                <input type="submit" value="Xem chi tiết đơn hàng" name="export_order" class="btn btn-success">
                                             </form>
                                         <td>
                                     </tr>

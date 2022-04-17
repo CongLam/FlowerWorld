@@ -202,15 +202,15 @@
 					<div class="col-lg-12">
 						<div class="testimonial_list">
 							<div class="testimonial_single">
-								<a href="#">"A garden to walk in and immensity to dream in--what more could he ask? A few flowers at his feet and above him the stars."</a>
-								<p> Victor Hugo</p>
+								<a href="#">"The people who are crazy enough to think they can change the world are the ones who do"</a>
+								<p>  Steve Jobs</p>
 								<div class="author">
 									<img src="img/author/avatar.png" alt="" />
 								</div>
 							</div>
 							<div class="testimonial_single">
-								<a href="#">"I felt after I finished Slaughterhouse-Five that I didn’t have to write at all anymore if I didn’t want to. It was the end of some sort of career. I don’t know why, exactly. I suppose that flowers, when they’re through blooming, have some sort of awareness of some purpose having been served. Flowers didn’t ask to be flowers and I didn’t ask to be me. At the end of Slaughterhouse-Five…I had a shutting-off feeling…that I had done what I was supposed to do and everything was OK ."</a>
-								<p>Kurt Vonnegut</p>
+								<a href="#">"Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. "</a>
+								<p> Steve Jobs</p>
 								<div class="author">
 									<img src="img/author/avatar.png" alt="" />
 								</div>

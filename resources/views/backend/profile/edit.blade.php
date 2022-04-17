@@ -16,8 +16,8 @@
             <div class="container-fluid d-flex align-items-center">
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
-                        <h1 class="display-2 text-white">Hey {{Auth::user()->name}}, you can change your information
-                            here!</h1>
+                        <h1 class="display-2 text-white">Chào {{Auth::user()->name}}, bạn có thể thay đổi thông tin cá nhân của bạn ở đây!
+                            </h1>
                     </div>
                 </div>
             </div>
@@ -30,10 +30,10 @@
                         <div class="card-header bg-white border-0">
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h3 class="mb-0">My account</h3>
+                                    <h3 class="mb-0">Tài khoản</h3>
                                 </div>
                                 <div class="col-4 text-right">
-                                    <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                                    {{--<a href="" class="btn btn-sm btn-primary">Cài đặt</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                             <form method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 @include('errors.note')
-                                <h6 class="heading-small text-muted mb-4">User information</h6>
+                                <h6 class="heading-small text-muted mb-4">Thông tin người dùng</h6>
                                 <div class="avatar-wrapper">
                                     @if(isset(Auth::user()->avatar))
                                         <img id="previewImg" src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}" class="profile-pic">
@@ -54,7 +54,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-username">Your name</label>
+                                                <label class="form-control-label" for="input-username">Tên của bạn</label>
                                                 <input type="text" id="input-username" required name="name"
                                                        class="form-control form-control-alternative"
                                                        placeholder="Username" value="{{Auth::user()->name}}">
@@ -73,7 +73,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label"  for="input-phone">Your phone</label>
+                                                <label class="form-control-label"  for="input-phone">Số điện thoại</label>
                                                 <input type="text" id="input-phone" name="phone"
                                                        class="form-control form-control-alternative"
                                                        placeholder="Phone number" required
@@ -82,8 +82,7 @@
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-address">Your
-                                                    address</label>
+                                                <label class="form-control-label" for="input-address">Địa chỉ</label>
                                                 <input type="text" id="input-address" name="address"
                                                        class="form-control form-control-alternative"
                                                        placeholder="Address" required
@@ -94,21 +93,21 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label" for="input-phone">Gender</label><br>
+                                                <label class="form-control-label" for="input-phone">Giới tính</label><br>
                                                 <div class="status" >
                                                     @if(Auth::user()->gender == 2)
-                                                        <label class="radio-inline" for="female"> <input id="female" type="radio" name="gender" checked value="2">Female</label>
-                                                        <label class="radio-inline" for="female"><input id="male" type="radio" name="gender" value="1">Male</label>
+                                                        <label class="radio-inline" for="female"> <input id="female" type="radio" name="gender" checked value="2">Nữ</label>
+                                                        <label class="radio-inline" for="female"><input id="male" type="radio" name="gender" value="1">Nam</label>
                                                     @else
-                                                        <label class="radio-inline" for="female"> <input id="female" type="radio" name="gender"  value="2">Female</label>
-                                                        <label class="radio-inline" for="female"><input id="male" type="radio" name="gender" checked value="1">Male</label>
+                                                        <label class="radio-inline" for="female"> <input id="female" type="radio" name="gender"  value="2">Nữ</label>
+                                                        <label class="radio-inline" for="female"><input id="male" type="radio" name="gender" checked value="1">Nam</label>
                                                     @endif
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
-                                                <label class="form-control-label"  for="input-birthday">Your birthday</label>
+                                                <label class="form-control-label"  for="input-birthday">Ngày sinh</label>
                                                 <input type="date" id="input-birthday" name="birthday"
                                                        class="form-control form-control-alternative"
                                                        placeholder="Birthday" required
@@ -117,19 +116,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                <h6 class="heading-small text-muted mb-4">Change Password</h6>
+                                <h6 class="heading-small text-muted mb-4">Thay đổi mật khẩu</h6>
                                 <div class="pl-lg-4">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <label>Current Password</label>
+                                            <label>Mật khẩu hiện tại</label>
                                             <div class="form-group pass_show">
                                                 <input type="password" class="form-control" name="old_password" placeholder="Current Password">
                                             </div>
-                                            <label>New Password</label>
+                                            <label>Mật khẩu mới</label>
                                             <div class="form-group pass_show">
                                                 <input type="password" class="form-control" name="new_password" placeholder="New Password">
                                             </div>
-                                            <label>Confirm Password</label>
+                                            <label>Xác nhận mật khẩu</label>
                                             <div class="form-group pass_show">
                                                 <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
                                             </div>
@@ -138,7 +137,7 @@
                                 </div>
                                 <hr>
                                 <div class="form-group">
-                                    <input type="submit" name="submit" class="form-control btn btn-primary" value="Submit" onclick="return confirm('Do you change your information?')">
+                                    <input type="submit" name="submit" class="form-control btn btn-primary" value="Cập nhật" onclick="return confirm('DBạn có chắc chắn muốn thay đổi thông tin cá nhân không?')">
                                 </div>
                             </form>
                         </div>

@@ -17,8 +17,10 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
                         <h1 class="display-2 text-white">Hello {{Auth::user()->name}}</h1>
-                        <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>
-                        <a href="{{ asset('admin/your_profile/edit') }}" class="btn btn-info">Edit profile</a>
+                        <p class="text-white mt-0 mb-5">
+                            Đây là trang hồ sơ của bạn. Bạn có thể xem và chỉnh sửa thông tin cá nhân của bạn ở đây.
+                        </p>
+                        <a href="{{ asset('admin/your_profile/edit') }}" class="btn btn-info">Chỉnh sửa thông tin cá nhân</a>
                     </div>
                 </div>
             </div>
@@ -34,8 +36,8 @@
 
                                         @if(isset(Auth::user()->avatar))
                                             <img src="{{ asset('storage/avatar/'.Auth::user()->avatar) }}" class="rounded-circle">
-                                        @else
-                                            <img src="https://demos.creative-tim.com/argon-dashboard/assets/img/theme/team-4.jpg" class="rounded-circle">
+                                        {{--@else
+                                            <img src="" class="rounded-circle">--}}
                                         @endif
 
                                 </div>
@@ -43,8 +45,8 @@
                         </div>
                         <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                             <div class="d-flex justify-content-between">
-                                <a href="/" class="btn btn-sm btn-info mr-4">Connect</a>
-                                <a href="/" class="btn btn-sm btn-default float-right">Message</a>
+                                <a href="/" class="btn btn-sm btn-info mr-4">{{--Connect--}}</a>
+                                <a href="/" class="btn btn-sm btn-default float-right">{{--Message--}}</a>
                             </div>
                         </div>
                         <div class="card-body pt-0 pt-md-4">
@@ -70,26 +72,26 @@
                                 <h3>
                                     {{Auth::user()->name}}
                                     <span class="font-weight-light">,
-                                        {{ !empty(Auth::user()->birthday) ? (\Carbon\Carbon::parse(Auth::user()->birthday)->diff(\Carbon\Carbon::now())->format('%y years old')) : null}}
+                                        {{ !empty(Auth::user()->birthday) ? (\Carbon\Carbon::parse(Auth::user()->birthday)->diff(\Carbon\Carbon::now())->format('%y tuổi')) : null}}
                                     </span>
                                 </h3>
 
                                 <div class="h5 font-weight-300">
-                                    <i class="ni location_pin mr-2"></i>Phone Number: {{ (!empty(Auth::user()->phone)) ? Auth::user()->phone : null}}
+                                    <i class="ni location_pin mr-2"></i>Số điện thoại: {{ (!empty(Auth::user()->phone)) ? Auth::user()->phone : null}}
                                 </div>
                                 <div class="h5 font-weight-300">
                                     <b><i class="ni location_pin mr-2"></i>Email: {{ (!empty(Auth::user()->email)) ? Auth::user()->email : null}}</b>
                                 </div>
                                 <div class="h5 font-weight-300">
-                                    <i class="ni location_pin mr-2"></i>Gender: {{ (!empty(Auth::user()->gender)) ? ((Auth::user()->gender == 1) ? 'Male' : 'Female' ) : null}}
+                                    <i class="ni location_pin mr-2"></i>Giới tính: {{ (!empty(Auth::user()->gender)) ? ((Auth::user()->gender == 1) ? 'Nam' : 'Nữ' ) : null}}
                                 </div>
                                 <div class="h5 mt-4">
                                     <i class="ni business_briefcase-24 mr-2"></i>
-                                    Position:
+                                    Vị trí:
                                     @if(Auth::user()->role_id == 0)
-                                        Super Administrator
+                                        Admin tổng
                                     @elseif(Auth::user()->role_id == 1)
-                                        Sub Administrator
+                                        Admin thành viên
                                     @endif
                                 </div>
                                 <hr class="my-4">

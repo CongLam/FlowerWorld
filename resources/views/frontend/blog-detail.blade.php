@@ -31,12 +31,12 @@
 							<i class="fa fa-picture-o"></i>
 							<div class="blog_details_list">
 								<ul class="blog_author">
-									<li><i class="fa fa-folder-open-o"></i> <a href="">blog</a></li>
+									<li><i class="fa fa-folder-open-o"></i> <a href="">Bài viết</a></li>
 									<li><i class="fa fa-user"></i> {{$blog->blog_category_name}}</li>
-									<li><i class="fa fa-eye"></i> Hits: 256</li>
+									<li><i class="fa fa-eye"></i> {{--Hits: 256--}}</li>
 									<li>
 										<div class="star_blog">
-											Rating:
+											Đánh giá:
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -50,7 +50,7 @@
                                 <h2>{{$blog->title}}</h2>
                                 <div class="image" style="margin: auto"><img width="200px" src="{{ asset('storage/blog_thumbnail/'.$blog->thumbnail) }}" alt=""></div>
 
-                                <div class="date"><i>Posted at: {{$blog->created_at}}</i> </div>
+                                <div class="date"><i>Đăng vào lúc: {{$blog->created_at}}</i> </div>
                                 <div class="content">
                                     {!! $blog->content !!}
                                 </div>
@@ -65,10 +65,10 @@
                                     <div class="comments">
                                         <div class="block_comment">
                                             <ul id="Motorola">
-                                                <li> Comment by <span
+                                                <li> Bình luận bởi <span
                                                         class="Motorola_cl">{{\App\User::select('name')->where('id', $comment->customer_id)->first()->name}}</span>
                                                 </li>
-                                                <li><span>Quality</span>
+                                                <li><span>Chất lượng</span>
                                                     @if($comment->star_rate == 1)
                                                         <i class="fa fa-star"></i>
                                                     @elseif($comment->star_rate == 2)
@@ -91,7 +91,7 @@
                                                         <i class="fa fa-star"></i>
                                                     @endif
                                                 </li>
-                                                <li>(Posted on {{$comment->created_at}})</li>
+                                                <li>(Thời gian {{$comment->created_at}})</li>
                                             </ul>
                                             <div class="content">
                                                 <p> {{$comment->content_comment}}</p>
@@ -104,21 +104,21 @@
                                 <form action="{{route('comment_blog')}}" method="post">
                                     @csrf
                                     <div class="fieldsets">
-                                        <h3>You're reviewing: <span>Lorem ipsum dolor</span></h3>
-                                        <h4>How do you rate this blog?*</h4>
+                                        <h3>Bình luận của bạn: <span>{{--Lorem ipsum dolor--}}</span></h3>
+                                        <h4>Bạn nghĩ gì về bài viết?*</h4>
                                         <div class="start_tab_pricing_area">
                                             <fieldset>
                                                 <table class="star_pricing_tb">
                                                     <tr>
                                                         <th></th>
-                                                        <th>1 Star</th>
-                                                        <th>2 Stars</th>
-                                                        <th>3 Stars</th>
-                                                        <th>4 Stars</th>
-                                                        <th>5 Stars</th>
+                                                        <th>1 sao/th>
+                                                        <th>2 sao</th>
+                                                        <th>3 sao</th>
+                                                        <th>4 sao</th>
+                                                        <th>5 sao</th>
                                                     </tr>
                                                     <tr>
-                                                        <td>Quality</td>
+                                                        <td>Chất lượng</td>
                                                         <td><input required type="radio" name="ratings" value="1"
                                                                    class="radio"></td>
                                                         <td><input required type="radio" name="ratings" value="2"
@@ -141,7 +141,7 @@
                                                            class="input-text required-entry"
                                                            value="{{(!empty(Auth::user()->name)) ? Auth::user()->name : ''}} ">
                                                 </li>
-                                                <li>Comment<span>*</span></li>
+                                                <li>Bình luận<span>*</span></li>
                                                 <li><textarea required name="comment_content" cols="5" rows="3"
                                                               class="required-entry"></textarea></li>
                                                 <input type="hidden" name="blog_id" value="{{$blog->blog_id}}">
@@ -150,12 +150,12 @@
                                         {{--@if(!empty(Auth::user()->id))--}}
                                             <div class="review_button">
                                                 <button type="submit" title="Submit Review" class="button">Submit
-                                                    Review
+                                                    Bình luận
                                                 </button>
                                             </div>
                                        {{-- @else--}}
                                             <div class="review_button">
-                                                <p>Login to submit review!</p>
+                                                <p>Đăng nhập để bình luận!</p>
                                             </div>
                                        {{-- @endif--}}
                                     </div>
@@ -165,18 +165,18 @@
 					</div>
 					<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
 						<div class="blog_right_sidebar">
-                           <h2 class="sp_module_title"><span>Newsletter</span></h2>
+                           {{--<h2 class="sp_module_title"><span>Newsletter</span></h2>
                            <div class="sub_area">
                                <form action="#">
                                    <input type="text" placeholder="E-mail">
                                    <input type="submit" value="Subscribe">
                                </form>
-                           </div>
+                           </div>--}}
                            <div class="latest_posts">
-                               <h3 class="sp_module_title sp_module_title_rv"><span>Latest Posts</span></h3>
+                               <h3 class="sp_module_title sp_module_title_rv"><span>Bài viết mới</span></h3>
                                @foreach($latest as $lat)
                                    <div class="single_l_post">
-                                       <a href="#">{{$lat->title}}</a>
+                                       <a href="{{ asset('detail/'.$lat->blog_id) }}">{{$lat->title}}</a>
                                        <p>{{($lat->created_blog)}}</p>
                                    </div>
                                @endforeach
