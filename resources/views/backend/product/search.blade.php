@@ -47,7 +47,7 @@
                                     <tr>
                                         <td></td>
                                         <td> {{$product->product_name}}</td>
-                                        <td>{{$product->price}}$</td>
+                                        <td>{{$product->price}}VNĐ</td>
                                         <td>
                                             <img width="200px"
                                                  src="{{asset('storage/app/thumbnail/'.$product->thumbnail)}}"
