@@ -42,7 +42,13 @@ class CartController extends Controller
 
     public function getShowCart(){
         $data['items'] =Cart::content();
-        $data['totalPrice'] = Cart::total();
+        $totalPrice = 0;
+
+        foreach (Cart::content() as $item){
+            $totalPrice += $item->qty * $item->price;
+        }
+
+        $data['totalPrice'] = $totalPrice ;
         return view('frontend/cart', $data);
     }
 

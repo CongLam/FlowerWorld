@@ -103,7 +103,7 @@
 							<table class="total_rate">
 								<tr>
 									<th>Tổng hóa đơn</th>
-									<th>{{$totalPrice}}VNĐ</th>
+									<th>{{ number_format($totalPrice, 0, '.', ',') }}VNĐ</th>
 								</tr>
 							</table>
 						</div>

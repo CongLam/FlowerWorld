@@ -77,7 +77,7 @@
 													<table id="product_details_rate">
 														<tr>
 															<td>Tổng</td>
-															<td>{{$totalPrice}}VNĐ</td>
+															<td>{{ number_format($totalPrice, 0, '.', ',') }}VNĐ</td>
 														</tr>
 														<tr>
 															<td>Phí ship (Flat Rate - Fixed)</td>
@@ -85,7 +85,7 @@
 														</tr>
 														<tr>
 															<th>Tổng tiền</th>
-															<th>{{$totalPrice}}VNĐ</th>
+															<th>{{ number_format($totalPrice, 0, '.', ',') }}VNĐ</th>
 														</tr>
 													</table>
 												</div>

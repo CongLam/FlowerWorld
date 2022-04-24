@@ -18,7 +18,14 @@ class CheckoutController extends Controller
 {
     public function getCheckout(){
         $data['items'] =Cart::content();
-        $data['totalPrice'] = Cart::total();
+
+        $totalPrice = 0;
+
+        foreach (Cart::content() as $item){
+            $totalPrice += $item->qty * $item->price;
+        }
+
+        $data['totalPrice'] = $totalPrice ;
         return view('frontend/checkout', $data);
     }
 
@@ -29,8 +36,13 @@ class CheckoutController extends Controller
 
         $data['cart'] = Cart::content();
 
-        $data['totalPrice'] = Cart::total();
+        $totalPrice = 0;
 
+        foreach (Cart::content() as $item){
+            $totalPrice += $item->qty * $item->price;
+        }
+
+        $data['totalPrice'] = $totalPrice ;
 
         DB::beginTransaction();
         try {
@@ -88,9 +100,9 @@ class CheckoutController extends Controller
 
                 $message->to($email, $email); //khach hang
 
-                $message->cc('conglt2807@gmail.com', 'Flowers World'); //chu cua hang
+                $message->cc('conglt2807@gmail.com', 'MinhAnhShop'); //chu cua hang
 
-                $message->subject('Bill FlowersWorld Confirmation');
+                $message->subject('Bill MinhAnhShop Confirmation');
             });
 
             Cart::destroy();
